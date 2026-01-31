@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/sagemaker-nvme/nlu_code/mlruns/0/2bc3edd6b795407d97319cb15105134c/artifacts
+end_time: 1769870850379
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2bc3edd6b795407d97319cb15105134c
+run_name: capable-auk-759
+run_uuid: 2bc3edd6b795407d97319cb15105134c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1769870849344
+status: 3
+tags: []
+user_id: sagemaker-user
