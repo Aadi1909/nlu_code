@@ -29,7 +29,7 @@ warnings.filterwarnings("ignore")
 class ModelConfig:
     model_name: str = "google/muril-base-cased"
     max_length: int = 128
-    num_labels: int = 23
+    num_labels: int = 10  # 10 intents in training_data.json
 
 
 @dataclass  
