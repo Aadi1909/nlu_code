@@ -20,6 +20,8 @@ from sklearn.metrics import accuracy_score, precision_recall_fscore_support, cla
 import warnings
 warnings.filterwarnings("ignore")
 
+from training.path_utils import resolve_data_dir
+
 
 @dataclass
 class ModelConfig:
@@ -331,9 +333,9 @@ def main():
             batch_size=16 if torch.cuda.is_available() else 8,
             learning_rate=3e-5,  # Slightly higher
             early_stopping_patience=5,  # More patience
-                use_augmented=False  # Use augmented data only if files exist
+            use_augmented=False  # Use augmented data only if files exist
         ),
-        data_dir="../data/processed"
+        data_dir=resolve_data_dir("../data/processed")
     )
     
     # Train
