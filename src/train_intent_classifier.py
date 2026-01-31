@@ -93,6 +93,14 @@ class IntentClassifierTrainer:
         train_dataset = load_dataset('json', data_files=str(self.data_dir / f"train{file_suffix}.json"), split='train')
         val_dataset = load_dataset('json', data_files=str(self.data_dir / f"val{file_suffix}.json"), split='train')
         test_dataset = load_dataset('json', data_files=str(self.data_dir / f"test{file_suffix}.json"), split='train')
+
+        # 🔒 Recompute labels from intent to avoid mismatched label ids in augmented data
+        def _add_label(batch):
+            return {"label": self.label_mapping["label2id"][batch["intent"]]}
+
+        train_dataset = train_dataset.map(_add_label)
+        val_dataset = val_dataset.map(_add_label)
+        test_dataset = test_dataset.map(_add_label)
         
         logger.info(f"Loaded - Train: {len(train_dataset)}, Val: {len(val_dataset)}, Test: {len(test_dataset)}")
         
