@@ -88,6 +88,17 @@ class IntentClassifierTrainer:
         
         # Check if augmented data should be used
         file_suffix = "_augmented" if self.training_config.use_augmented else ""
+        if self.training_config.use_augmented:
+            train_path = self.data_dir / f"train{file_suffix}.json"
+            val_path = self.data_dir / f"val{file_suffix}.json"
+            test_path = self.data_dir / f"test{file_suffix}.json"
+            if not (train_path.exists() and val_path.exists() and test_path.exists()):
+                logger.warning(
+                    "Augmented data requested but files are missing. "
+                    "Falling back to non-augmented train/val/test.json files."
+                )
+                self.training_config.use_augmented = False
+                file_suffix = ""
         
         # Load from JSON files
         train_dataset = load_dataset('json', data_files=str(self.data_dir / f"train{file_suffix}.json"), split='train')
@@ -320,7 +331,7 @@ def main():
             batch_size=16 if torch.cuda.is_available() else 8,
             learning_rate=3e-5,  # Slightly higher
             early_stopping_patience=5,  # More patience
-            use_augmented=True  # Use augmented data
+                use_augmented=False  # Use augmented data only if files exist
         ),
         data_dir="../data/processed"
     )

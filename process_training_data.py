@@ -128,6 +128,38 @@ def stratified_split(data: list, test_size: float = 0.15, val_size: float = 0.15
     return train, val, test
 
 
+def upsample_train_set(train_data: list, min_samples_per_intent: int = 50, random_state: int = 42) -> list:
+    """
+    Upsample low-frequency intents in the training set to improve class balance.
+    This duplicates existing samples (with a small metadata tag) to reach a minimum count.
+    """
+    rng = random.Random(random_state)
+    intent_groups = {}
+    for item in train_data:
+        intent_groups.setdefault(item["intent"], []).append(item)
+
+    balanced_train = list(train_data)
+
+    for intent, items in intent_groups.items():
+        current_count = len(items)
+        if current_count >= min_samples_per_intent:
+            continue
+
+        needed = min_samples_per_intent - current_count
+        for _ in range(needed):
+            source_item = rng.choice(items)
+            cloned = dict(source_item)
+            cloned["metadata"] = dict(source_item.get("metadata", {}))
+            cloned["metadata"].update({
+                "augmented": True,
+                "augmentation": "upsample"
+            })
+            balanced_train.append(cloned)
+
+    rng.shuffle(balanced_train)
+    return balanced_train
+
+
 def validate_data(data: list) -> tuple:
     """Validate the data and return any issues found."""
     issues = []
@@ -212,6 +244,8 @@ def main():
     # Split data
     print("\nSplitting data into train/val/test...")
     train_data, val_data, test_data = stratified_split(valid_data)
+    # Upsample low-frequency intents in training set only
+    train_data = upsample_train_set(train_data, min_samples_per_intent=50)
     print(f"Train: {len(train_data)}, Val: {len(val_data)}, Test: {len(test_data)}")
     
     # Verify all intents are represented
