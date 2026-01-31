@@ -284,12 +284,22 @@ class DataSplitter:
         stratifiable_intents = [item['intent'] for item in stratifiable_data]
         
         # First split: train + (val + test)
-        train_data, temp_data = train_test_split(
-            stratifiable_data,
-            train_size=train_size,
-            stratify=stratifiable_intents,
-            random_state=random_state
-        )
+        try:
+            train_data, temp_data = train_test_split(
+                stratifiable_data,
+                train_size=train_size,
+                stratify=stratifiable_intents,
+                random_state=random_state
+            )
+        except ValueError as e:
+            # If stratified split fails (e.g., extremely small classes), fall back to non-stratified
+            logger.warning(f"⚠️  Stratified train split failed ({e}). Falling back to non-stratified split.")
+            train_data, temp_data = train_test_split(
+                stratifiable_data,
+                train_size=train_size,
+                stratify=None,
+                random_state=random_state
+            )
         
         # Add non-stratifiable data to training set
         train_data.extend(non_stratifiable_data)
@@ -303,12 +313,21 @@ class DataSplitter:
         can_stratify_temp = all(c >= 2 for c in temp_counts.values()) and len(set(temp_intents)) > 1
         
         if can_stratify_temp:
-            val_data, test_data = train_test_split(
-                temp_data,
-                train_size=val_ratio,
-                stratify=temp_intents,
-                random_state=random_state
-            )
+            try:
+                val_data, test_data = train_test_split(
+                    temp_data,
+                    train_size=val_ratio,
+                    stratify=temp_intents,
+                    random_state=random_state
+                )
+            except ValueError as e:
+                logger.warning(f"⚠️  Stratified val/test split failed ({e}). Falling back to non-stratified split.")
+                val_data, test_data = train_test_split(
+                    temp_data,
+                    train_size=val_ratio,
+                    stratify=None,
+                    random_state=random_state
+                )
         else:
             logger.warning("⚠️  Not stratifying val/test split because some classes have <2 samples in temp set")
             val_data, test_data = train_test_split(

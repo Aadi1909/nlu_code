@@ -61,6 +61,9 @@ models/**/optimizer.pt
 models/**/scheduler.pt
 models/**/rng_state.pth
 
+# Processed data outputs
+data/processed/
+
 # Keep only small config files (commit these)
 !models/**/config.json
 !models/**/tokenizer_config.json
