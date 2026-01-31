@@ -75,55 +75,65 @@ class Tier1Classifier:
         # TIER 1 - Bot can handle
         'battery_swap_status': {
             'category': IntentCategory.TIER_1,
-            'description': 'Swap station address/info',
-            'action': 'Call /api/swap-stations endpoint'
+            'description': 'Swap station address/location/info',
+            'action': 'Call /api/swap-stations endpoint',
+            'sample': 'swap station kaha hai'
         },
         'booking_status': {
             'category': IntentCategory.TIER_1,
-            'description': 'Check booking status',
-            'action': 'Call /api/booking/status endpoint'
+            'description': 'Check booking status/confirmation',
+            'action': 'Call /api/booking/status endpoint',
+            'sample': 'meri booking ka status'
         },
         'driver_onboarding_status': {
             'category': IntentCategory.TIER_1,
             'description': 'Check registration approval status',
-            'action': 'Call /api/driver/status endpoint'
+            'action': 'Call /api/driver/status endpoint',
+            'sample': 'mera registration status'
         },
         'penalty_reason': {
             'category': IntentCategory.TIER_1,
             'description': 'Explain fines/penalties',
-            'action': 'Call /api/penalty/details endpoint'
+            'action': 'Call /api/penalty/details endpoint',
+            'sample': 'fine kyu laga'
         },
         'swap_history': {
             'category': IntentCategory.TIER_1,
             'description': 'View past battery swaps',
-            'action': 'Call /api/swap/history endpoint'
+            'action': 'Call /api/swap/history endpoint',
+            'sample': 'swap history dikhao'
         },
         'swap_process': {
             'category': IntentCategory.TIER_1,
             'description': 'How to swap battery (instructions)',
-            'action': 'Return swap process guide'
+            'action': 'Return swap process guide',
+            'sample': 'battery kaise swap kare'
         },
         'wallet_balance': {
             'category': IntentCategory.TIER_1,
             'description': 'Check wallet balance',
-            'action': 'Call /api/wallet/balance endpoint'
+            'action': 'Call /api/wallet/balance endpoint',
+            'sample': 'wallet balance check karo'
         },
         
         # AGENT HANDOFF - Need human agent
         'booking_cancel': {
             'category': IntentCategory.AGENT,
             'description': 'Cancel a booking',
-            'action': 'Transfer to agent for verification'
+            'action': 'Transfer to agent for verification',
+            'sample': 'booking cancel kardo'
         },
         'driver_deboarding': {
             'category': IntentCategory.AGENT,
             'description': 'Close/deactivate driver account',
-            'action': 'Transfer to agent (sensitive operation)'
+            'action': 'Transfer to agent (sensitive operation)',
+            'sample': 'account close karna hai'
         },
         'driver_onboarding': {
             'category': IntentCategory.AGENT,
             'description': 'New driver registration',
-            'action': 'Transfer to agent for registration'
+            'action': 'Transfer to agent for registration',
+            'sample': 'driver kaise bane'
         },
     }
     
@@ -141,10 +151,11 @@ class Tier1Classifier:
         (r'kitna\s*(paisa|balance|amount)', 'wallet_balance'),
         
         # Swap Station/Address
-        (r'swap\s*station\s*(address|kaha|where|location|nearest)', 'battery_swap_status'),
-        (r'(nearest|najdiki|pass|paas)\s*(swap|station)', 'battery_swap_status'),
-        (r'station\s*(kaha|kidhar|where|address)', 'battery_swap_status'),
-        (r'(swap|station)\s*ka?\s*address', 'battery_swap_status'),
+        (r'swap\s*station\s*(address|kaha|where|location|nearest|info|details)', 'battery_swap_status'),
+        (r'(nearest|najdiki|pass|paas)\s*(swap|station|hub)', 'battery_swap_status'),
+        (r'(station|kendra|hub)\s*(kaha|kidhar|where|address|location)', 'battery_swap_status'),
+        (r'(swap|station|hub)\s*ka?\s*(address|location)', 'battery_swap_status'),
+        (r'(battery\s*)?(swap|exchange)\s*(kaha|where|location)', 'battery_swap_status'),
         
         # Swap History
         (r'swap\s*(history|logs?|record|list)', 'swap_history'),
@@ -345,13 +356,13 @@ class Tier1Classifier:
                 top_predictions=top_preds
             )
         
-        # Step 3: No model, no rule match - handoff to agent
+        # Step 3: No model, no rule match - handoff to agent with helpful message
         return IntentResult(
             intent='unknown',
             confidence=0.0,
             category=IntentCategory.AGENT,
             method='fallback',
-            action='Transfer to agent (no match)',
+            action='Query not recognized - Transfer to agent. This system handles: wallet balance, swap station info, booking status, swap history, swap process, penalties, registration status, booking cancel, driver onboarding/deboarding.',
             entities=entities,
             top_predictions=[]
         )
