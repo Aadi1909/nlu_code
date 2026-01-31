@@ -18,8 +18,22 @@ def analyze_current_data():
     """Analyze training data distribution"""
     data_path = Path("../data/processed/train_augmented.json")
     
-    with open(data_path, 'r') as f:
-        data = json.load(f)
+    # Try loading as regular JSON, if fails try line-by-line (JSONL)
+    try:
+        with open(data_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except json.JSONDecodeError:
+        # Try loading as JSONL (one JSON object per line)
+        print("⚠️  File appears to be JSONL format, loading line by line...")
+        data = []
+        with open(data_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    try:
+                        data.append(json.loads(line))
+                    except json.JSONDecodeError:
+                        continue
     
     intents = [item['intent'] for item in data]
     intent_counts = Counter(intents)
