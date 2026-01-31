@@ -84,26 +84,29 @@ class DataValidator:
                 elif entity['entity'] not in self.valid_entities:
                     errors.append(f"Invalid entity type: {entity['entity']}")
                 
-                if 'value' not in entity or not entity['value']:
-                    errors.append("Entity missing 'value'")
+                # Check if entity value is present (can be None for context-filled entities)
+                if 'value' not in entity:
+                    errors.append("Entity missing 'value' field")
                 
                 if 'start' not in entity or 'end' not in entity:
                     errors.append("Entity missing position (start/end)")
                 
-                # Validate entity spans
+                # Validate entity spans (only if positions are not None)
                 if all(k in entity for k in ['start', 'end', 'value']):
-                    if entity['start'] >= entity['end']:
-                        errors.append("Invalid entity span (start >= end)")
-                    
-                    if 'text' in example:
-                        try:
-                            extracted = example['text'][entity['start']:entity['end']]
-                            if extracted != entity['value']:
-                                # Allow minor differences (case, whitespace)
-                                if extracted.lower().strip() != entity['value'].lower().strip():
-                                    errors.append(f"Entity span mismatch: '{extracted}' != '{entity['value']}'")
-                        except:
-                            errors.append("Entity span out of text bounds")
+                    # Allow None values for start/end (context-filled entities)
+                    if entity['start'] is not None and entity['end'] is not None:
+                        if entity['start'] >= entity['end']:
+                            errors.append("Invalid entity span (start >= end)")
+                        
+                        if 'text' in example and entity['value'] is not None:
+                            try:
+                                extracted = example['text'][entity['start']:entity['end']]
+                                if extracted != entity['value']:
+                                    # Allow minor differences (case, whitespace)
+                                    if extracted.lower().strip() != entity['value'].lower().strip():
+                                        errors.append(f"Entity span mismatch: '{extracted}' != '{entity['value']}'")
+                            except:
+                                errors.append("Entity span out of text bounds")
         
         return errors
 
