@@ -1,0 +1,43 @@
+valid_intents:
+  - battery_swap_status
+  - battery_health
+  - nearest_swap_station
+  - booking_status
+  - payment_status
+  - account_balance
+  - vehicle_status
+  - complaint
+  - out_of_scope
+
+valid_entities:
+  - driver_id
+  - vehicle_id
+  - booking_id
+  - location
+  - battery_level
+  - transaction_id
+  - date
+  - time
+  - amount
+
+tier_1_intents:
+  battery_swap_status:
+    required_slots: [driver_id]
+    optional_slots: [location]
+    confidence_threshold: 0.75
+  battery_health:
+    required_slots: [driver_id, vehicle_id]
+    confidence_threshold: 0.80
+  nearest_swap_station:
+    required_slots: [location]
+    confidence_threshold: 0.75
+  booking_status:
+    required_slots: [driver_id, booking_id]
+    confidence_threshold: 0.80
+  payment_status:
+    required_slots: [driver_id]
+    optional_slots: [transaction_id]
+    confidence_threshold: 0.80
+  account_balance:
+    required_slots: [driver_id]
+    confidence_threshold: 0.75
