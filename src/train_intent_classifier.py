@@ -26,7 +26,7 @@ class ModelConfig:
     """Model configuration"""
     model_name: str = "google/muril-base-cased"  # Best for Indian languages
     max_length: int = 128
-    num_labels: int = 20  # Will be updated from data
+    num_labels: int = 29  # Updated to match current data (29 intents)
     output_dir: str = "models/intent_classifier"
     
 
