@@ -28,7 +28,7 @@ class ConfigLoader:
         return self.load("entities.yaml")
     
     def get_slots(self) -> Dict:
-        return self.load("slots.yaml")
+        return self.load("slots.yml")
     
     def get_responses(self) -> Dict:
         return self.load("responses.yaml")

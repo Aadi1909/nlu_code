@@ -21,6 +21,40 @@ languages:
 intents:
   # Import from intents.yaml
   config_file: "intents.yaml"
+
+  # Explicit list of active intents used for training/inference
+  active_intents:
+    - check_battery_status
+    - check_battery_range
+    - find_swap_station
+    - swap_station_availability
+    - check_station_availability
+    - station_directions
+    - check_subscription
+    - upgrade_subscription
+    - subscription_renewal
+    - subscription_validity
+    - subscription_pricing
+    - payment_inquiry
+    - payment_history
+    - invoice_explanation
+    - make_payment
+    - swap_count
+    - check_ride_stats
+    - swap_history
+    - swap_price_inquiry
+    - swap_process
+    - ic_location
+    - dsk_location
+    - partner_station_location
+    - partner_station_swap_process
+    - driver_leave_info
+    - talk_to_agent
+    - report_issue
+    - help_general
+    - greet
+    - thank
+    - bye
   
   # Tier classification
   tier_1:
@@ -28,21 +62,37 @@ intents:
     - check_battery_range
     - find_swap_station
     - check_station_availability
+    - station_directions
+  - swap_station_availability
     - check_subscription
+    - upgrade_subscription
+  - upgrade_subscription
+  - subscription_renewal
+  - subscription_validity
+  - subscription_pricing
+    - subscription_renewal
     - payment_inquiry
     - payment_history
-    - swap_history
+    - make_payment
+  - invoice_explanation
+  - swap_history
+  - swap_price_inquiry
+  - swap_process
+  - ic_location
+  - dsk_location
+  - partner_station_location
+  - partner_station_swap_process
+  - driver_leave_info
+  - check_ride_stats
+    - check_ride_stats
     - greet
     - thank
     - bye
-    - affirm
-    - deny
     - help_general
   
   tier_2_transfer:
     - talk_to_agent
     - report_issue
-    - unknown
 
 # =============================================================================
 # ENTITY CONFIGURATION
@@ -56,7 +106,7 @@ entities:
 # =============================================================================
 
 slots:
-  config_file: "slots.yaml"
+  config_file: "slots.yml"
 
 # =============================================================================
 # RESPONSE CONFIGURATION

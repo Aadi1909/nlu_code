@@ -1,40 +1,15 @@
-# Core ML
-torch>=2.0.0
-transformers>=4.30.0
-sentencepiece>=0.1.99
-datasets>=2.14.0
-accelerate>=0.26.0
-seqeval>=1.2.2
-
-# Indian Languages
-indic-transliteration
-
-# NLP
-spacy>=3.5.0
-
-# Data Processing
-numpy>=1.24.0
-pandas>=2.0.0
-scikit-learn>=1.3.0
-
-# Config & Utils
-pyyaml>=6.0
-python-dotenv>=1.0.0
-loguru>=0.7.0
-
-# Date parsing
-dateparser
-
-# API
+torch
+transformers
+datasets
+scikit-learn
+pandas
+numpy
+pyyaml
+loguru
 fastapi
 uvicorn
-pydantic
-
-# Testing
-pytest
-
-# Logging
-loguru
-
-# Progress bars
-tqdm
+httpx
+matplotlib
+seaborn
+dateparser
+spacy

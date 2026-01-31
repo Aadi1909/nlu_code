@@ -29,11 +29,18 @@ class IntentClassifier:
         self.model.to(self.device)
         self.model.eval()
         
-        # Load intent mappings
-        with open(f'{model_path}/intent_mapping.json', 'r') as f:
-            mappings = json.load(f)
-            self.intent_to_id = mappings['intent_to_id']
-            self.id_to_intent = {int(k): v for k, v in mappings['id_to_intent'].items()}
+        # Load intent mappings (prefer label_mapping.json)
+        mapping_path = Path(model_path) / "label_mapping.json"
+        if mapping_path.exists():
+            with open(mapping_path, 'r') as f:
+                mappings = json.load(f)
+                self.intent_to_id = mappings['label2id']
+                self.id_to_intent = {int(k): v for k, v in mappings['id2label'].items()}
+        else:
+            with open(Path(model_path) / "intent_mapping.json", 'r') as f:
+                mappings = json.load(f)
+                self.intent_to_id = mappings['intent_to_id']
+                self.id_to_intent = {int(k): v for k, v in mappings['id_to_intent'].items()}
         
         logger.info(f"✅ Intent classifier loaded with {len(self.id_to_intent)} intents")
     
@@ -196,11 +203,16 @@ class SlotFiller:
     """Slot filling and validation component"""
     
     def __init__(self, config_path: str = 'config/intents.yaml'):
-        # Load slot requirements
+        # Load slot requirements from intents.yaml
         import yaml
         with open(config_path, 'r') as f:
             config = yaml.safe_load(f)
-            self.intent_config = config.get('tier_1_intents', {})
+
+        self.intent_config = {
+            intent.get("intent"): intent
+            for intent in config.get("intents", [])
+            if intent.get("intent")
+        }
     
     def fill_slots(self, 
                    intent: str, 
@@ -305,10 +317,24 @@ class NLUPipeline:
         self.entity_extractor = EntityExtractor(entity_model_path)
         self.slot_filler = SlotFiller(config_path)
         
-        # Load config
+        # Load configs
         import yaml
         with open(config_path, 'r') as f:
-            self.config = yaml.safe_load(f)
+            self.intents_config = yaml.safe_load(f)
+
+        self.intent_lookup = {
+            intent.get("intent"): intent
+            for intent in self.intents_config.get("intents", [])
+            if intent.get("intent")
+        }
+
+        config_dir = Path(config_path).parent
+        domain_path = config_dir / "domain.yaml"
+        if domain_path.exists():
+            with open(domain_path, 'r') as f:
+                self.domain_config = yaml.safe_load(f)
+        else:
+            self.domain_config = {}
         
         logger.info("✅ NLU Pipeline initialized successfully")
     
@@ -370,15 +396,28 @@ class NLUPipeline:
         intent = intent_result['intent']
         confidence = intent_result['confidence']
         
-        # Check if tier-1 intent
-        tier_1_intents = self.config.get('tier_1_intents', {})
-        
-        if intent not in tier_1_intents:
+        intents_config = self.domain_config.get("intents", {})
+        active_intents = set(intents_config.get("active_intents", []))
+        tier_1 = set(intents_config.get("tier_1", [])) or active_intents
+        tier_2 = set(intents_config.get("tier_2_transfer", []))
+
+        thresholds = self.domain_config.get("nlu_model", {}).get("confidence_thresholds", {})
+        medium_threshold = thresholds.get("medium", 0.6)
+        low_threshold = thresholds.get("low", 0.4)
+
+        if intent in tier_2:
             return 'transfer_to_agent'
-        
-        # Check confidence threshold
-        threshold = tier_1_intents[intent].get('confidence_threshold', 0.75)
-        if confidence < threshold:
+
+        if tier_1 and intent not in tier_1:
+            return 'transfer_to_agent'
+
+        if active_intents and intent not in active_intents:
+            return 'transfer_to_agent'
+
+        if confidence < low_threshold:
+            return 'transfer_to_agent'
+
+        if confidence < medium_threshold:
             return 'clarify_intent'
         
         # Check slot completion
@@ -390,27 +429,25 @@ class NLUPipeline:
     
     def _get_backend_service(self, intent: str) -> Optional[str]:
         """Get backend service name for intent"""
-        
-        service_mapping = {
-            'battery_swap_status': 'swap_status_api',
-            'battery_health': 'battery_health_api',
-            'nearest_swap_station': 'swap_station_locator_api',
-            'booking_status': 'booking_api',
-            'payment_status': 'payment_api',
-            'account_balance': 'wallet_api'
-        }
-        
-        return service_mapping.get(intent)
+        intent_info = self.intent_lookup.get(intent, {})
+        api_config = intent_info.get("api_config", {})
+        endpoint = api_config.get("endpoint")
+        if endpoint:
+            return endpoint
+
+        return None
     
     def _requires_agent(self, intent: str, confidence: float) -> bool:
         """Check if conversation should be transferred to agent"""
-        
-        tier_2_intents = ['complaint', 'out_of_scope', 'technical_issue']
-        
-        if intent in tier_2_intents:
+        intents_config = self.domain_config.get("intents", {})
+        tier_2 = set(intents_config.get("tier_2_transfer", []))
+        thresholds = self.domain_config.get("nlu_model", {}).get("confidence_thresholds", {})
+        low_threshold = thresholds.get("low", 0.4)
+
+        if intent in tier_2:
             return True
         
-        if confidence < 0.5:
+        if confidence < low_threshold:
             return True
         
         return False

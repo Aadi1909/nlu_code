@@ -78,6 +78,37 @@ entities:
       - "STN1234"
       - "SWAP-DEL-001"
       - "SWAP-MUM-042"
+
+  - entity: invoice_id
+    description: "Invoice or bill identifier"
+    type: "regex"
+
+    patterns:
+      - pattern: "INV[0-9]{6,10}"
+        description: "Invoice ID format"
+      - pattern: "BILL[0-9]{6,10}"
+        description: "Bill ID format"
+      - pattern: "INVOICE-[0-9]{4,10}"
+        description: "Hyphenated invoice ID"
+
+    examples:
+      - "INV123456"
+      - "BILL987654"
+      - "INVOICE-20240123"
+
+  - entity: transaction_id
+    description: "Payment transaction identifier"
+    type: "regex"
+
+    patterns:
+      - pattern: "TXN[0-9]{8,12}"
+        description: "Transaction ID format"
+      - pattern: "PAY[0-9]{8,12}"
+        description: "Payment ID format"
+
+    examples:
+      - "TXN2024012345"
+      - "PAY12345678"
   
   - entity: location
     description: "General location reference"

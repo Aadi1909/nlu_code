@@ -2,7 +2,7 @@ import yaml
 import json
 import pandas as pd
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Optional, Set
 from sklearn.model_selection import train_test_split
 from loguru import logger
 import random
@@ -22,6 +22,26 @@ class DataPreparator:
         filepath = self.config_dir / filename
         with open(filepath, 'r', encoding='utf-8') as f:
             return yaml.safe_load(f)
+
+    def _get_active_intents(self) -> Optional[Set[str]]:
+        """Resolve active intents from domain.yaml if present."""
+        domain_path = self.config_dir / "domain.yaml"
+        if not domain_path.exists():
+            return None
+
+        domain_config = self.load_yaml("domain.yaml")
+        intents_config = domain_config.get("intents", {})
+
+        active = intents_config.get("active_intents")
+        if active:
+            return set(active)
+
+        tier_1 = intents_config.get("tier_1", [])
+        tier_2 = intents_config.get("tier_2_transfer", [])
+        if tier_1 or tier_2:
+            return set(tier_1) | set(tier_2)
+
+        return None
     
     def prepare_intent_data(self) -> Tuple[pd.DataFrame, Dict]:
         """
@@ -30,11 +50,26 @@ class DataPreparator:
         """
         logger.info("Loading intents from YAML...")
         intents_config = self.load_yaml("intents.yaml")
+
+        active_intents = self._get_active_intents()
+        raw_intents = intents_config.get("intents", [])
+        if active_intents:
+            filtered_intents = [
+                intent for intent in raw_intents
+                if intent.get("intent") in active_intents
+            ]
+            missing = active_intents - {intent.get("intent") for intent in raw_intents}
+            if missing:
+                logger.warning(
+                    f"Active intents missing from intents.yaml: {sorted(missing)}"
+                )
+        else:
+            filtered_intents = raw_intents
         
         data = []
         intent_list = []
         
-        for intent_config in intents_config.get("intents", []):
+        for intent_config in filtered_intents:
             intent_name = intent_config.get("intent")
             intent_list.append(intent_name)
             examples = intent_config.get("examples", {})

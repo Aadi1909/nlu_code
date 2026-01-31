@@ -123,6 +123,38 @@ intents:
     - swap point kahan hai
     - station kitni door hai
     - yahan se nearest station
+- intent: swap_station_availability
+  description: Check real-time battery availability at nearby swap stations (without station ID)
+  category: station
+  tier: 1
+  priority: high
+  required_slots: []
+  optional_slots:
+  - location
+  - city
+  - landmark
+  api_config:
+    endpoint: /api/v1/stations/availability/nearby
+    method: GET
+    params_mapping:
+      location: location
+      city: city
+  examples:
+    hindi:
+    - पास के स्टेशन पर बैटरी उपलब्ध है क्या
+    - नजदीकी स्वैप स्टेशन पर बैटरी है
+    - बैटरी उपलब्धता बताओ
+    - आसपास बैटरी मिल जाएगी क्या
+    english:
+    - is battery available nearby
+    - real time availability of swap station
+    - do nearby stations have batteries
+    - battery availability near me
+    hinglish:
+    - paas ke station par battery available hai kya
+    - nearby station mein battery hai
+    - real time availability batao
+    - aas paas battery mil jayegi kya
 - intent: check_station_availability
   description: Check if swap station has batteries available
   category: station
@@ -259,6 +291,58 @@ intents:
     - subscription renew karna hai
     - plan extend karna hai
     - subscription badhana hai
+- intent: subscription_validity
+  description: Check subscription validity/expiry date
+  category: subscription
+  tier: 1
+  priority: high
+  required_slots:
+  - driver_id
+  optional_slots: []
+  api_config:
+    endpoint: /api/v1/subscription/validity
+    method: GET
+    params_mapping:
+      driver_id: driverId
+  examples:
+    hindi:
+    - मेरा सब्सक्रिप्शन कब तक वैध है
+    - प्लान की वैलिडिटी बताओ
+    - सब्सक्रिप्शन खत्म कब होगा
+    english:
+    - what is my subscription validity
+    - when does my plan expire
+    - subscription expiry date
+    hinglish:
+    - subscription kab tak valid hai
+    - plan ki validity batao
+    - subscription kab expire hoga
+- intent: subscription_pricing
+  description: Pricing clarification for subscription plans
+  category: subscription
+  tier: 1
+  priority: medium
+  required_slots: []
+  optional_slots:
+  - plan_type
+  api_config:
+    endpoint: /api/v1/subscription/pricing
+    method: GET
+    params_mapping:
+      plan_type: planType
+  examples:
+    hindi:
+    - सब्सक्रिप्शन प्लान की कीमत क्या है
+    - प्लान का प्राइस बताओ
+    - बेसिक या प्रीमियम का रेट क्या है
+    english:
+    - subscription pricing
+    - plan price details
+    - what is the price of premium plan
+    hinglish:
+    - subscription ka price kya hai
+    - plan ke rates batao
+    - premium plan ka rate kya hai
 - intent: payment_inquiry
   description: Questions about payments, dues, or transactions
   category: payment
@@ -329,6 +413,40 @@ intents:
     - pichle payment ki details
     - maine kitna payment kiya
     - payment record batao
+- intent: invoice_explanation
+  description: Explain invoice or bill details for a payment
+  category: payment
+  tier: 1
+  priority: high
+  required_slots:
+  - driver_id
+  optional_slots:
+  - invoice_id
+  - transaction_id
+  - date_range
+  api_config:
+    endpoint: /api/v1/payments/invoice-details
+    method: GET
+    params_mapping:
+      driver_id: driverId
+      invoice_id: invoiceId
+      transaction_id: transactionId
+  examples:
+    hindi:
+    - मेरा इनवॉइस समझाओ
+    - बिल का ब्रेकअप बताओ
+    - यह चार्ज क्यों लगा
+    - इनवॉइस डिटेल्स चाहिए
+    english:
+    - explain my invoice
+    - invoice breakdown
+    - why was I charged this amount
+    - bill details
+    hinglish:
+    - invoice explain karo
+    - bill ka breakup batao
+    - ye charge kyu laga
+    - invoice details do
 - intent: make_payment
   description: Driver wants to make a payment
   category: payment
@@ -702,6 +820,38 @@ intents:
     - account kaam nahi kar raha
     - deactivation kyu hua
     - ride kyu nahi le sakta
+- intent: driver_leave_info
+  description: Provide leave policy, temporary deactivation, and reactivation guidance
+  category: driver_lifecycle
+  tier: 1
+  priority: high
+  required_slots:
+  - driver_id
+  optional_slots:
+  - leave_start_date
+  - leave_end_date
+  - leave_duration
+  api_config:
+    endpoint: /api/v1/driver/leave-info
+    method: GET
+    params_mapping:
+      driver_id: driverId
+  examples:
+    hindi:
+    - छुट्टी कैसे लेनी है
+    - मैं कुछ दिन की छुट्टी लेना चाहता हूं
+    - लीव पॉलिसी बताओ
+    - छुट्टी के दौरान पेनल्टी लगेगी क्या
+    english:
+    - how to take leave
+    - I want to take leave for a few days
+    - leave policy
+    - will there be penalty during leave
+    hinglish:
+    - leave kaise lena hai
+    - mujhe kuch din ki chhutti chahiye
+    - leave policy batao
+    - leave ke time penalty lagegi kya
 - intent: driver_deboarding
   description: "Driver deboarding process information - Complete steps to leave Battery Smart:\n        1. Submit deboarding request through app or call support\n        2. Clear all pending dues and payments\n        3. Return rented battery (if applicable) to nearest DSK\n        4. Complete final settlement including security deposit refund\n        5. Account deactivation within 7 business days\n        6. Receive final statement via email\n        \n        Note: Driver can rejoin anytime by completing onboarding process again"
   category: driver_lifecycle
@@ -1266,6 +1416,7 @@ categories:
   description: Swap station related queries
   intents:
   - find_swap_station
+  - swap_station_availability
   - check_station_availability
   - station_directions
 - name: subscription
@@ -1274,12 +1425,15 @@ categories:
   - check_subscription
   - upgrade_subscription
   - subscription_renewal
+  - subscription_validity
+  - subscription_pricing
   - user_active_plan_details
 - name: payment
   description: Payment related queries
   intents:
   - payment_inquiry
   - payment_history
+  - invoice_explanation
   - make_payment
 - name: pricing
   description: Pricing and cost queries
@@ -1306,6 +1460,10 @@ categories:
   intents:
   - driver_deboarding
   - driver_wants_to_deboard
+- name: leave
+  description: Driver leave and temporary deactivation
+  intents:
+  - driver_leave_info
 - name: dsk
   description: Driver Seva Kendra operations
   intents:
