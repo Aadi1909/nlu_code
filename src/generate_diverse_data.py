@@ -256,29 +256,39 @@ class AdvancedDataAugmenter:
         
         for intent, templates in self.INTENT_TEMPLATES.items():
             print(f"Generating for {intent}...")
+            intent_data = []
             
             # Add all templates
             for template in templates:
-                data.append({
+                intent_data.append({
                     'text': template,
                     'intent': intent,
                     'language': 'mixed'
                 })
             
-            # Augment templates
-            while len([d for d in data if d['intent'] == intent]) < target_samples:
+            # Augment templates (with safety limit)
+            max_attempts = target_samples * 3  # Prevent infinite loop
+            attempts = 0
+            
+            while len(intent_data) < target_samples and attempts < max_attempts:
+                attempts += 1
                 template = random.choice(templates)
                 augmented = self.augment_by_synonym_replacement(template, num_aug=1)
                 
                 for aug_text in augmented:
-                    if len([d for d in data if d['intent'] == intent]) >= target_samples:
+                    if len(intent_data) >= target_samples:
                         break
                     
-                    data.append({
-                        'text': aug_text,
-                        'intent': intent,
-                        'language': 'mixed'
-                    })
+                    # Check for duplicates
+                    if not any(d['text'].lower() == aug_text.lower() for d in intent_data):
+                        intent_data.append({
+                            'text': aug_text,
+                            'intent': intent,
+                            'language': 'mixed'
+                        })
+            
+            print(f"  ✅ Generated {len(intent_data)} samples for {intent}")
+            data.extend(intent_data)
         
         return data
     
