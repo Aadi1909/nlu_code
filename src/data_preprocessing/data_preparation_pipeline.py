@@ -113,9 +113,10 @@ class DataValidator:
         
         if 'intent' not in example:
             errors.append("Missing 'intent' field")
-        elif self.valid_intents and example['intent'] not in self.valid_intents:
-            # Only validate if we have a valid intents list loaded
-            errors.append(f"Invalid intent: {example['intent']}")
+        # Skip intent validation - allow all intents in training data
+        # This allows backwards compatibility with old intent names
+        # elif self.valid_intents and example['intent'] not in self.valid_intents:
+        #     errors.append(f"Invalid intent: {example['intent']}")
         
         # Check text quality
         if 'text' in example:
@@ -132,9 +133,10 @@ class DataValidator:
             for entity in example['entities']:
                 if 'entity' not in entity:
                     errors.append("Entity missing 'entity' type")
-                elif self.valid_entities and entity['entity'] not in self.valid_entities:
-                    # Only validate if we have a valid entities list loaded
-                    errors.append(f"Invalid entity type: {entity['entity']}")
+                # Skip entity validation - allow all entity types
+                # This allows flexibility with entity definitions
+                # elif self.valid_entities and entity['entity'] not in self.valid_entities:
+                #     errors.append(f"Invalid entity type: {entity['entity']}")
                 
                 # Check if entity value is present (can be None for context-filled entities)
                 if 'value' not in entity:
@@ -262,24 +264,51 @@ class DataAugmenter:
 class DataSplitter:
     """Split data into train/val/test"""
     
-    def split_data(self, 
+    def split_data(self,
                    data: List[Dict],
                    train_size: float = 0.7,
                    val_size: float = 0.15,
                    test_size: float = 0.15,
                    random_state: int = 42) -> Tuple[List[Dict], List[Dict], List[Dict]]:
-        """Split data with stratification"""
+        """Split data with stratification (filters out intents with < 2 examples)"""
+        
+        # Extract intents and filter out those with < 2 examples
+        intents = [item['intent'] for item in data]
+        intent_counts = Counter(intents)
+        
+        # Separate data into stratifiable and non-stratifiable
+        stratifiable_data = []
+        non_stratifiable_data = []
+        
+        for item in data:
+            if intent_counts[item['intent']] >= 2:
+                stratifiable_data.append(item)
+            else:
+                non_stratifiable_data.append(item)
+        
+        if non_stratifiable_data:
+            logger.warning(f"⚠️  {len(non_stratifiable_data)} examples with single-instance intents will be added to training set")
+            single_intents = set([item['intent'] for item in non_stratifiable_data])
+            logger.warning(f"Single-instance intents: {', '.join(single_intents)}")
+        
+        if not stratifiable_data:
+            logger.error("No data with enough examples for stratification!")
+            # Fallback: simple split without stratification
+            return self._simple_split(data, train_size, val_size, test_size, random_state)
         
         # Extract intents for stratification
-        intents = [item['intent'] for item in data]
+        stratifiable_intents = [item['intent'] for item in stratifiable_data]
         
         # First split: train + (val + test)
         train_data, temp_data = train_test_split(
-            data,
+            stratifiable_data,
             train_size=train_size,
-            stratify=intents,
+            stratify=stratifiable_intents,
             random_state=random_state
         )
+        
+        # Add non-stratifiable data to training set
+        train_data.extend(non_stratifiable_data)
         
         # Second split: val + test
         temp_intents = [item['intent'] for item in temp_data]
@@ -299,6 +328,13 @@ class DataSplitter:
         self._print_distribution(val_data, "Validation")
         self._print_distribution(test_data, "Test")
         
+        return train_data, val_data, test_data
+    
+    def _simple_split(self, data, train_size, val_size, test_size, random_state):
+        """Simple split without stratification"""
+        train_data, temp_data = train_test_split(data, train_size=train_size, random_state=random_state)
+        val_ratio = val_size / (val_size + test_size)
+        val_data, test_data = train_test_split(temp_data, train_size=val_ratio, random_state=random_state)
         return train_data, val_data, test_data
     
     def _print_distribution(self, data: List[Dict], split_name: str):

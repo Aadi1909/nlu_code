@@ -114,7 +114,7 @@ class IntentClassifierTrainer:
             warmup_steps=500,
             logging_dir=f'{self.output_dir}/logs',
             logging_steps=50,
-            evaluation_strategy="epoch",
+            eval_strategy="epoch",  # Changed from evaluation_strategy (deprecated in transformers v5)
             save_strategy="epoch",
             load_best_model_at_end=True,
             metric_for_best_model="f1",
