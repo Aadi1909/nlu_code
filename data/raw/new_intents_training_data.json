@@ -1,0 +1,1327 @@
+[
+  {
+    "text": "Battery Smart join karna hai",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "onboarding",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "I want to become a driver",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "onboarding",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "driver registration karna hai mobile number 9876543210",
+    "intent": "driver_onboarding",
+    "entities": [
+      {
+        "entity": "phone_number",
+        "value": "9876543210",
+        "start": 44,
+        "end": 54
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "onboarding",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "sign up karna hai as driver",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "onboarding",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "how to join Battery Smart",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "onboarding",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "मेरी ऑनबोर्डिंग कहां तक हुई",
+    "intent": "onboarding_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "onboarding_status_check",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "check my onboarding status driver ID DRV123456",
+    "intent": "onboarding_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": "DRV123456",
+        "start": 37,
+        "end": 46
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "onboarding_status_check",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "onboarding status kya hai",
+    "intent": "onboarding_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "onboarding_status_check",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "कितने दिन और लगेंगे onboarding में",
+    "intent": "onboarding_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "onboarding_status_check",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "which step am I on in onboarding",
+    "intent": "onboarding_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "onboarding_status_check",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "lead creation status check karo",
+    "intent": "lead_creation_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "lead_status",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "मेरा लीड बना या नहीं",
+    "intent": "lead_creation_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "lead_status",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "is my lead created",
+    "intent": "lead_creation_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "lead_status",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "verification kab hoga",
+    "intent": "verification_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "verification_check",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "basic info verification status",
+    "intent": "verification_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "verification_type",
+        "value": "basic_info",
+        "start": 0,
+        "end": 10
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "verification_check",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "location verification pending hai kya",
+    "intent": "verification_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "verification_type",
+        "value": "location",
+        "start": 0,
+        "end": 8
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "verification_check",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "vehicle verification complete hua kya",
+    "intent": "verification_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "verification_type",
+        "value": "vehicle",
+        "start": 0,
+        "end": 7
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "verification_check",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "address verification status batao",
+    "intent": "verification_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "verification_type",
+        "value": "address",
+        "start": 0,
+        "end": 7
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "verification_check",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "documents verify hue kya",
+    "intent": "verification_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "verification_type",
+        "value": "documents",
+        "start": 0,
+        "end": 9
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "verification_check",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "retrofitment kab hogi",
+    "intent": "retrofitment_schedule",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "vehicle_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "retrofitment_scheduling",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "schedule kit installation for DL01AB1234",
+    "intent": "retrofitment_schedule",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "vehicle_id",
+        "value": "DL01AB1234",
+        "start": 30,
+        "end": 40
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "retrofitment_scheduling",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "battery swap kit lagani hai gaadi mein",
+    "intent": "retrofitment_schedule",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "vehicle_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "retrofitment_scheduling",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "book retrofitment appointment for tomorrow 10 AM vehicle MH12CD5678",
+    "intent": "retrofitment_schedule",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "vehicle_id",
+        "value": "MH12CD5678",
+        "start": 57,
+        "end": 67
+      },
+      {
+        "entity": "preferred_date",
+        "value": "tomorrow",
+        "start": 35,
+        "end": 43
+      },
+      {
+        "entity": "preferred_time",
+        "value": "10 AM",
+        "start": 44,
+        "end": 49
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "retrofitment_scheduling",
+      "complexity": "complex"
+    }
+  },
+  {
+    "text": "retrofitment complete ho gayi kya",
+    "intent": "retrofitment_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "vehicle_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "retrofitment_status_check",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "kit installation status for KA01MA9999",
+    "intent": "retrofitment_status",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "vehicle_id",
+        "value": "KA01MA9999",
+        "start": 28,
+        "end": 38
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "retrofitment_status_check",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "swap ki price kya hai",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "pricing_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "what is the cost of battery swap",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "pricing_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "ek swap mein kitna paisa lagta hai",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "pricing_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "battery change ka charge batao",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "pricing_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "swap rate kya hai Delhi mein",
+    "intent": "swap_price_inquiry",
+    "entities": [
+      {
+        "entity": "city",
+        "value": "Delhi",
+        "start": 18,
+        "end": 23
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "pricing_query",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "kaun kaun se subscription plans hain",
+    "intent": "subscription_plans",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "plan_inquiry",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "show all subscription plans",
+    "intent": "subscription_plans",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "plan_inquiry",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "available plans batao Mumbai ke liye",
+    "intent": "subscription_plans",
+    "entities": [
+      {
+        "entity": "city",
+        "value": "Mumbai",
+        "start": 22,
+        "end": 28
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "plan_inquiry",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "plan ki jankari chahiye",
+    "intent": "subscription_plans",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "plan_inquiry",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "basic aur premium mein kya antar hai",
+    "intent": "plan_comparison",
+    "entities": [
+      {
+        "entity": "plan_type",
+        "value": "basic",
+        "start": 0,
+        "end": 5
+      },
+      {
+        "entity": "plan_type",
+        "value": "premium",
+        "start": 10,
+        "end": 17
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "plan_comparison",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "compare all subscription plans",
+    "intent": "plan_comparison",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "plan_comparison",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "konsa plan better hai mere liye",
+    "intent": "plan_comparison",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "plan_comparison",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "DSK par onboard karna hai",
+    "intent": "dsk_onboard",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "dsk_onboarding",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "register at Driver Seva Kendra before leave",
+    "intent": "dsk_onboard",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "dsk_onboarding",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "chutti leni hai DSK par jana hai driver DRV987654",
+    "intent": "dsk_onboard",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": "DRV987654",
+        "start": 40,
+        "end": 49
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "dsk_onboarding",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "penalty se bachne ke liye DSK registration from 15 January to 20 January",
+    "intent": "dsk_onboard",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "leave_start_date",
+        "value": "15 January",
+        "start": 48,
+        "end": 58
+      },
+      {
+        "entity": "leave_end_date",
+        "value": "20 January",
+        "start": 62,
+        "end": 72
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "dsk_onboarding",
+      "complexity": "complex"
+    }
+  },
+  {
+    "text": "DSK se deboard karna hai",
+    "intent": "dsk_deboard",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "dsk_deboarding",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "leave ke baad DSK par wapas aana hai",
+    "intent": "dsk_deboard",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "dsk_deboarding",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "deboard at DSK-DEL-042",
+    "intent": "dsk_deboard",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "dsk_location",
+        "value": "DSK-DEL-042",
+        "start": 11,
+        "end": 22
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "dsk_deboarding",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "chutti khatam hui DSK mein wapas register karna hai",
+    "intent": "dsk_deboard",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "dsk_deboarding",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "najdiki DSK kahan hai",
+    "intent": "dsk_location",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "dsk_location_search",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "find nearest Driver Seva Kendra",
+    "intent": "dsk_location",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "dsk_location_search",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "DSK ki location batao Bangalore mein",
+    "intent": "dsk_location",
+    "entities": [
+      {
+        "entity": "city",
+        "value": "Bangalore",
+        "start": 22,
+        "end": 31
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "dsk_location_search",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "Connaught Place ke paas DSK hai kya",
+    "intent": "dsk_location",
+    "entities": [
+      {
+        "entity": "location",
+        "value": "Connaught Place",
+        "start": 0,
+        "end": 15
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "dsk_location_search",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "driver deactivate karna hai",
+    "intent": "driver_deactivate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_deactivation",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "make me inactive before leave",
+    "intent": "driver_deactivate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_deactivation",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "leave pe ja raha hun 15 days ke liye deactivate karo at DSK",
+    "intent": "driver_deactivate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "leave_duration",
+        "value": "15 days",
+        "start": 20,
+        "end": 27
+      },
+      {
+        "entity": "deactivation_center",
+        "value": "dsk",
+        "start": 57,
+        "end": 60
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_deactivation",
+      "complexity": "complex"
+    }
+  },
+  {
+    "text": "temporarily stop driving account inactive karo",
+    "intent": "driver_deactivate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_deactivation",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "driver activate karna hai",
+    "intent": "driver_activate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_activation",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "reactivate my account at IC",
+    "intent": "driver_activate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "activation_center",
+        "value": "ic",
+        "start": 25,
+        "end": 27
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_activation",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "wapas active hona hai phir se gaadi chalani hai",
+    "intent": "driver_activate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_activation",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "chutti se wapas aaya hun activate karo at Driver Seva Kendra",
+    "intent": "driver_activate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "activation_center",
+        "value": "dsk",
+        "start": 42,
+        "end": 61
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_activation",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "Inactivity Center kahan hai",
+    "intent": "ic_location",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "ic_location_search",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "find nearest IC",
+    "intent": "ic_location",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "ic_location_search",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "IC ki location batao Pune mein",
+    "intent": "ic_location",
+    "entities": [
+      {
+        "entity": "city",
+        "value": "Pune",
+        "start": 21,
+        "end": 25
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "ic_location_search",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "paas ka Inactivity Center address",
+    "intent": "ic_location",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "ic_location_search",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "IC par battery submit karni hai",
+    "intent": "ic_battery_submit",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "battery_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "ic_battery_submission",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "submit battery BAT123456 at Inactivity Center IC001",
+    "intent": "ic_battery_submit",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "battery_id",
+        "value": "BAT123456",
+        "start": 15,
+        "end": 24
+      },
+      {
+        "entity": "ic_location",
+        "value": "IC001",
+        "start": 47,
+        "end": 52
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "ic_battery_submission",
+      "complexity": "complex"
+    }
+  },
+  {
+    "text": "battery jama karke inactive hona hai",
+    "intent": "ic_battery_submit",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "battery_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "ic_battery_submission",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "IC-DEL-042 par battery BS789012 chhodna hai",
+    "intent": "ic_battery_submit",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "battery_id",
+        "value": "BS789012",
+        "start": 23,
+        "end": 31
+      },
+      {
+        "entity": "ic_location",
+        "value": "IC-DEL-042",
+        "start": 0,
+        "end": 10
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "ic_battery_submission",
+      "complexity": "complex"
+    }
+  },
+  {
+    "text": "partner station kahan hai",
+    "intent": "partner_station_location",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "partner_station_search",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "nearest partner swap station",
+    "intent": "partner_station_location",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "partner_station_search",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "partner station location batao Hyderabad mein",
+    "intent": "partner_station_location",
+    "entities": [
+      {
+        "entity": "city",
+        "value": "Hyderabad",
+        "start": 31,
+        "end": 40
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "partner_station_search",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "kahan swap kar sakta hun",
+    "intent": "partner_station_location",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "partner_station_search",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "partner station par swap kaise kare",
+    "intent": "partner_station_swap_process",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_process_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "how does battery swap work at partner station",
+    "intent": "partner_station_swap_process",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_process_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "swap ka process batao partner ke saath",
+    "intent": "partner_station_swap_process",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_process_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "scanning kaise hota hai battery ka",
+    "intent": "partner_station_swap_process",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_process_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "station par kya karna hoga",
+    "intent": "partner_station_swap_process",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_process_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "battery scan nahi ho rahi",
+    "intent": "swap_battery_scan",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "scan_issue",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "QR code not scanning",
+    "intent": "swap_battery_scan",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "scan_issue",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "scan mein problem hai battery BAT654321",
+    "intent": "swap_battery_scan",
+    "entities": [
+      {
+        "entity": "battery_id",
+        "value": "BAT654321",
+        "start": 30,
+        "end": 39
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "scan_issue",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "code scan kaise kare battery ka",
+    "intent": "swap_battery_scan",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "scan_issue",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "swap se kitna time bachta hai",
+    "intent": "swap_time_saved",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "benefits_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "how much time saved with battery swap",
+    "intent": "swap_time_saved",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "benefits_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "charging se kitna fast hai swap",
+    "intent": "swap_time_saved",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "benefits_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "battery swap mein kitna samay lagta hai",
+    "intent": "swap_time_saved",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "benefits_query",
+      "complexity": "simple"
+    }
+  }
+]

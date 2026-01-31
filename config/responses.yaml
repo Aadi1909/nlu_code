@@ -139,6 +139,139 @@ responses:
       hi: "बैटरी स्मार्ट को कॉल करने के लिए धन्यवाद। आपका दिन शुभ हो! अलविदा।"
       hinglish: "Battery Smart ko call karne ke liye dhanyawad. Aapka din shubh ho! Bye."
 
+  # Onboarding Responses
+  driver_onboarding_response:
+    templates:
+      en: "Great! I'll help you join Battery Smart as a driver. We'll need to complete a few steps: lead creation, basic info verification, location verification, and vehicle verification. Let's start with your mobile number."
+      hi: "बढ़िया! मैं आपको बैटरी स्मार्ट में ड्राइवर के रूप में जोड़ने में मदद करूंगा। हमें कुछ स्टेप्स पूरे करने होंगे: लीड क्रिएशन, बेसिक इन्फो वेरिफिकेशन, लोकेशन वेरिफिकेशन और व्हीकल वेरिफिकेशन। चलिए आपके मोबाइल नंबर से शुरू करते हैं।"
+      hinglish: "Badhiya! Main aapko Battery Smart mein driver ke roop mein jodne mein madad karunga. Humein kuch steps complete karne honge: lead creation, basic info verification, location verification aur vehicle verification. Chaliye aapke mobile number se shuru karte hain."
+
+  onboarding_status_response:
+    templates:
+      en: "Your onboarding is at {step_name} stage. {completed_steps} steps completed. Pending: {pending_steps}. Expected completion: {estimated_completion}."
+      hi: "आपकी ऑनबोर्डिंग {step_name} स्टेज पर है। {completed_steps} स्टेप्स पूरे हुए। बाकी: {pending_steps}। पूरा होने की अनुमानित तारीख: {estimated_completion}।"
+      hinglish: "Aapki onboarding {step_name} stage par hai. {completed_steps} steps complete hue. Pending: {pending_steps}. Expected completion: {estimated_completion}."
+
+  verification_status_response:
+    templates:
+      en:
+        pending: "Your {verification_type} verification is pending. We'll verify it within {expected_time}. You'll receive an SMS once done."
+        completed: "Your {verification_type} verification is completed successfully!"
+        failed: "Your {verification_type} verification failed. Reason: {failure_reason}. Please contact support."
+      hi:
+        pending: "आपका {verification_type} वेरिफिकेशन पेंडिंग है। हम इसे {expected_time} में वेरिफाई करेंगे। पूरा होने पर SMS मिलेगा।"
+        completed: "आपका {verification_type} वेरिफिकेशन सफलतापूर्वक पूरा हो गया!"
+        failed: "आपका {verification_type} वेरिफिकेशन फेल हो गया। कारण: {failure_reason}। कृपया सपोर्ट से संपर्क करें।"
+      hinglish:
+        pending: "Aapka {verification_type} verification pending hai. Hum ise {expected_time} mein verify karenge. Complete hone par SMS milega."
+        completed: "Aapka {verification_type} verification successfully complete ho gaya!"
+        failed: "Aapka {verification_type} verification fail ho gaya. Reason: {failure_reason}. Please support se contact karein."
+
+  # Retrofitment Responses
+  retrofitment_schedule_response:
+    templates:
+      en: "Your retrofitment appointment is scheduled for {date} at {time} at {location}. The battery swap kit installation takes about {duration}. Please bring your vehicle documents."
+      hi: "आपका रेट्रोफिटमेंट अपॉइंटमेंट {date} को {time} बजे {location} पर शेड्यूल है। किट इंस्टॉलेशन में करीब {duration} लगता है। कृपया अपने गाड़ी के दस्तावेज़ लाएं।"
+      hinglish: "Aapka retrofitment appointment {date} ko {time} baje {location} par scheduled hai. Kit installation mein around {duration} lagta hai. Please apne vehicle ke documents laye."
+
+  retrofitment_status_response:
+    templates:
+      en:
+        scheduled: "Retrofitment scheduled for {date} at {location}."
+        completed: "Retrofitment completed on {completion_date}. Your vehicle is now swap-ready!"
+        in_progress: "Retrofitment is currently in progress. Expected completion: {expected_time}."
+      hi:
+        scheduled: "रेट्रोफिटमेंट {date} को {location} पर शेड्यूल है।"
+        completed: "रेट्रोफिटमेंट {completion_date} को पूरा हो गया। आपकी गाड़ी अब स्वैप के लिए तैयार है!"
+        in_progress: "रेट्रोफिटमेंट चल रहा है। पूरा होने का अनुमानित समय: {expected_time}।"
+      hinglish:
+        scheduled: "Retrofitment {date} ko {location} par scheduled hai."
+        completed: "Retrofitment {completion_date} ko complete ho gaya. Aapki vehicle ab swap-ready hai!"
+        in_progress: "Retrofitment chal raha hai. Expected completion: {expected_time}."
+
+  # Pricing & Subscription Responses
+  swap_price_response:
+    templates:
+      en: "Swap pricing depends on your subscription plan. Basic: ₹{basic_price}/swap, Standard: ₹{standard_price}/swap, Premium: Unlimited swaps at ₹{premium_monthly}/month."
+      hi: "स्वैप की कीमत आपके सब्सक्रिप्शन प्लान पर निर्भर करती है। बेसिक: ₹{basic_price}/स्वैप, स्टैंडर्ड: ₹{standard_price}/स्वैप, प्रीमियम: अनलिमिटेड स्वैप ₹{premium_monthly}/महीना।"
+      hinglish: "Swap pricing aapke subscription plan par depend karta hai. Basic: ₹{basic_price}/swap, Standard: ₹{standard_price}/swap, Premium: Unlimited swaps ₹{premium_monthly}/month."
+
+  subscription_plans_response:
+    templates:
+      en: "We have 3 plans:\n1. Basic: {basic_swaps} swaps/month at ₹{basic_price}\n2. Standard: {standard_swaps} swaps/month at ₹{standard_price}\n3. Premium: Unlimited swaps at ₹{premium_price}\nWhich would you prefer?"
+      hi: "हमारे पास 3 प्लान हैं:\n1. बेसिक: {basic_swaps} स्वैप/महीना ₹{basic_price} में\n2. स्टैंडर्ड: {standard_swaps} स्वैप/महीना ₹{standard_price} में\n3. प्रीमियम: अनलिमिटेड स्वैप ₹{premium_price} में\nकौन सा पसंद करेंगे?"
+      hinglish: "Hamare paas 3 plans hain:\n1. Basic: {basic_swaps} swaps/month ₹{basic_price} mein\n2. Standard: {standard_swaps} swaps/month ₹{standard_price} mein\n3. Premium: Unlimited swaps ₹{premium_price} mein\nKonsa pasand karenge?"
+
+  plan_comparison_response:
+    templates:
+      en: "Plan comparison:\nBasic - Best for occasional users ({basic_swaps} swaps/month)\nStandard - For regular drivers ({standard_swaps} swaps/month)\nPremium - Unlimited swaps, best value for high-usage drivers. Which suits your needs?"
+      hi: "प्लान तुलना:\nबेसिक - कभी कभी उपयोग के लिए ({basic_swaps} स्वैप/महीना)\nस्टैंडर्ड - रेगुलर ड्राइवर्स के लिए ({standard_swaps} स्वैप/महीना)\nप्रीमियम - अनलिमिटेड स्वैप, हाई-यूसेज के लिए बेस्ट। आपकी ज़रूरत क्या है?"
+      hinglish: "Plan comparison:\nBasic - Kabhi kabhi use ke liye ({basic_swaps} swaps/month)\nStandard - Regular drivers ke liye ({standard_swaps} swaps/month)\nPremium - Unlimited swaps, high-usage drivers ke liye best. Aapki zarurat kya hai?"
+
+  # DSK Responses
+  dsk_onboard_response:
+    templates:
+      en: "You're registered at {dsk_name} for leave from {start_date} to {end_date}. No penalties will be charged during this period. Safe travels!"
+      hi: "{dsk_name} पर आप {start_date} से {end_date} तक की छुट्टी के लिए रजिस्टर हो गए। इस अवधि में कोई पेनाल्टी नहीं लगेगी। सुरक्षित यात्रा!"
+      hinglish: "{dsk_name} par aap {start_date} se {end_date} tak ki chutti ke liye register ho gaye. Is period mein koi penalty nahi lagegi. Safe travels!"
+
+  dsk_deboard_response:
+    templates:
+      en: "Welcome back! You're successfully deboarded at {dsk_name}. Your account is now active. You can start taking swaps again."
+      hi: "वापसी पर स्वागत है! आप {dsk_name} पर सफलतापूर्वक डीबोर्ड हो गए। आपका अकाउंट अब एक्टिव है। अब आप स्वैप ले सकते हैं।"
+      hinglish: "Welcome back! Aap {dsk_name} par successfully deboard ho gaye. Aapka account ab active hai. Ab aap swaps le sakte hain."
+
+  dsk_location_response:
+    templates:
+      en: "Nearest DSK is {dsk_name} at {address}, {distance} km away. Timing: {timings}. Would you like directions?"
+      hi: "नजदीकी DSK {dsk_name} है जो {address} पर है, {distance} किमी दूर। समय: {timings}। रास्ता चाहिए?"
+      hinglish: "Najdiki DSK {dsk_name} hai jo {address} par hai, {distance} km door. Timing: {timings}. Rasta chahiye?"
+
+  # Driver Status Responses
+  driver_deactivate_response:
+    templates:
+      en: "Your driver account is now deactivated at {center_name}. You won't receive any penalties during your leave of {duration}. Safe journey!"
+      hi: "आपका ड्राइवर अकाउंट अब {center_name} पर डीएक्टिवेट हो गया। {duration} की छुट्टी के दौरान कोई पेनाल्टी नहीं लगेगी। सुरक्षित यात्रा!"
+      hinglish: "Aapka driver account ab {center_name} par deactivate ho gaya. {duration} ki chutti ke dauran koi penalty nahi lagegi. Safe journey!"
+
+  driver_activate_response:
+    templates:
+      en: "Welcome back! Your driver account is now active at {center_name}. You can start working again. Good luck!"
+      hi: "वापसी पर स्वागत! आपका ड्राइवर अकाउंट अब {center_name} पर एक्टिव हो गया। आप फिर से काम शुरू कर सकते हैं। शुभकामनाएं!"
+      hinglish: "Welcome back! Aapka driver account ab {center_name} par active ho gaya. Aap phir se kaam shuru kar sakte hain. Good luck!"
+
+  # IC Responses
+  ic_location_response:
+    templates:
+      en: "Nearest Inactivity Center is {ic_name} at {address}, {distance} km away. Timing: {timings}."
+      hi: "नजदीकी इनएक्टिविटी सेंटर {ic_name} है जो {address} पर है, {distance} किमी दूर। समय: {timings}।"
+      hinglish: "Najdiki Inactivity Center {ic_name} hai jo {address} par hai, {distance} km door. Timing: {timings}."
+
+  ic_battery_submit_response:
+    templates:
+      en: "Battery {battery_id} submitted successfully at {ic_name}. You're now inactive. To reactivate, visit the same IC with your battery receipt."
+      hi: "बैटरी {battery_id} सफलतापूर्वक {ic_name} पर जमा हो गई। आप अब इनएक्टिव हैं। दोबारा एक्टिव होने के लिए, बैटरी रसीद के साथ उसी IC पर आएं।"
+      hinglish: "Battery {battery_id} successfully {ic_name} par submit ho gayi. Aap ab inactive hain. Reactivate hone ke liye, battery receipt ke saath same IC par aaye."
+
+  # Partner Station Responses
+  partner_station_location_response:
+    templates:
+      en: "Nearest partner station is {station_name} at {address}, {distance} km away. They have {available_batteries} batteries. Operating hours: {hours}."
+      hi: "नजदीकी पार्टनर स्टेशन {station_name} है जो {address} पर है, {distance} किमी दूर। {available_batteries} बैटरी उपलब्ध हैं। समय: {hours}।"
+      hinglish: "Najdiki partner station {station_name} hai jo {address} par hai, {distance} km door. {available_batteries} batteries available hain. Operating hours: {hours}."
+
+  partner_station_swap_instructions:
+    templates:
+      en: "Partner station swap process:\n1. Reach the station\n2. Give your discharged battery to partner\n3. Partner will scan the battery QR code on their app\n4. You'll receive a charged battery\n5. Partner scans the new battery\n6. Swap complete! Charging time saved."
+      hi: "पार्टनर स्टेशन स्वैप प्रक्रिया:\n1. स्टेशन पर पहुंचें\n2. अपनी डिस्चार्ज बैटरी पार्टनर को दें\n3. पार्टनर अपने एप पर बैटरी QR कोड स्कैन करेगा\n4. आपको चार्ज बैटरी मिलेगी\n5. पार्टनर नई बैटरी स्कैन करेगा\n6. स्वैप पूरा! चार्जिंग का समय बच गया।"
+      hinglish: "Partner station swap process:\n1. Station par pahunche\n2. Apni discharged battery partner ko de\n3. Partner apne app par battery QR code scan karega\n4. Aapko charged battery milegi\n5. Partner nayi battery scan karega\n6. Swap complete! Charging time bach gaya."
+
+  swap_time_saved_response:
+    templates:
+      en: "Battery swap takes just 2-3 minutes, while charging takes 3-4 hours. You save approximately {time_saved} per swap! This means more earning time for you."
+      hi: "बैटरी स्वैप में सिर्फ 2-3 मिनट लगते हैं, जबकि चार्जिंग में 3-4 घंटे। आप हर स्वैप पर करीब {time_saved} बचाते हैं! मतलब आपके लिए ज्यादा कमाई का समय।"
+      hinglish: "Battery swap mein sirf 2-3 minutes lagte hain, jabki charging mein 3-4 hours. Aap har swap par around {time_saved} bachate hain! Matlab aapke liye zyada kamai ka time."
+
 response_rules:
   
   language_detection:

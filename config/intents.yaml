@@ -728,6 +728,801 @@ intents:
         - "ok bye"
         - "theek hai bye"
 
+  # Driver Onboarding Intents
+  - intent: driver_onboarding
+    description: "Driver wants to join Battery Smart and start onboarding process"
+    category: "onboarding"
+    tier: 1
+    priority: high
+    
+    required_slots: []
+    optional_slots:
+      - phone_number
+      - driver_name
+    
+    api_config:
+      endpoint: "/api/v1/onboarding/initiate"
+      method: "POST"
+    
+    examples:
+      hindi:
+        - "Battery Smart join करना है"
+        - "ड्राइवर बनना है"
+        - "अपना नाम दर्ज करना है"
+        - "ऑनबोर्डिंग शुरू करो"
+        - "रजिस्ट्रेशन करना है"
+        - "मैं ड्राइवर बनना चाहता हूं"
+        - "साइन अप करना है"
+      
+      english:
+        - "I want to join Battery Smart"
+        - "become a driver"
+        - "driver registration"
+        - "start onboarding"
+        - "sign up as driver"
+        - "register as driver"
+        - "how to join"
+      
+      hinglish:
+        - "Battery Smart join karna hai"
+        - "driver banna hai"
+        - "onboarding shuru karo"
+        - "registration karna hai"
+        - "driver kaise banu"
+        - "sign up karna hai"
+        - "mujhe join karna hai"
+
+  - intent: onboarding_status
+    description: "Check status of driver onboarding process"
+    category: "onboarding"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - driver_id
+    optional_slots: []
+    
+    api_config:
+      endpoint: "/api/v1/onboarding/status"
+      method: "GET"
+      params_mapping:
+        driver_id: "driverId"
+    
+    examples:
+      hindi:
+        - "मेरी ऑनबोर्डिंग कहां तक हुई"
+        - "ऑनबोर्डिंग की स्थिति बताओ"
+        - "कितना काम बाकी है"
+        - "अभी कौन सा स्टेप है"
+        - "वेरिफिकेशन कब होगा"
+        - "कितने दिन और लगेंगे"
+      
+      english:
+        - "what is my onboarding status"
+        - "check onboarding progress"
+        - "which step am I on"
+        - "how much is pending"
+        - "when will verification complete"
+        - "onboarding status"
+      
+      hinglish:
+        - "meri onboarding kahan tak hui"
+        - "onboarding status kya hai"
+        - "kitna kaam baaki hai"
+        - "konsa step pending hai"
+        - "verification kab hoga"
+        - "status check karo"
+
+  - intent: lead_creation_status
+    description: "Check lead creation status in onboarding"
+    category: "onboarding"
+    tier: 1
+    priority: medium
+    
+    required_slots:
+      - driver_id
+    optional_slots: []
+    
+    api_config:
+      endpoint: "/api/v1/onboarding/lead/status"
+      method: "GET"
+      params_mapping:
+        driver_id: "driverId"
+    
+    examples:
+      hindi:
+        - "लीड बना या नहीं"
+        - "मेरा लीड कब बनेगा"
+        - "लीड की स्थिति क्या है"
+        - "लीड क्रिएशन हुआ क्या"
+      
+      english:
+        - "is my lead created"
+        - "lead creation status"
+        - "when will lead be created"
+        - "check lead status"
+      
+      hinglish:
+        - "lead bana ya nahi"
+        - "lead creation status kya hai"
+        - "mera lead kab banega"
+        - "lead status check karo"
+
+  - intent: verification_status
+    description: "Check status of various verifications (basic info, location, vehicle)"
+    category: "onboarding"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - verification_type
+    
+    api_config:
+      endpoint: "/api/v1/onboarding/verification/status"
+      method: "GET"
+      params_mapping:
+        driver_id: "driverId"
+        verification_type: "verificationType"
+    
+    examples:
+      hindi:
+        - "वेरिफिकेशन कब होगा"
+        - "बेसिक इन्फो वेरिफाई हुआ क्या"
+        - "लोकेशन वेरिफिकेशन की स्थिति"
+        - "व्हीकल वेरिफिकेशन पेंडिंग है क्या"
+        - "डॉक्यूमेंट वेरिफाई हुए क्या"
+        - "एड्रेस चेक हुआ या नहीं"
+      
+      english:
+        - "when will verification happen"
+        - "is basic info verified"
+        - "location verification status"
+        - "vehicle verification pending"
+        - "document verification status"
+        - "address verified or not"
+      
+      hinglish:
+        - "verification kab hoga"
+        - "basic info verify hua kya"
+        - "location verification status"
+        - "vehicle verification pending hai kya"
+        - "documents verify hue kya"
+        - "address check hua ya nahi"
+
+  # Retrofitment Intents
+  - intent: retrofitment_schedule
+    description: "Schedule or check retrofitment appointment for battery swap kit installation"
+    category: "retrofitment"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - driver_id
+      - vehicle_id
+    optional_slots:
+      - preferred_date
+      - preferred_time
+    
+    api_config:
+      endpoint: "/api/v1/retrofitment/schedule"
+      method: "POST"
+      params_mapping:
+        driver_id: "driverId"
+        vehicle_id: "vehicleId"
+        preferred_date: "preferredDate"
+        preferred_time: "preferredTime"
+    
+    examples:
+      hindi:
+        - "रेट्रोफिटमेंट कब होगी"
+        - "किट लगाने का अपॉइंटमेंट बुक करो"
+        - "बैटरी स्वैप किट कब लगेगी"
+        - "रेट्रोफिटिंग करानी है"
+        - "गाड़ी में किट इंस्टॉल करनी है"
+        - "स्वैप किट लगाने का टाइम बताओ"
+      
+      english:
+        - "when is retrofitment"
+        - "schedule kit installation"
+        - "book retrofitment appointment"
+        - "when will swap kit be installed"
+        - "retrofitting needed"
+        - "install battery swap kit"
+      
+      hinglish:
+        - "retrofitment kab hogi"
+        - "kit lagane ka appointment book karo"
+        - "battery swap kit kab lagegi"
+        - "retrofitting karani hai"
+        - "vehicle mein kit install karni hai"
+        - "swap kit lagane ka time batao"
+
+  - intent: retrofitment_status
+    description: "Check retrofitment status or completion"
+    category: "retrofitment"
+    tier: 1
+    priority: medium
+    
+    required_slots:
+      - driver_id
+      - vehicle_id
+    optional_slots: []
+    
+    api_config:
+      endpoint: "/api/v1/retrofitment/status"
+      method: "GET"
+      params_mapping:
+        driver_id: "driverId"
+        vehicle_id: "vehicleId"
+    
+    examples:
+      hindi:
+        - "रेट्रोफिटमेंट हुई या नहीं"
+        - "किट लग गई क्या"
+        - "रेट्रोफिटिंग की स्थिति"
+        - "स्वैप किट इंस्टॉल हो गई क्या"
+      
+      english:
+        - "is retrofitment done"
+        - "kit installation status"
+        - "retrofitting complete or not"
+        - "swap kit installed"
+      
+      hinglish:
+        - "retrofitment hui ya nahi"
+        - "kit lag gayi kya"
+        - "retrofitting status kya hai"
+        - "swap kit install ho gayi kya"
+
+  # Swap Pricing Intents
+  - intent: swap_price_inquiry
+    description: "Ask about battery swap pricing"
+    category: "pricing"
+    tier: 1
+    priority: high
+    
+    required_slots: []
+    optional_slots:
+      - plan_type
+      - city
+    
+    api_config:
+      endpoint: "/api/v1/pricing/swap"
+      method: "GET"
+      params_mapping:
+        plan_type: "planType"
+        city: "city"
+    
+    examples:
+      hindi:
+        - "स्वैप की कीमत क्या है"
+        - "एक स्वैप में कितना पैसा लगता है"
+        - "बैटरी बदलने का चार्ज"
+        - "स्वैप का रेट बताओ"
+        - "एक बार स्वैप करने में कितना खर्च"
+        - "स्वैप प्राइस क्या है"
+      
+      english:
+        - "what is swap price"
+        - "how much for one swap"
+        - "battery swap charges"
+        - "swap rate"
+        - "cost per swap"
+        - "swap pricing"
+      
+      hinglish:
+        - "swap ki price kya hai"
+        - "ek swap mein kitna paisa lagta hai"
+        - "battery change ka charge"
+        - "swap rate batao"
+        - "swap price kya hai"
+        - "ek swap kitne ka hai"
+
+  - intent: subscription_plans
+    description: "Get information about available subscription plans"
+    category: "subscription"
+    tier: 1
+    priority: high
+    
+    required_slots: []
+    optional_slots:
+      - city
+    
+    api_config:
+      endpoint: "/api/v1/subscription/plans"
+      method: "GET"
+      params_mapping:
+        city: "city"
+    
+    examples:
+      hindi:
+        - "कौन कौन से प्लान हैं"
+        - "सब्सक्रिप्शन प्लान बताओ"
+        - "कितने तरह के प्लान हैं"
+        - "सभी प्लान दिखाओ"
+        - "प्लान की जानकारी चाहिए"
+        - "प्लान ऑप्शन क्या क्या हैं"
+      
+      english:
+        - "what subscription plans are available"
+        - "show all plans"
+        - "which plans do you have"
+        - "subscription options"
+        - "plan details"
+        - "available plans"
+      
+      hinglish:
+        - "kaun kaun se plans hain"
+        - "subscription plans batao"
+        - "kitne tarah ke plans hain"
+        - "saare plans dikhao"
+        - "plan ki jankari chahiye"
+        - "plan options kya hain"
+
+  - intent: plan_comparison
+    description: "Compare different subscription plans"
+    category: "subscription"
+    tier: 1
+    priority: medium
+    
+    required_slots: []
+    optional_slots:
+      - plan_type
+    
+    api_config:
+      endpoint: "/api/v1/subscription/compare"
+      method: "GET"
+    
+    examples:
+      hindi:
+        - "प्लान में क्या फर्क है"
+        - "बेसिक और प्रीमियम में क्या अंतर है"
+        - "किस प्लान में क्या मिलता है"
+        - "प्लान कंपेयर करो"
+        - "कौन सा प्लान बेहतर है"
+      
+      english:
+        - "what is the difference between plans"
+        - "compare plans"
+        - "which plan is better"
+        - "plan comparison"
+        - "difference between basic and premium"
+      
+      hinglish:
+        - "plans mein kya fark hai"
+        - "basic aur premium mein kya antar hai"
+        - "kis plan mein kya milta hai"
+        - "plan compare karo"
+        - "konsa plan better hai"
+
+  # DSK (Driver Seva Kendra) Intents
+  - intent: dsk_onboard
+    description: "Onboard at DSK before going on leave"
+    category: "dsk"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - dsk_location
+      - leave_start_date
+      - leave_end_date
+    
+    api_config:
+      endpoint: "/api/v1/dsk/onboard"
+      method: "POST"
+      params_mapping:
+        driver_id: "driverId"
+        dsk_location: "dskLocation"
+        leave_start_date: "leaveStartDate"
+        leave_end_date: "leaveEndDate"
+    
+    examples:
+      hindi:
+        - "DSK पर ऑनबोर्ड करना है"
+        - "लीव से पहले DSK जाना है"
+        - "ड्राइवर सेवा केंद्र में रजिस्टर करना है"
+        - "छुट्टी लेनी है DSK पर जाना है"
+        - "DSK में अपना नाम दर्ज करना है"
+        - "पेनाल्टी से बचने के लिए DSK जाना है"
+      
+      english:
+        - "onboard at DSK"
+        - "register at Driver Seva Kendra"
+        - "going on leave need DSK onboarding"
+        - "DSK registration before leave"
+        - "avoid penalty with DSK"
+        - "need to visit DSK"
+      
+      hinglish:
+        - "DSK par onboard karna hai"
+        - "leave se pehle DSK jana hai"
+        - "Driver Seva Kendra mein register karna hai"
+        - "chutti leni hai DSK par jana hai"
+        - "penalty se bachne ke liye DSK"
+        - "DSK mein apna naam darz karna hai"
+
+  - intent: dsk_deboard
+    description: "Deboard at DSK after returning from leave"
+    category: "dsk"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - dsk_location
+    
+    api_config:
+      endpoint: "/api/v1/dsk/deboard"
+      method: "POST"
+      params_mapping:
+        driver_id: "driverId"
+        dsk_location: "dskLocation"
+    
+    examples:
+      hindi:
+        - "DSK पर डीबोर्ड करना है"
+        - "लीव के बाद DSK पर वापस आना है"
+        - "DSK में वापस रजिस्टर करना है"
+        - "छुट्टी खत्म हुई DSK पर जाना है"
+        - "DSK से दोबारा शुरू करना है"
+      
+      english:
+        - "deboard at DSK"
+        - "return from leave at DSK"
+        - "re-register at Driver Seva Kendra"
+        - "completed leave need DSK deboarding"
+        - "activate after leave at DSK"
+      
+      hinglish:
+        - "DSK par deboard karna hai"
+        - "leave ke baad DSK par wapas aana hai"
+        - "chutti khatam hui DSK par jana hai"
+        - "DSK se dobara shuru karna hai"
+        - "DSK mein wapas register karna hai"
+
+  - intent: dsk_location
+    description: "Find nearest DSK location"
+    category: "dsk"
+    tier: 1
+    priority: medium
+    
+    required_slots: []
+    optional_slots:
+      - location
+      - city
+    
+    api_config:
+      endpoint: "/api/v1/dsk/locations"
+      method: "GET"
+      params_mapping:
+        location: "location"
+        city: "city"
+    
+    examples:
+      hindi:
+        - "नजदीकी DSK कहां है"
+        - "ड्राइवर सेवा केंद्र का पता बताओ"
+        - "DSK की लोकेशन क्या है"
+        - "पास में DSK है क्या"
+        - "किस DSK पर जाना है"
+      
+      english:
+        - "where is nearest DSK"
+        - "Driver Seva Kendra location"
+        - "find DSK near me"
+        - "DSK address"
+        - "which DSK to visit"
+      
+      hinglish:
+        - "najdiki DSK kahan hai"
+        - "Driver Seva Kendra ka pata batao"
+        - "DSK ki location kya hai"
+        - "paas mein DSK hai kya"
+        - "kis DSK par jana hai"
+
+  - intent: driver_deactivate
+    description: "Deactivate driver before going on leave (at DSK or IC)"
+    category: "driver_status"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - deactivation_center
+      - leave_duration
+    
+    api_config:
+      endpoint: "/api/v1/driver/deactivate"
+      method: "POST"
+      params_mapping:
+        driver_id: "driverId"
+        center_type: "centerType"
+        duration: "duration"
+    
+    examples:
+      hindi:
+        - "ड्राइवर डीएक्टिवेट करना है"
+        - "अपना अकाउंट बंद करना है"
+        - "लीव पे जाने से पहले इनएक्टिव करना है"
+        - "ड्राइवर स्टेटस इनएक्टिव करो"
+        - "गाड़ी चलाना बंद कर रहा हूं"
+      
+      english:
+        - "deactivate driver account"
+        - "make me inactive"
+        - "deactivate before leave"
+        - "stop driving temporarily"
+        - "inactivate driver status"
+      
+      hinglish:
+        - "driver deactivate karna hai"
+        - "apna account band karna hai"
+        - "leave pe jane se pehle inactive karna hai"
+        - "driver status inactive karo"
+        - "gaadi chalana band kar raha hun"
+
+  - intent: driver_activate
+    description: "Reactivate driver after returning from leave"
+    category: "driver_status"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - activation_center
+    
+    api_config:
+      endpoint: "/api/v1/driver/activate"
+      method: "POST"
+      params_mapping:
+        driver_id: "driverId"
+        center_type: "centerType"
+    
+    examples:
+      hindi:
+        - "ड्राइवर एक्टिवेट करना है"
+        - "अपना अकाउंट चालू करना है"
+        - "वापस एक्टिव होना है"
+        - "फिर से गाड़ी चलानी है"
+        - "इनएक्टिव से एक्टिव करो"
+      
+      english:
+        - "activate driver account"
+        - "make me active again"
+        - "reactivate account"
+        - "start driving again"
+        - "change from inactive to active"
+      
+      hinglish:
+        - "driver activate karna hai"
+        - "apna account chalu karna hai"
+        - "wapas active hona hai"
+        - "phir se gaadi chalani hai"
+        - "inactive se active karo"
+
+  # Inactivity Center (IC) Intents
+  - intent: ic_location
+    description: "Find nearest Inactivity Center location"
+    category: "ic"
+    tier: 1
+    priority: medium
+    
+    required_slots: []
+    optional_slots:
+      - location
+      - city
+    
+    api_config:
+      endpoint: "/api/v1/ic/locations"
+      method: "GET"
+      params_mapping:
+        location: "location"
+        city: "city"
+    
+    examples:
+      hindi:
+        - "इनएक्टिविटी सेंटर कहां है"
+        - "IC की लोकेशन बताओ"
+        - "नजदीकी IC का पता"
+        - "पास का इनएक्टिविटी सेंटर"
+      
+      english:
+        - "where is Inactivity Center"
+        - "IC location"
+        - "find nearest IC"
+        - "Inactivity Center address"
+      
+      hinglish:
+        - "Inactivity Center kahan hai"
+        - "IC ki location batao"
+        - "najdiki IC ka pata"
+        - "paas ka IC"
+
+  - intent: ic_battery_submit
+    description: "Submit battery at Inactivity Center before going on leave"
+    category: "ic"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - driver_id
+      - battery_id
+    optional_slots:
+      - ic_location
+    
+    api_config:
+      endpoint: "/api/v1/ic/battery/submit"
+      method: "POST"
+      params_mapping:
+        driver_id: "driverId"
+        battery_id: "batteryId"
+        ic_location: "icLocation"
+    
+    examples:
+      hindi:
+        - "IC पर बैटरी जमा करनी है"
+        - "इनएक्टिविटी सेंटर पर बैटरी छोड़नी है"
+        - "बैटरी सबमिट करनी है"
+        - "IC में बैटरी देनी है"
+      
+      english:
+        - "submit battery at IC"
+        - "leave battery at Inactivity Center"
+        - "deposit battery at IC"
+        - "give battery to IC"
+      
+      hinglish:
+        - "IC par battery submit karni hai"
+        - "Inactivity Center par battery chhodna hai"
+        - "battery jama karni hai"
+        - "IC mein battery deni hai"
+
+  # Partner Station Intents
+  - intent: partner_station_location
+    description: "Find nearest partner swap station"
+    category: "partner_station"
+    tier: 1
+    priority: high
+    
+    required_slots: []
+    optional_slots:
+      - location
+      - city
+    
+    api_config:
+      endpoint: "/api/v1/partner-stations/nearby"
+      method: "GET"
+      params_mapping:
+        location: "location"
+        city: "city"
+    
+    examples:
+      hindi:
+        - "पार्टनर स्टेशन कहां है"
+        - "नजदीकी पार्टनर स्वैप स्टेशन"
+        - "पार्टनर स्टेशन की लोकेशन"
+        - "कहां स्वैप कर सकता हूं"
+      
+      english:
+        - "where is partner station"
+        - "nearest partner swap station"
+        - "partner station location"
+        - "where can I do swap"
+      
+      hinglish:
+        - "partner station kahan hai"
+        - "najdiki partner swap station"
+        - "partner station ki location"
+        - "kahan swap kar sakta hun"
+
+  - intent: partner_station_swap_process
+    description: "Know about partner station swap process and scanning"
+    category: "partner_station"
+    tier: 1
+    priority: medium
+    
+    required_slots: []
+    optional_slots: []
+    
+    api_config: null
+    action: "PROVIDE_SWAP_INSTRUCTIONS"
+    
+    examples:
+      hindi:
+        - "पार्टनर स्टेशन पर स्वैप कैसे करें"
+        - "स्कैन कैसे होता है"
+        - "बैटरी स्वैप का प्रोसेस बताओ"
+        - "पार्टनर के साथ स्वैप कैसे होगा"
+        - "स्टेशन पर क्या करना होगा"
+      
+      english:
+        - "how to swap at partner station"
+        - "swap process at partner station"
+        - "how does scanning work"
+        - "battery swap procedure"
+        - "what to do at station"
+      
+      hinglish:
+        - "partner station par swap kaise kare"
+        - "scan kaise hota hai"
+        - "battery swap ka process batao"
+        - "partner ke saath swap kaise hoga"
+        - "station par kya karna hoga"
+
+  - intent: swap_battery_scan
+    description: "Issues or questions about battery scanning during swap"
+    category: "partner_station"
+    tier: 1
+    priority: medium
+    
+    required_slots: []
+    optional_slots:
+      - battery_id
+    
+    api_config:
+      endpoint: "/api/v1/swap/scan/help"
+      method: "GET"
+    
+    examples:
+      hindi:
+        - "बैटरी स्कैन नहीं हो रही"
+        - "स्कैन में प्रॉब्लम है"
+        - "कोड स्कैन कैसे करें"
+        - "QR कोड नहीं स्कैन हो रहा"
+        - "स्कैन करने में दिक्कत"
+      
+      english:
+        - "battery not scanning"
+        - "scan problem"
+        - "how to scan code"
+        - "QR code not scanning"
+        - "scanning issue"
+      
+      hinglish:
+        - "battery scan nahi ho rahi"
+        - "scan mein problem hai"
+        - "code scan kaise kare"
+        - "QR code nahi scan ho raha"
+        - "scanning mein dikkat"
+
+  - intent: swap_time_saved
+    description: "Ask about time saved with battery swap vs charging"
+    category: "swap_benefits"
+    tier: 1
+    priority: low
+    
+    required_slots: []
+    optional_slots: []
+    
+    api_config: null
+    action: "PROVIDE_BENEFITS_INFO"
+    
+    examples:
+      hindi:
+        - "स्वैप से कितना टाइम बचता है"
+        - "चार्जिंग से कितना फास्ट है"
+        - "बैटरी स्वैप में कितना समय लगता है"
+        - "चार्ज करने और स्वैप में क्या फर्क है"
+      
+      english:
+        - "how much time saved with swap"
+        - "swap vs charging time"
+        - "how fast is battery swap"
+        - "time saved compared to charging"
+      
+      hinglish:
+        - "swap se kitna time bachta hai"
+        - "charging se kitna fast hai"
+        - "battery swap mein kitna samay lagta hai"
+        - "charge karne aur swap mein kya fark hai"
+
   - intent: affirm
     description: "User confirming/agreeing"
     category: "general"
@@ -835,6 +1630,8 @@ categories:
       - check_subscription
       - upgrade_subscription
       - subscription_renewal
+      - subscription_plans
+      - plan_comparison
   
   - name: payment
     description: "Payment related queries"
@@ -842,6 +1639,11 @@ categories:
       - payment_inquiry
       - payment_history
       - make_payment
+  
+  - name: pricing
+    description: "Pricing and cost queries"
+    intents:
+      - swap_price_inquiry
   
   - name: history
     description: "Historical data queries"
@@ -853,6 +1655,51 @@ categories:
     description: "Ride and trip related"
     intents:
       - check_ride_stats
+  
+  - name: onboarding
+    description: "Driver onboarding and verification"
+    intents:
+      - driver_onboarding
+      - onboarding_status
+      - lead_creation_status
+      - verification_status
+  
+  - name: retrofitment
+    description: "Vehicle retrofitment and kit installation"
+    intents:
+      - retrofitment_schedule
+      - retrofitment_status
+  
+  - name: dsk
+    description: "Driver Seva Kendra operations"
+    intents:
+      - dsk_onboard
+      - dsk_deboard
+      - dsk_location
+  
+  - name: driver_status
+    description: "Driver activation/deactivation"
+    intents:
+      - driver_deactivate
+      - driver_activate
+  
+  - name: ic
+    description: "Inactivity Center operations"
+    intents:
+      - ic_location
+      - ic_battery_submit
+  
+  - name: partner_station
+    description: "Partner station swap operations"
+    intents:
+      - partner_station_location
+      - partner_station_swap_process
+      - swap_battery_scan
+  
+  - name: swap_benefits
+    description: "Benefits and comparisons"
+    intents:
+      - swap_time_saved
   
   - name: support
     description: "Help and support"

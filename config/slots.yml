@@ -305,3 +305,279 @@ intent_slot_mapping:
     filling_order:
       - driver_id
       - issue_type
+
+  # New slot mappings for onboarding intents
+  driver_onboarding:
+    required: []
+    optional:
+      - phone_number
+      - driver_name
+    filling_order:
+      - phone_number
+      - driver_name
+
+  onboarding_status:
+    required:
+      - driver_id
+    optional: []
+    auto_fill:
+      - slot: driver_id
+        from: phone_lookup
+
+  verification_status:
+    required:
+      - driver_id
+    optional:
+      - verification_type
+    auto_fill:
+      - slot: driver_id
+        from: phone_lookup
+    filling_order:
+      - driver_id
+      - verification_type
+
+  retrofitment_schedule:
+    required:
+      - driver_id
+      - vehicle_id
+    optional:
+      - preferred_date
+      - preferred_time
+    auto_fill:
+      - slot: driver_id
+        from: phone_lookup
+    filling_order:
+      - driver_id
+      - vehicle_id
+      - preferred_date
+      - preferred_time
+
+  retrofitment_status:
+    required:
+      - driver_id
+      - vehicle_id
+    optional: []
+    auto_fill:
+      - slot: driver_id
+        from: phone_lookup
+
+  dsk_onboard:
+    required:
+      - driver_id
+    optional:
+      - dsk_location
+      - leave_start_date
+      - leave_end_date
+    auto_fill:
+      - slot: driver_id
+        from: phone_lookup
+    filling_order:
+      - driver_id
+      - leave_start_date
+      - leave_end_date
+      - dsk_location
+
+  dsk_deboard:
+    required:
+      - driver_id
+    optional:
+      - dsk_location
+    auto_fill:
+      - slot: driver_id
+        from: phone_lookup
+    filling_order:
+      - driver_id
+      - dsk_location
+
+  driver_deactivate:
+    required:
+      - driver_id
+    optional:
+      - deactivation_center
+      - leave_duration
+    auto_fill:
+      - slot: driver_id
+        from: phone_lookup
+    filling_order:
+      - driver_id
+      - deactivation_center
+      - leave_duration
+
+  driver_activate:
+    required:
+      - driver_id
+    optional:
+      - activation_center
+    auto_fill:
+      - slot: driver_id
+        from: phone_lookup
+    filling_order:
+      - driver_id
+      - activation_center
+
+  ic_battery_submit:
+    required:
+      - driver_id
+      - battery_id
+    optional:
+      - ic_location
+    auto_fill:
+      - slot: driver_id
+        from: phone_lookup
+    filling_order:
+      - driver_id
+      - battery_id
+      - ic_location
+
+# New slot definitions
+slots_extended:
+  phone_number:
+    type: "text"
+    entity: "phone_number"
+    
+    prompts:
+      en: "Please provide your mobile number"
+      hi: "कृपया अपना मोबाइल नंबर दें"
+      hinglish: "Apna mobile number dijiye"
+    
+    validation:
+      pattern: "[6-9]\\d{9}"
+      error_message:
+        en: "Please provide a valid 10-digit mobile number"
+        hi: "कृपया सही 10 अंकों का मोबाइल नंबर दें"
+        hinglish: "Sahi 10 digit mobile number dijiye"
+
+  driver_name:
+    type: "text"
+    entity: "driver_name"
+    
+    prompts:
+      en: "What is your name?"
+      hi: "आपका नाम क्या है?"
+      hinglish: "Aapka naam kya hai?"
+
+  verification_type:
+    type: "categorical"
+    entity: "verification_type"
+    
+    options:
+      - value: "basic_info"
+        labels: ["basic info", "basic", "बेसिक", "personal info"]
+      - value: "location"
+        labels: ["location", "लोकेशन", "address location"]
+      - value: "address"
+        labels: ["address", "पता", "एड्रेस"]
+      - value: "vehicle"
+        labels: ["vehicle", "गाड़ी", "व्हीकल"]
+      - value: "documents"
+        labels: ["documents", "डॉक्यूमेंट", "papers"]
+      - value: "all"
+        labels: ["all", "सभी", "everything"]
+    
+    prompts:
+      en: "Which verification - Basic Info, Location, Address, Vehicle, Documents, or All?"
+      hi: "कौन सा वेरिफिकेशन - बेसिक इन्फो, लोकेशन, एड्रेस, व्हीकल, डॉक्यूमेंट, या सभी?"
+      hinglish: "Konsa verification - Basic Info, Location, Address, Vehicle, Documents, ya All?"
+
+  dsk_location:
+    type: "text"
+    entity: "dsk_location"
+    required: false
+    
+    auto_fill_sources:
+      - source: "gps_nearest"
+        field: "nearest_dsk"
+    
+    prompts:
+      en: "Which DSK would you like to visit?"
+      hi: "किस DSK पर जाना चाहते हैं?"
+      hinglish: "Kis DSK par jana chahte hain?"
+
+  ic_location:
+    type: "text"
+    entity: "ic_location"
+    required: false
+    
+    auto_fill_sources:
+      - source: "gps_nearest"
+        field: "nearest_ic"
+    
+    prompts:
+      en: "Which Inactivity Center would you like to visit?"
+      hi: "किस इनएक्टिविटी सेंटर पर जाना चाहते हैं?"
+      hinglish: "Kis IC par jana chahte hain?"
+
+  deactivation_center:
+    type: "categorical"
+    entity: "deactivation_center"
+    
+    options:
+      - value: "dsk"
+        labels: ["DSK", "Driver Seva Kendra", "ड्राइवर सेवा केंद्र"]
+      - value: "ic"
+        labels: ["IC", "Inactivity Center", "इनएक्टिविटी सेंटर"]
+    
+    prompts:
+      en: "Where would you like to deactivate - DSK or IC?"
+      hi: "कहां डीएक्टिवेट करना है - DSK या IC?"
+      hinglish: "Kahan deactivate karna hai - DSK ya IC?"
+
+  activation_center:
+    type: "categorical"
+    entity: "activation_center"
+    
+    options:
+      - value: "dsk"
+        labels: ["DSK", "Driver Seva Kendra", "ड्राइवर सेवा केंद्र"]
+      - value: "ic"
+        labels: ["IC", "Inactivity Center", "इनएक्टिविटी सेंटर"]
+    
+    prompts:
+      en: "Where would you like to activate - DSK or IC?"
+      hi: "कहां एक्टिवेट करना है - DSK या IC?"
+      hinglish: "Kahan activate karna hai - DSK ya IC?"
+
+  leave_duration:
+    type: "temporal"
+    entity: "leave_duration"
+    
+    prompts:
+      en: "How long will you be on leave?"
+      hi: "कितने समय के लिए छुट्टी पर जा रहे हैं?"
+      hinglish: "Kitne time ke liye chutti par ja rahe hain?"
+
+  preferred_date:
+    type: "temporal"
+    entity: "preferred_date"
+    
+    prompts:
+      en: "Which date would you prefer?"
+      hi: "कौन सी तारीख पसंद करेंगे?"
+      hinglish: "Kaunsi date pasand karenge?"
+
+  preferred_time:
+    type: "temporal"
+    entity: "preferred_time"
+    
+    prompts:
+      en: "What time would you prefer?"
+      hi: "कौन सा समय पसंद करेंगे?"
+      hinglish: "Kaunsa time pasand karenge?"
+
+  leave_start_date:
+    type: "temporal"
+    entity: "leave_start_date"
+    
+    prompts:
+      en: "When does your leave start?"
+      hi: "छुट्टी कब से शुरू होगी?"
+      hinglish: "Chutti kab se shuru hogi?"
+
+  leave_end_date:
+    type: "temporal"
+    entity: "leave_end_date"
+    
+    prompts:
+      en: "When does your leave end?"
+      hi: "छुट्टी कब खत्म होगी?"
+      hinglish: "Chutti kab khatam hogi?"

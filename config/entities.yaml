@@ -330,6 +330,216 @@ entities:
         - "app nahi chal raha"
         - "login problem"
 
+  # New entities for onboarding and operations
+  - entity: phone_number
+    description: "Indian mobile phone numbers"
+    type: "regex"
+    
+    patterns:
+      - pattern: "[6-9]\\d{9}"
+        description: "10 digit Indian mobile"
+      - pattern: "\\+91[6-9]\\d{9}"
+        description: "With country code"
+      - pattern: "0[6-9]\\d{9}"
+        description: "With leading zero"
+    
+    normalization:
+      remove_spaces: true
+      remove_country_code: true
+      format: "10_digits"
+    
+    validation:
+      length: 10
+      starts_with: ["6", "7", "8", "9"]
+
+  - entity: driver_name
+    description: "Driver's name"
+    type: "text"
+    
+    extraction:
+      - "person_name_ner"
+      - "contextual"
+
+  - entity: verification_type
+    description: "Type of verification in onboarding"
+    type: "lookup"
+    
+    values:
+      - basic_info
+      - location
+      - address
+      - vehicle
+      - documents
+      - all
+    
+    synonyms:
+      basic_info:
+        - "basic information"
+        - "बेसिक इन्फो"
+        - "basic details"
+        - "personal info"
+        - "बेसिक जानकारी"
+      location:
+        - "location verification"
+        - "लोकेशन"
+        - "address location"
+        - "जगह"
+      address:
+        - "address verification"
+        - "पता"
+        - "एड्रेस"
+        - "residential address"
+      vehicle:
+        - "vehicle verification"
+        - "गाड़ी"
+        - "व्हीकल"
+        - "वाहन"
+      documents:
+        - "document verification"
+        - "डॉक्यूमेंट"
+        - "papers"
+        - "कागजात"
+
+  - entity: dsk_location
+    description: "Driver Seva Kendra location identifier"
+    type: "regex"
+    
+    patterns:
+      - pattern: "DSK[0-9]{3,5}"
+        description: "DSK ID format"
+      - pattern: "DSK-[A-Z]{2,3}-[0-9]{2,4}"
+        description: "Regional DSK format"
+    
+    examples:
+      - "DSK001"
+      - "DSK-DEL-042"
+      - "DSK-MUM-123"
+
+  - entity: ic_location
+    description: "Inactivity Center location identifier"
+    type: "regex"
+    
+    patterns:
+      - pattern: "IC[0-9]{3,5}"
+        description: "IC ID format"
+      - pattern: "IC-[A-Z]{2,3}-[0-9]{2,4}"
+        description: "Regional IC format"
+    
+    examples:
+      - "IC001"
+      - "IC-DEL-042"
+      - "IC-BLR-089"
+
+  - entity: deactivation_center
+    description: "Center type for deactivation (DSK or IC)"
+    type: "lookup"
+    
+    values:
+      - dsk
+      - ic
+      - driver_seva_kendra
+      - inactivity_center
+    
+    synonyms:
+      dsk:
+        - "DSK"
+        - "Driver Seva Kendra"
+        - "ड्राइवर सेवा केंद्र"
+        - "seva kendra"
+      ic:
+        - "IC"
+        - "Inactivity Center"
+        - "इनएक्टिविटी सेंटर"
+        - "inactivity centre"
+
+  - entity: activation_center
+    description: "Center type for activation (DSK or IC)"
+    type: "lookup"
+    
+    values:
+      - dsk
+      - ic
+      - driver_seva_kendra
+      - inactivity_center
+    
+    synonyms:
+      dsk:
+        - "DSK"
+        - "Driver Seva Kendra"
+        - "ड्राइवर सेवा केंद्र"
+        - "seva kendra"
+      ic:
+        - "IC"
+        - "Inactivity Center"
+        - "इनएक्टिविटी सेंटर"
+        - "inactivity centre"
+
+  - entity: leave_duration
+    description: "Duration of leave"
+    type: "temporal"
+    
+    patterns:
+      - pattern: "(\\d+)\\s*(days|दिन|din)"
+        description: "Days format"
+      - pattern: "(\\d+)\\s*(weeks|हफ्ते|hafte)"
+        description: "Weeks format"
+      - pattern: "(\\d+)\\s*(months|महीने|mahine)"
+        description: "Months format"
+
+  - entity: preferred_date
+    description: "Preferred appointment date"
+    type: "temporal"
+    
+    parser: "dateparser"
+    
+    examples:
+      - "आज"
+      - "कल"
+      - "tomorrow"
+      - "next week"
+      - "15 January"
+
+  - entity: preferred_time
+    description: "Preferred appointment time"
+    type: "temporal"
+    
+    patterns:
+      - pattern: "(\\d{1,2}):(\\d{2})\\s*(AM|PM|am|pm)?"
+        description: "Time format HH:MM"
+      - pattern: "(\\d{1,2})\\s*(AM|PM|am|pm|बजे)"
+        description: "Hour format"
+    
+    examples:
+      - "10:00 AM"
+      - "3 PM"
+      - "दोपहर 2 बजे"
+      - "सुबह 9 बजे"
+
+  - entity: leave_start_date
+    description: "Leave start date"
+    type: "temporal"
+    parser: "dateparser"
+
+  - entity: leave_end_date
+    description: "Leave end date"
+    type: "temporal"
+    parser: "dateparser"
+
+  - entity: partner_station_id
+    description: "Partner station identifier"
+    type: "regex"
+    
+    patterns:
+      - pattern: "PS[0-9]{3,5}"
+        description: "Partner Station ID"
+      - pattern: "PARTNER-[A-Z]{2,3}-[0-9]{2,4}"
+        description: "Regional partner station"
+    
+    examples:
+      - "PS001"
+      - "PARTNER-DEL-123"
+      - "PS456"
+
 extraction_pipeline:
   1: "regex"        # First try regex patterns
   2: "lookup"       # Then check lookup tables
