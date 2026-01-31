@@ -87,16 +87,8 @@ class EntityExtractorTrainer:
     
     def prepare_data(self, train_path: str, val_path: str):
         """Prepare NER datasets"""
-        # Load data (JSON Lines format)
-        train_data = []
-        with open(train_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                train_data.append(json.loads(line.strip()))
-        
-        val_data = []
-        with open(val_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                val_data.append(json.loads(line.strip()))
+        train_data = self._load_dataset(train_path)
+        val_data = self._load_dataset(val_path)
         
         # Collect all entity types
         entity_types = set()
@@ -132,6 +124,34 @@ class EntityExtractorTrainer:
         val_dataset = EntityDataset(val_data, self.tokenizer, self.entity_to_id)
         
         return train_dataset, val_dataset
+
+    def _load_dataset(self, path: str) -> List[Dict]:
+        """Load dataset from JSON array or JSONL; skip blank lines and raise clear errors."""
+        with open(path, 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+
+        if not content:
+            raise ValueError(f"Dataset file is empty: {path}")
+
+        # If file looks like a JSON array, parse directly
+        if content.startswith('['):
+            try:
+                return json.loads(content)
+            except json.JSONDecodeError as e:
+                raise ValueError(f"Failed to parse JSON array in {path}: {e}")
+
+        # Otherwise treat as JSONL
+        data: List[Dict] = []
+        for lineno, line in enumerate(content.splitlines(), start=1):
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                data.append(json.loads(line))
+            except json.JSONDecodeError as e:
+                raise ValueError(f"Invalid JSON on line {lineno} in {path}: {e}")
+
+        return data
     
     def train(self, train_dataset, val_dataset, epochs: int = 10):
         """Train NER model"""
