@@ -1,0 +1,35 @@
+  0: battery_swap_status -> remove
+  1: booking_cancel -> remove 
+  2: booking_status -> remove
+  3: driver_activate -> change it to is_driver_activate
+  4: driver_deactivate -> change it to is_driver_deactivate
+  5: driver_deboarding -> provide the details (how to deboard means process what are the steps)  
+  6: driver_onboarding -> provide the details (how to onboard means process what are the steps)
+  7: driver_onboarding_status
+  8: dsk_deboard -> remove
+  9: dsk_location -> just provide the location nearest dsk location
+  10: dsk_onboard -> remove
+  11: ic_battery_submit -> remove
+  12: ic_location -> provide the details of the nearest ic station
+  13: lead_creation_status -> remove
+  14: onboarding_status -> provide the details about the onboarding status
+  15: partner_station_location -> provide the location of of nearest partner station
+  16: partner_station_swap_process -> provide the details about what is the process of actually making swap
+  17: penalty_reason -> give the details about why the penalty has been posted
+  18: plan_comparison -> remove
+  19: retrofitment_schedule -> remove
+  20: retrofitment_status -> remove
+  21: subscription_plan -> change it to user_active_plan_details (give the details about the active plan)
+  22: swap_battery_scan -> remove
+  23: swap_history -> provide the history of swaps
+  24: swap_price_inquiry -> tell the user what is the price of swap in his profile
+  25: swap_process -> tell the exact process of making a swap
+  26: swap_time_saved -> change it to (why_choose_battery_smart) 
+  27: verification_status -> remove
+  28: wallet_balance -> how much money he had in his driver wallet
+
+
+  --add
+    driver_wants_to_deboard -> ask the proper reason why he wants to quit and connent it to the agent
+    driver_wants_to_onboard -> ask the proper details and connect it to the agent
+    

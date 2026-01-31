@@ -104786,6 +104786,53 @@
     }
   },
   {
+    "text": "kaun kaun se subscription plans hain",
+    "intent": "user_active_plan_details",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "plan_inquiry",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "show all subscription plans",
+    "intent": "user_active_plan_details",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "plan_inquiry",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "available plans batao Mumbai ke liye",
+    "intent": "user_active_plan_details",
+    "entities": [
+      {
+        "entity": "city",
+        "value": "Mumbai",
+        "start": 22,
+        "end": 28
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "plan_inquiry",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "plan ki jankari chahiye",
+    "intent": "user_active_plan_details",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "plan_inquiry",
+      "complexity": "simple"
+    }
+  },
+  {
     "text": "najdiki DSK kahan hai",
     "intent": "dsk_location",
     "entities": [],
@@ -104836,6 +104883,166 @@
     "language": "hi",
     "metadata": {
       "scenario": "dsk_location_search",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "driver deactivate karna hai",
+    "intent": "is_driver_deactivate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_deactivation",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "make me inactive before leave",
+    "intent": "is_driver_deactivate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_deactivation",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "leave pe ja raha hun 15 days ke liye deactivate karo at DSK",
+    "intent": "is_driver_deactivate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "leave_duration",
+        "value": "15 days",
+        "start": 20,
+        "end": 27
+      },
+      {
+        "entity": "deactivation_center",
+        "value": "dsk",
+        "start": 57,
+        "end": 60
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_deactivation",
+      "complexity": "complex"
+    }
+  },
+  {
+    "text": "temporarily stop driving account inactive karo",
+    "intent": "is_driver_deactivate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_deactivation",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "driver activate karna hai",
+    "intent": "is_driver_activate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_activation",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "reactivate my account at IC",
+    "intent": "is_driver_activate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "activation_center",
+        "value": "ic",
+        "start": 25,
+        "end": 27
+      }
+    ],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_activation",
+      "complexity": "medium"
+    }
+  },
+  {
+    "text": "wapas active hona hai phir se gaadi chalani hai",
+    "intent": "is_driver_activate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_activation",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "chutti se wapas aaya hun activate karo at Driver Seva Kendra",
+    "intent": "is_driver_activate",
+    "entities": [
+      {
+        "entity": "driver_id",
+        "value": null,
+        "start": null,
+        "end": null
+      },
+      {
+        "entity": "activation_center",
+        "value": "dsk",
+        "start": 42,
+        "end": 61
+      }
+    ],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_activation",
       "complexity": "medium"
     }
   },
@@ -104984,7 +105191,146 @@
     }
   },
   {
-    "text": "kya main ride le sakta hun",
+    "text": "swap se kitna time bachta hai",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "benefits_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "how much time saved with battery swap",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "benefits_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "charging se kitna fast hai swap",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "benefits_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "battery swap mein kitna samay lagta hai",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "benefits_query",
+      "complexity": "simple"
+    }
+  },
+  {
+    "text": "is my driver account activated",
+    "intent": "is_driver_activate",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "is_driver_activate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "am I activated as a driver",
+    "intent": "is_driver_activate",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "is_driver_activate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "check if I am an active driver",
+    "intent": "is_driver_activate",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "is_driver_activate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "is my account active for driving",
+    "intent": "is_driver_activate",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "is_driver_activate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "can I start taking rides",
+    "intent": "is_driver_activate",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "is_driver_activate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "मेरा ड्राइवर अकाउंट एक्टिव है क्या",
+    "intent": "is_driver_activate",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "is_driver_activate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "क्या मैं एक्टिव ड्राइवर हूं",
+    "intent": "is_driver_activate",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "is_driver_activate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "मेरा अकाउंट चालू है क्या",
+    "intent": "is_driver_activate",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "is_driver_activate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "क्या मैं राइड ले सकता हूं",
+    "intent": "is_driver_activate",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "is_driver_activate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "mera driver account active hai kya",
     "intent": "is_driver_activate",
     "entities": [],
     "language": "hinglish",
@@ -104995,281 +105341,14 @@
     }
   },
   {
-    "text": "naya driver banana hai mujhe",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "check if my account is active",
+    "text": "kya main active driver hun",
     "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "driver se hatao mujhe",
-    "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "hinglish",
     "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "कमाई करनी है",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "kya meri id active hai",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "am I an active driver",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "deboard karna hai",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "account create karna hai driver",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "ab nahi karna hai driver work",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "दोस्त ने बताया, मैं भी जुड़ना चाहता हूं",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "my subscription plan name",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "account band karna hai permanently",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "मुझे ऑनबोर्ड करवाओ",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "I want to join your service",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "ड्राइवर से हटाओ मुझे",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "mera account disable hai kya",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "what are the benefits",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "why_choose_battery_smart_usage",
+      "scenario": "is_driver_activate_usage",
       "complexity": "simple",
       "augmented": true
-    }
-  },
-  {
-    "text": "join karna hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "register as driver",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "kaam mil jayega kya",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "am I blocked from driving",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "cheaper than petrol",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "temporarily stop driving account inactive karo",
-    "intent": "is_driver_deactivate",
-    "entities": [
-      {
-        "entity": "driver_id",
-        "value": null,
-        "start": null,
-        "end": null
-      }
-    ],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_deactivation",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I want to join as driver",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "subscription cancel karke jaana hai",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "new driver registration",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
     }
   },
   {
@@ -105284,139 +105363,1191 @@
     }
   },
   {
-    "text": "interested in driver job",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "my account activation confirmation",
+    "text": "kya main ride le sakta hun",
     "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "show my current plan",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "heard good things, want to join",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "mera account activate hua hai kya",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "resign karna chahta hun",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "ड्राइवर कैसे बनें",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "what are the advantages of battery smart",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "Battery Smart quit kar raha hun",
-    "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "hinglish",
     "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
+      "scenario": "is_driver_activate_usage",
       "complexity": "simple",
-      "new_intent": true
+      "augmented": true
     }
   },
   {
-    "text": "want to start riding",
-    "intent": "driver_wants_to_onboard",
+    "text": "is my account deactivated",
+    "intent": "is_driver_deactivate",
     "entities": [],
     "language": "en",
     "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "resign karna hai driver se",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
+      "scenario": "is_driver_deactivate_usage",
       "complexity": "simple",
-      "new_intent": true
+      "augmented": true
     }
   },
   {
-    "text": "I want to withdraw from service",
-    "intent": "driver_wants_to_deboard",
+    "text": "why am I deactivated",
+    "intent": "is_driver_deactivate",
     "entities": [],
     "language": "en",
     "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
+      "scenario": "is_driver_deactivate_usage",
       "complexity": "simple",
-      "new_intent": true
+      "augmented": true
     }
   },
   {
-    "text": "profile off kyu hai mera",
+    "text": "am I blocked from driving",
+    "intent": "is_driver_deactivate",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "is_driver_deactivate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "check my deactivation status",
+    "intent": "is_driver_deactivate",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "is_driver_deactivate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "why can't I take rides",
+    "intent": "is_driver_deactivate",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "is_driver_deactivate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "मेरा अकाउंट बंद क्यों है",
     "intent": "is_driver_deactivate",
     "entities": [],
     "language": "hi",
     "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
+      "scenario": "is_driver_deactivate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "क्या मैं डिएक्टिवेट हूं",
+    "intent": "is_driver_deactivate",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "is_driver_deactivate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "ड्राइविंग क्यों नहीं कर सकता",
+    "intent": "is_driver_deactivate",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "is_driver_deactivate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "अकाउंट ब्लॉक क्यों हुआ",
+    "intent": "is_driver_deactivate",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "is_driver_deactivate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "mera account band kyu hai",
+    "intent": "is_driver_deactivate",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "is_driver_deactivate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "kya main deactivate hun",
+    "intent": "is_driver_deactivate",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "is_driver_deactivate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "driving kyu nahi kar sakta",
+    "intent": "is_driver_deactivate",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "is_driver_deactivate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "account block kyu hua",
+    "intent": "is_driver_deactivate",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "is_driver_deactivate_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "how to leave Battery Smart",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "what is the process to quit",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "deboarding steps",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "how do I deboard",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "I want to leave, what should I do",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "exit process for drivers",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "how to close my driver account",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "Battery Smart कैसे छोड़ें",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "डिबोर्डिंग की प्रक्रिया",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "अकाउंट बंद कैसे करें",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "छोड़ने के लिए क्या करें",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "ड्राइवर से कैसे हटें",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "Battery Smart kaise chhodun",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "deboarding process kya hai",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "account band kaise kare",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "chhodne ke liye kya kare",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "driver se kaise hate",
+    "intent": "driver_deboarding",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_deboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "how to join as driver",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "onboarding process for new drivers",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "what are the steps to join",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "how do I become a Battery Smart driver",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "driver registration process",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "I want to join, what documents needed",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "how to onboard as driver",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "ड्राइवर कैसे बनें",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "ऑनबोर्डिंग प्रक्रिया क्या है",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "ज्वाइन करने के स्टेप्स",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "Battery Smart में कैसे शामिल हों",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "कौन से दस्तावेज़ चाहिए",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "driver kaise bane",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "onboarding process kya hai",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "join karne ke steps",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "Battery Smart mein kaise shamil ho",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "kaun se documents chahiye",
+    "intent": "driver_onboarding",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_onboarding_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "how to swap battery",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "swap process steps",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "tell me swap procedure",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "how do I change battery",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "what is the exact swap process",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "battery swap kaise kare",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "swap steps batao",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "बैटरी स्वैप कैसे करें",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "स्वैप की प्रक्रिया",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "बैटरी बदलने के स्टेप्स",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "स्वैप कैसे करते हैं",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "पूरी प्रक्रिया बताओ",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "battery swap kaise kare",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "swap process batao",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "battery change karne ke steps",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "swap kaise hota hai",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "puri process batao",
+    "intent": "swap_process",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "swap_process_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "what is my swap price",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "how much does a swap cost for me",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "swap rate for my account",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "check my swap cost",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "what will I pay for swap",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "मेरे लिए स्वैप की कीमत क्या है",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "स्वैप में कितना लगेगा",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "स्वैप रेट क्या है मेरे लिए",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "स्वैप की कॉस्ट बताओ",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "mere liye swap ki price kya hai",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "swap mein kitna lagega",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "swap rate kya hai",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "swap cost batao",
+    "intent": "swap_price_inquiry",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "swap_price_inquiry_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "check my wallet balance",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "how much money in wallet",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "wallet amount",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "what is my current balance",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "driver wallet balance check",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "वॉलेट बैलेंस चेक करो",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "वॉलेट में कितने पैसे हैं",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "मेरा बैलेंस बताओ",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "ड्राइवर वॉलेट में कितना है",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "wallet balance check karo",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "wallet mein kitne paise hain",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "mera balance batao",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "driver wallet mein kitna hai",
+    "intent": "wallet_balance",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "wallet_balance_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "why was I charged penalty",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "explain my penalty",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "reason for fine on my account",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "why did I get penalty",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "penalty details",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "पेनल्टी क्यों लगी",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "जुर्माने की वजह बताओ",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "पेनल्टी के बारे में बताओ",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "फाइन क्यों हुई",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "penalty kyu lagi",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "jurmane ki wajah batao",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "penalty ke bare mein batao",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "fine kyu hui",
+    "intent": "penalty_reason",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "penalty_reason_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "why should I choose Battery Smart",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "why_choose_battery_smart_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "what are the benefits",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "why_choose_battery_smart_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "why Battery Smart is better",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "why_choose_battery_smart_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "advantages of Battery Smart",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "why_choose_battery_smart_usage",
+      "complexity": "simple",
+      "augmented": true
     }
   },
   {
@@ -105424,6 +106555,50 @@
     "intent": "why_choose_battery_smart",
     "entities": [],
     "language": "en",
+    "metadata": {
+      "scenario": "why_choose_battery_smart_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "Battery Smart क्यों चुनें",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "why_choose_battery_smart_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "क्या फायदे हैं",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "why_choose_battery_smart_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "बैटरी स्वैप के क्या लाभ",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "why_choose_battery_smart_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "समय की बचत कैसे होती है",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "hi",
     "metadata": {
       "scenario": "why_choose_battery_smart_usage",
       "complexity": "simple",
@@ -105442,131 +106617,6 @@
     }
   },
   {
-    "text": "show all subscription plans",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_inquiry",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I'm not interested anymore",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "driver deactivate karna hai",
-    "intent": "is_driver_deactivate",
-    "entities": [
-      {
-        "entity": "driver_id",
-        "value": null,
-        "start": null,
-        "end": null
-      }
-    ],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_deactivation",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "isteefa dena hai",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "mujhe bharti karo",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "driver job chahiye",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "reason for account suspension",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I want to resign as driver",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "I want to sign up",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "chhodna chahta hun service",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "khush nahi hun, jana chahta hun",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
     "text": "kya fayde hain",
     "intent": "why_choose_battery_smart",
     "entities": [],
@@ -105578,138 +106628,32 @@
     }
   },
   {
-    "text": "want to close everything and leave",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "wapas active hona hai phir se gaadi chalani hai",
-    "intent": "is_driver_activate",
-    "entities": [
-      {
-        "entity": "driver_id",
-        "value": null,
-        "start": null,
-        "end": null
-      }
-    ],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_activation",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "help karo judne mein",
-    "intent": "driver_wants_to_onboard",
+    "text": "battery swap ke kya benefits",
+    "intent": "why_choose_battery_smart",
     "entities": [],
     "language": "hinglish",
     "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "driving band karna chahta hun",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "available plans batao Mumbai ke liye",
-    "intent": "user_active_plan_details",
-    "entities": [
-      {
-        "entity": "city",
-        "value": "Mumbai",
-        "start": 22,
-        "end": 28
-      }
-    ],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_inquiry",
-      "complexity": "medium"
-    }
-  },
-  {
-    "text": "account inactive kyu hai",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "close my account permanently",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "please guide me for joining",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "activation ho gayi meri",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "work with battery smart",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "क्या मैं डिएक्टिवेट हूं",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
+      "scenario": "why_choose_battery_smart_usage",
       "complexity": "simple",
       "augmented": true
     }
   },
   {
-    "text": "और नहीं चलाना चाहता",
+    "text": "time saving kaise hoti hai",
+    "intent": "why_choose_battery_smart",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "why_choose_battery_smart_usage",
+      "complexity": "simple",
+      "augmented": true
+    }
+  },
+  {
+    "text": "I want to quit Battery Smart",
     "intent": "driver_wants_to_deboard",
     "entities": [],
-    "language": "hi",
+    "language": "en",
     "metadata": {
       "scenario": "driver_wants_to_deboard_request",
       "complexity": "simple",
@@ -105717,74 +106661,100 @@
     }
   },
   {
-    "text": "kaam karna chahta hun",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "battery smart se exit karna hai",
+    "text": "I want to leave as driver",
     "intent": "driver_wants_to_deboard",
     "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "battery smart join karna hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "activation status batao mera",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "want to start working",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
     "language": "en",
     "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
+      "scenario": "driver_wants_to_deboard_request",
       "complexity": "simple",
       "new_intent": true
     }
   },
   {
-    "text": "charging se kitna fast hai swap",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "help me become a driver",
-    "intent": "driver_wants_to_onboard",
+    "text": "help me deboard",
+    "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "en",
     "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I don't want to continue",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I want to stop being driver",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I need to quit the service",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "please help me exit",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I want to close my driver account",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "how can I leave Battery Smart",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I'm not interested anymore",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
       "complexity": "simple",
       "new_intent": true
     }
@@ -105801,28 +106771,7 @@
     }
   },
   {
-    "text": "मदद करो छोड़ने में",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "main shamil hona chahta hun",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I don't want to continue",
+    "text": "please deboard me",
     "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "en",
@@ -105833,13 +106782,102 @@
     }
   },
   {
-    "text": "off-boarding karna hai",
+    "text": "I want to resign as driver",
     "intent": "driver_wants_to_deboard",
     "entities": [],
-    "language": "hi",
+    "language": "en",
     "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I'm quitting Battery Smart",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "help me leave the platform",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I don't want to drive anymore",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I need to stop my driver account",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I want to deactivate my account",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "please remove me from drivers",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I'm leaving Battery Smart",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I want to withdraw from service",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
     }
   },
   {
@@ -105865,2072 +106903,18 @@
     }
   },
   {
-    "text": "help me deboard",
+    "text": "I want to stop my subscription and quit",
     "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "en",
     "metadata": {
       "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "I'm moving to another city, want to quit",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "बैटरी स्वैप के क्या लाभ",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "why_choose_battery_smart_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "help me leave the platform",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "रजिस्ट्रेशन कराना है",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "naya account chahiye driver ka",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "शहर बदल रहा हूं, क्विट करना है",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "konsa plan hai mere paas",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "mujhe block kar diya kya",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "plan type batao mera",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "drivers se remove karo",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "why should I use battery smart",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "plan ki price kya hai meri",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "when does my plan expire",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "naukri chhod raha hun",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "register kaise hote hain",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "swap vs charging benefits",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "मैं ड्राइवर बनना चाहता हूं",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "earning karna chahta hun",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "I wish to join",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "am I ready to take rides",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "driver kaise bane",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "onboarding mein madad karo",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "why can't I accept rides",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "dost ne bataya, main bhi judna chahta hun",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "benefits of using swap over charging",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "medium"
-    }
-  },
-  {
-    "text": "nahi continue karna",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "काम शुरू करना है",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "kaam shuru karna hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "registration kaise kare",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "kya mera account active hai",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I need job, want to join as driver",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "is my account active for driving",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "is_driver_activate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "meri subscription ki details",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "interested hun driver banne mein",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "don't want to continue as driver",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "mujhe driver banna hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I want to resign",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "charging se swap kyu better hai",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "battery swap ke kya benefits",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "why_choose_battery_smart_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "deboard process karo please",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "is my profile suspended",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "what is my plan price",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "काम करना चाहता हूं",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "ज्वाइन करना है",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "need new driver account",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "क्या फायदे हैं",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "why_choose_battery_smart_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "leave pe ja raha hun 15 days ke liye deactivate karo at DSK",
-    "intent": "is_driver_deactivate",
-    "entities": [
-      {
-        "entity": "driver_id",
-        "value": null,
-        "start": null,
-        "end": null
-      },
-      {
-        "entity": "leave_duration",
-        "value": "15 days",
-        "start": 20,
-        "end": 27
-      },
-      {
-        "entity": "deactivation_center",
-        "value": "dsk",
-        "start": 57,
-        "end": 60
-      }
-    ],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_deactivation",
-      "complexity": "complex"
-    }
-  },
-  {
-    "text": "quitting my job",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "check if I am an active driver",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "is_driver_activate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "tell me about my subscription",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "how can I leave Battery Smart",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "मेरा अकाउंट बंद क्यों है",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "अकाउंट बंद करना है",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "is my driver profile active",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "अच्छा सुना है, ज्वाइन करूंगा",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "ride kyu nahi le pa raha",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "looking to join as driver",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "please help me exit",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "is battery swap eco friendly",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "मुझे भर्ती करो",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "am I activated as a driver",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "is_driver_activate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "नहीं जारी रखना है",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "why is my account blocked",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "process batao onboarding ka",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "I want to become Battery Smart driver",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "sign up as driver",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "driver account suspended kyu",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "check my plan validity",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "why Battery Smart is better",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "why_choose_battery_smart_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "help me join your platform",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "block hone ka reason batao",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "is my plan monthly or unlimited",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "my friend is driver, I also want to join",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "help me deboard please",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "subscription details dikhao",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "Battery Smart mein shamil hona hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "account band karna hai",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "time saved with battery swap",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "active plan ki jankari",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "earning potential with battery smart",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "please onboard me",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "cancel my subscription and leave",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "medium"
-    }
-  },
-  {
-    "text": "help me onboard",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "plan ki jankari chahiye",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_inquiry",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "kya main active driver hun",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "is_driver_activate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "please help me register",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "main jaana chahta hun",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I want to become a driver",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "health issues, need to quit driving",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "active driver hun main",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "verify if I am activated",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "khatam karna hai sab kuch",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "active subscription information",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "mere plan ke benefits kya hain",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "help me get onboarded",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "battery swap mein kitna samay lagta hai",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "दूसरी नौकरी मिल गई, छोड़ना है",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "main driver banna chahta hun",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "withdraw karna hai service se",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "chutti se wapas aaya hun activate karo at Driver Seva Kendra",
-    "intent": "is_driver_activate",
-    "entities": [
-      {
-        "entity": "driver_id",
-        "value": null,
-        "start": null,
-        "end": null
-      },
-      {
-        "entity": "activation_center",
-        "value": "dsk",
-        "start": 42,
-        "end": 61
-      }
-    ],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_activation",
-      "complexity": "medium"
-    }
-  },
-  {
-    "text": "riding shuru karni hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I found another job, need to leave",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "why can't I login",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "can I start taking rides",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "is_driver_activate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "remaining swaps in my plan",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "kitni kamai ho sakti hai",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "cost savings with battery smart",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "want to join battery smart",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "mujhe chhorna hai battery smart",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I'm leaving Battery Smart",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "petrol se kitna sasta hai",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I want to start driving for Battery Smart",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "want to work as driver",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "अकाउंट ब्लॉक क्यों हुआ",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "can I do more rides with swap",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "why can't I take rides",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "Battery Smart क्यों चुनें",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "why_choose_battery_smart_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "driver status check karo",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "deboard karwa do mujhe",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "mujhe onboard karwao",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "dusri job mil gayi, chhodna hai",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "I want to earn with Battery Smart",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "sign up karna hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "डिबोर्ड करना है",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "why my account is not working",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "kya mere account mein problem hai",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "city change kar raha hun, quit karna hai",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "please mujhe hata do",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "onboard karwa do mujhe",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "plan validity check karo",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "tabiyat kharab hai, nahi chala sakta",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "kaam karna hai battery smart mein",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "mera account band kyu hai",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "ड्राइवर के रूप में जुड़ना है",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "account activate check",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "account deactivate kyu hua",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I need to stop my driver account",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "help me with onboarding process",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
       "complexity": "simple",
       "new_intent": true
     }
   },
   {
     "text": "please process my deboarding",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "मेरा अकाउंट चालू है क्या",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "is_driver_activate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "kitne swap bache hain mere plan mein",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "what plan am I subscribed to",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I want to enroll as driver",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "driver registration karna chahta hun",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "मैं Battery Smart छोड़ना चाहता हूं",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "zyada rides mil sakti hain kya",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "mera account enable hai kya",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "kya main deactivated hun",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "account kaam nahi kar raha kyu",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "main Battery Smart chhodna chahta hun",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "I want to deactivate my account",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "platform par aana hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "platform join karna hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "service se nikal lo mujhe",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "aur nahi chalana chahta",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "leaving battery smart",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "please deboard me",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "is my driver account activated",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "is_driver_activate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "paisa kitna bachta hai battery smart se",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "क्या मैं राइड ले सकता हूं",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "is_driver_activate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "ड्राइविंग नहीं करनी अब",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "I want to quit driving",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "driver ke roop mein judna hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "I need to quit the service",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "I don't want to drive anymore",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "exit from battery smart",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "क्या मैं एक्टिव ड्राइवर हूं",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "is_driver_activate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "time saving kaise hoti hai",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "why_choose_battery_smart_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "help karo chhodne mein",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "create driver account",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "mera active plan kya hai",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "account deactivate kardo",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "want to end my driving career",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "confirm my activation status",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "साइन अप करना है",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "check my deactivation status",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "I want to quit Battery Smart",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "mujhe driver nahi rehna",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "what benefits do I have in my plan",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "medium"
-    }
-  },
-  {
-    "text": "nahi rahna driver ab",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "aage nahi karna driving",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "I want to work with Battery Smart",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "kamai karni hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "प्लीज मुझे हटा दो",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "advantages of battery swap",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "बाहर निकलना है",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "battery smart use karne ke benefits",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I'm quitting Battery Smart",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "नौकरी चाहिए ड्राइवर की",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "what type of plan do I have",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "plan kab expire hoga",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "swap karne se kya benefit hai",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I want to leave as driver",
     "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "en",
@@ -107952,150 +106936,7 @@
     }
   },
   {
-    "text": "driving nahi karni ab",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "bahar nikalna hai",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "swap karna charging se kaise acha hai",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "इस्तीफा देना है",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "how is battery swap better than charging",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "medium"
-    }
-  },
-  {
-    "text": "make me inactive before leave",
-    "intent": "is_driver_deactivate",
-    "entities": [
-      {
-        "entity": "driver_id",
-        "value": null,
-        "start": null,
-        "end": null
-      }
-    ],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_deactivation",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "how much time saved with battery swap",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "guide karo joining ke liye",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "have I been blocked",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I'm interested in becoming driver",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "enrollment karna hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "मदद करो जुड़ने में",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "environment ke liye acha hai kya",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I want to stop being driver",
+    "text": "I found another job, need to leave",
     "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "en",
@@ -108106,150 +106947,45 @@
     }
   },
   {
-    "text": "kitna time bachta hai swap se",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "समय की बचत कैसे होती है",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "why_choose_battery_smart_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "how can I join as driver",
-    "intent": "driver_wants_to_onboard",
+    "text": "I'm moving to another city, want to quit",
+    "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "en",
     "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
+      "scenario": "driver_wants_to_deboard_request",
       "complexity": "simple",
       "new_intent": true
     }
   },
   {
-    "text": "प्लेटफॉर्म पर आना है",
-    "intent": "driver_wants_to_onboard",
+    "text": "health issues, need to quit driving",
+    "intent": "driver_wants_to_deboard",
     "entities": [],
-    "language": "hi",
+    "language": "en",
     "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
+      "scenario": "driver_wants_to_deboard_request",
       "complexity": "simple",
       "new_intent": true
     }
   },
   {
-    "text": "deactivation ka karan",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "mera driver account chalu hai kya",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "check my driver activation",
-    "intent": "is_driver_activate",
+    "text": "want to close everything and leave",
+    "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "en",
     "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "naukri chahiye driver ki",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
+      "scenario": "driver_wants_to_deboard_request",
       "complexity": "simple",
       "new_intent": true
     }
   },
   {
-    "text": "reactivate my account at IC",
-    "intent": "is_driver_activate",
-    "entities": [
-      {
-        "entity": "driver_id",
-        "value": null,
-        "start": null,
-        "end": null
-      },
-      {
-        "entity": "activation_center",
-        "value": "ic",
-        "start": 25,
-        "end": 27
-      }
-    ],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_activation",
-      "complexity": "medium"
-    }
-  },
-  {
-    "text": "mera account band kyu hai",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "मेरा ड्राइवर अकाउंट एक्टिव है क्या",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "is_driver_activate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "service chhodni hai",
+    "text": "मैं Battery Smart छोड़ना चाहता हूं",
     "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "hi",
     "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "accha suna hai, join karunga",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
+      "scenario": "driver_wants_to_deboard_request",
       "complexity": "simple",
       "new_intent": true
     }
@@ -108266,112 +107002,7 @@
     }
   },
   {
-    "text": "account block reason",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "current subscription batao",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "mera driver account active hai kya",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "is_driver_activate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "Battery Smart में शामिल होना है",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "monthly plan hai ya unlimited",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "ड्राइविंग क्यों नहीं कर सकता",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "account kyu band kar diya",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "swap se kitna time bachta hai",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "Battery Smart ke saath kaam karna hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "why should I choose Battery Smart",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "why_choose_battery_smart_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "खुश नहीं हूं, जाना चाहता हूं",
+    "text": "डिबोर्ड करना है",
     "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "hi",
@@ -108382,100 +107013,7 @@
     }
   },
   {
-    "text": "kaun kaun se subscription plans hain",
-    "intent": "user_active_plan_details",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "plan_inquiry",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "battery smart kyu chunein",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "driver account enabled hai kya",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I want to register as driver",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "why am I deactivated",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "ride lene ke liye active hun kya",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "can I start driving now",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "is my id activated",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "account block kyu hua",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "तबीयत खराब है, नहीं चला सकता",
+    "text": "नहीं जारी रखना है",
     "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "hi",
@@ -108486,104 +107024,10 @@
     }
   },
   {
-    "text": "is my account deactivated",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "driver partner banana hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "assist me in joining",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "kya main deactivate hun",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "check if I am deactivated",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "battery smart ke fayde",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "registration karana hai",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "why is my driver profile off",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deactivation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "want to stop being a driver",
+    "text": "ड्राइवर से हटाओ मुझे",
     "intent": "driver_wants_to_deboard",
     "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "platform chhodna hai",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
+    "language": "hi",
     "metadata": {
       "scenario": "driver_wants_to_deboard_request",
       "complexity": "simple",
@@ -108591,102 +107035,73 @@
     }
   },
   {
-    "text": "account activation status",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "I want to close my driver account",
+    "text": "अकाउंट बंद करना है",
     "intent": "driver_wants_to_deboard",
     "entities": [],
-    "language": "en",
+    "language": "hi",
     "metadata": {
       "scenario": "driver_wants_to_deboard_request",
       "complexity": "simple",
       "new_intent": true
-    }
-  },
-  {
-    "text": "driver ke taur par aana chahta hun",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_onboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "sign up karna hai driver ke liye",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "mujhe jaane do",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
-      "complexity": "simple",
-      "new_intent": true
-    }
-  },
-  {
-    "text": "kya main ab drive kar sakta hun",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "am I blocked from driving",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "I want to leave",
-    "intent": "driver_wants_to_deboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "deboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "advantages of Battery Smart",
-    "intent": "why_choose_battery_smart",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "why_choose_battery_smart_usage",
-      "complexity": "simple",
-      "augmented": true
     }
   },
   {
     "text": "छोड़ना चाहता हूं सर्विस",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "मदद करो छोड़ने में",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "इस्तीफा देना है",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "ड्राइविंग नहीं करनी अब",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "प्लीज मुझे हटा दो",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "बाहर निकलना है",
     "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "hi",
@@ -108708,22 +107123,540 @@
     }
   },
   {
-    "text": "battery smart ke advantages batao",
-    "intent": "why_choose_battery_smart",
+    "text": "और नहीं चलाना चाहता",
+    "intent": "driver_wants_to_deboard",
     "entities": [],
     "language": "hi",
     "metadata": {
-      "scenario": "benefits_query",
-      "complexity": "simple"
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
     }
   },
   {
-    "text": "please remove me from drivers",
+    "text": "दूसरी नौकरी मिल गई, छोड़ना है",
     "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "शहर बदल रहा हूं, क्विट करना है",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "तबीयत खराब है, नहीं चला सकता",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "खुश नहीं हूं, जाना चाहता हूं",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "main Battery Smart chhodna chahta hun",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "mujhe driver nahi rehna",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "deboard karna hai",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "nahi continue karna",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "driver se hatao mujhe",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "account band karna hai",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "chhodna chahta hun service",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "help karo chhodne mein",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "isteefa dena hai",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "driving nahi karni ab",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "please mujhe hata do",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "bahar nikalna hai",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "khatam karna hai sab kuch",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "aur nahi chalana chahta",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "dusri job mil gayi, chhodna hai",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "city change kar raha hun, quit karna hai",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "tabiyat kharab hai, nahi chala sakta",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "khush nahi hun, jana chahta hun",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "service se nikal lo mujhe",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "resign karna hai driver se",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "Battery Smart quit kar raha hun",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "platform chhodna hai",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "aage nahi karna driving",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "deboard process karo please",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "mujhe jaane do",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "account deactivate kardo",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "drivers se remove karo",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "withdraw karna hai service se",
+    "intent": "driver_wants_to_deboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_deboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I want to join as driver",
+    "intent": "driver_wants_to_onboard",
     "entities": [],
     "language": "en",
     "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "help me onboard",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I want to become Battery Smart driver",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I want to register as driver",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "assist me in joining",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "how can I join as driver",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I want to sign up",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "help me become a driver",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I want to work with Battery Smart",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "please onboard me",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I want to start driving for Battery Smart",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "registration kaise kare",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I want to enroll as driver",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "help me join your platform",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I'm interested in becoming driver",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "can you help me onboard",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
       "complexity": "simple",
       "new_intent": true
     }
@@ -108740,38 +107673,7 @@
     }
   },
   {
-    "text": "driving kyu nahi kar sakta",
-    "intent": "is_driver_deactivate",
-    "entities": [],
-    "language": "hinglish",
-    "metadata": {
-      "scenario": "is_driver_deactivate_usage",
-      "complexity": "simple",
-      "augmented": true
-    }
-  },
-  {
-    "text": "mera activation confirm karo",
-    "intent": "is_driver_activate",
-    "entities": [],
-    "language": "hi",
-    "metadata": {
-      "scenario": "activation_check",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "become driver partner",
-    "intent": "driver_wants_to_onboard",
-    "entities": [],
-    "language": "en",
-    "metadata": {
-      "scenario": "onboard_request",
-      "complexity": "simple"
-    }
-  },
-  {
-    "text": "can you help me onboard",
+    "text": "please help me register",
     "intent": "driver_wants_to_onboard",
     "entities": [],
     "language": "en",
@@ -108782,31 +107684,36 @@
     }
   },
   {
-    "text": "I want to stop my subscription and quit",
-    "intent": "driver_wants_to_deboard",
+    "text": "I want to join your service",
+    "intent": "driver_wants_to_onboard",
     "entities": [],
     "language": "en",
     "metadata": {
-      "scenario": "driver_wants_to_deboard_request",
+      "scenario": "driver_wants_to_onboard_request",
       "complexity": "simple",
       "new_intent": true
     }
   },
   {
-    "text": "driver activate karna hai",
-    "intent": "is_driver_activate",
-    "entities": [
-      {
-        "entity": "driver_id",
-        "value": null,
-        "start": null,
-        "end": null
-      }
-    ],
-    "language": "hi",
+    "text": "looking to join as driver",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
     "metadata": {
-      "scenario": "driver_activation",
-      "complexity": "simple"
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "want to work as driver",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
     }
   },
   {
@@ -108814,6 +107721,589 @@
     "intent": "driver_wants_to_onboard",
     "entities": [],
     "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "help me with onboarding process",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I want to earn with Battery Smart",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "interested in driver job",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "want to start working",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "please guide me for joining",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "I need job, want to join as driver",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "my friend is driver, I also want to join",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "heard good things, want to join",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "en",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "मैं ड्राइवर बनना चाहता हूं",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "मुझे ऑनबोर्ड करवाओ",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "Battery Smart में शामिल होना है",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "रजिस्ट्रेशन कराना है",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "ड्राइवर के रूप में जुड़ना है",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "काम करना चाहता हूं",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "मुझे भर्ती करो",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "ज्वाइन करना है",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "साइन अप करना है",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "ड्राइवर कैसे बनें",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "मदद करो जुड़ने में",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "प्लेटफॉर्म पर आना है",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "नौकरी चाहिए ड्राइवर की",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "कमाई करनी है",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "काम शुरू करना है",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "दोस्त ने बताया, मैं भी जुड़ना चाहता हूं",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "अच्छा सुना है, ज्वाइन करूंगा",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hi",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "main driver banna chahta hun",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "mujhe onboard karwao",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "Battery Smart mein shamil hona hai",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "registration karana hai",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "driver ke roop mein judna hai",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "kaam karna chahta hun",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "mujhe bharti karo",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "join karna hai",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "sign up karna hai",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "driver kaise bane",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "help karo judne mein",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "platform par aana hai",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "naukri chahiye driver ki",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "kamai karni hai",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "kaam shuru karna hai",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "dost ne bataya, main bhi judna chahta hun",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "accha suna hai, join karunga",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "register kaise hote hain",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "Battery Smart ke saath kaam karna hai",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "driver job chahiye",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "onboarding mein madad karo",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "platform join karna hai",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "interested hun driver banne mein",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "earning karna chahta hun",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "kaam mil jayega kya",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "driver ke taur par aana chahta hun",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "guide karo joining ke liye",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
+    "metadata": {
+      "scenario": "driver_wants_to_onboard_request",
+      "complexity": "simple",
+      "new_intent": true
+    }
+  },
+  {
+    "text": "process batao onboarding ka",
+    "intent": "driver_wants_to_onboard",
+    "entities": [],
+    "language": "hinglish",
     "metadata": {
       "scenario": "driver_wants_to_onboard_request",
       "complexity": "simple",
