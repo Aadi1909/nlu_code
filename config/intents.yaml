@@ -1,43 +1,887 @@
-valid_intents:
-  - battery_swap_status
-  - battery_health
-  - nearest_swap_station
-  - booking_status
-  - payment_status
-  - account_balance
-  - vehicle_status
-  - complaint
-  - out_of_scope
+version: "1.0"
+project: "battery-smart-voice-assistant"
+language_support:
+  - en   
+  - hi   
+  - hinglish 
 
-valid_entities:
-  - driver_id
-  - vehicle_id
-  - booking_id
-  - location
-  - battery_level
-  - transaction_id
-  - date
-  - time
-  - amount
+intents:
+  
+  - intent: check_battery_status
+    description: "Driver wants to check current battery charge level or health"
+    category: "battery"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - vehicle_id
+    optional_slots:
+      - battery_id
+    
+    api_config:
+      endpoint: "/api/v1/battery/status"
+      method: "GET"
+      params_mapping:
+        vehicle_id: "vehicleId"
+        battery_id: "batteryId"
+    
+    examples:
+      hindi:
+        - "मेरी बैटरी कितनी चार्ज है"
+        - "बैटरी की स्थिति बताओ"
+        - "बैटरी हेल्थ कैसी है"
+        - "कितना चार्ज बचा है"
+        - "बैटरी लेवल क्या है"
+        - "मेरी बैटरी की जानकारी दो"
+        - "बैटरी कितने प्रतिशत है"
+        - "चार्ज कितना है बैटरी में"
+      
+      english:
+        - "what is my battery status"
+        - "how much charge is left"
+        - "check battery level"
+        - "battery health status"
+        - "how much battery remaining"
+        - "tell me battery percentage"
+        - "is my battery fully charged"
+        - "battery condition"
+      
+      hinglish:
+        - "battery status kya hai"
+        - "meri battery kitni charge hai"
+        - "battery ka level batao"
+        - "kitna charge bacha hai"
+        - "battery health kaisi hai"
+        - "meri battery ki condition kya hai"
+        - "battery percentage batao"
+        - "charge level kya hai"
+        - "battery mein kitna charge hai"
+        - "battery kitni bachi hai"
 
-tier_1_intents:
-  battery_swap_status:
-    required_slots: [driver_id]
-    optional_slots: [location]
-    confidence_threshold: 0.75
-  battery_health:
-    required_slots: [driver_id, vehicle_id]
-    confidence_threshold: 0.80
-  nearest_swap_station:
-    required_slots: [location]
-    confidence_threshold: 0.75
-  booking_status:
-    required_slots: [driver_id, booking_id]
-    confidence_threshold: 0.80
-  payment_status:
-    required_slots: [driver_id]
-    optional_slots: [transaction_id]
-    confidence_threshold: 0.80
-  account_balance:
-    required_slots: [driver_id]
-    confidence_threshold: 0.75
+  - intent: check_battery_range
+    description: "Driver wants to know estimated range/distance with current battery"
+    category: "battery"
+    tier: 1
+    priority: medium
+    
+    required_slots:
+      - vehicle_id
+    optional_slots: []
+    
+    api_config:
+      endpoint: "/api/v1/battery/range"
+      method: "GET"
+      params_mapping:
+        vehicle_id: "vehicleId"
+    
+    examples:
+      hindi:
+        - "कितनी दूर जा सकता हूं"
+        - "बैटरी से कितना चल सकता है"
+        - "कितने किलोमीटर की रेंज है"
+        - "और कितना चल पाएगी गाड़ी"
+      
+      english:
+        - "what is the range"
+        - "how far can I go"
+        - "estimated range"
+        - "how many kilometers left"
+      
+      hinglish:
+        - "kitni door ja sakta hun"
+        - "range kitni hai"
+        - "kitne km chalegi"
+        - "aur kitna chal payegi"
+
+  
+  - intent: find_swap_station
+    description: "Driver looking for nearest battery swap station"
+    category: "station"
+    tier: 1
+    priority: high
+    
+    required_slots: []  # Can use GPS location
+    optional_slots:
+      - location
+      - city
+      - landmark
+    
+    api_config:
+      endpoint: "/api/v1/stations/nearby"
+      method: "GET"
+      params_mapping:
+        location: "location"
+        city: "city"
+        latitude: "lat"
+        longitude: "lng"
+    
+    examples:
+      hindi:
+        - "पास में स्वैप स्टेशन कहाँ है"
+        - "नजदीकी बैटरी स्टेशन बताओ"
+        - "सबसे करीब स्वैप पॉइंट"
+        - "बैटरी कहाँ बदलूं"
+        - "स्वैप स्टेशन ढूंढो"
+        - "बैटरी चेंज करनी है कहाँ करूं"
+        - "नजदीक में स्टेशन है क्या"
+      
+      english:
+        - "where is the nearest swap station"
+        - "find swap station near me"
+        - "closest battery station"
+        - "where can I swap battery"
+        - "locate swap point"
+        - "nearest swap location"
+        - "battery exchange station nearby"
+      
+      hinglish:
+        - "nearest swap station kahan hai"
+        - "paas mein swap station batao"
+        - "swap station dhundho"
+        - "battery kahan change karun"
+        - "sabse pass wala station"
+        - "swap point kahan hai"
+        - "station kitni door hai"
+        - "yahan se nearest station"
+
+  - intent: check_station_availability
+    description: "Check if swap station has batteries available"
+    category: "station"
+    tier: 1
+    priority: medium
+    
+    required_slots:
+      - station_id
+    optional_slots: []
+    
+    api_config:
+      endpoint: "/api/v1/stations/{station_id}/availability"
+      method: "GET"
+    
+    examples:
+      hindi:
+        - "स्टेशन पर बैटरी उपलब्ध है"
+        - "वहां बैटरी मिलेगी क्या"
+        - "स्टेशन खुला है क्या"
+        - "बैटरी है स्टेशन पर"
+      
+      english:
+        - "is battery available at station"
+        - "check station availability"
+        - "does station have battery"
+        - "is the station open"
+      
+      hinglish:
+        - "station par battery available hai"
+        - "wahan battery milegi kya"
+        - "station khula hai kya"
+        - "battery hai station pe"
+
+  - intent: station_directions
+    description: "Get directions to a specific swap station"
+    category: "station"
+    tier: 1
+    priority: medium
+    
+    required_slots:
+      - station_id
+    optional_slots: []
+    
+    api_config:
+      endpoint: "/api/v1/stations/{station_id}/directions"
+      method: "GET"
+    
+    examples:
+      hindi:
+        - "स्टेशन कैसे पहुंचे"
+        - "रास्ता बताओ स्टेशन का"
+        - "स्टेशन तक कैसे जाना है"
+      
+      english:
+        - "how to reach the station"
+        - "directions to swap station"
+        - "navigate to station"
+      
+      hinglish:
+        - "station kaise pahunche"
+        - "rasta batao station ka"
+        - "station tak kaise jana hai"
+
+  - intent: check_subscription
+    description: "Check subscription plan details or status"
+    category: "subscription"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - driver_id
+    optional_slots: []
+    
+    api_config:
+      endpoint: "/api/v1/subscription/status"
+      method: "GET"
+      params_mapping:
+        driver_id: "driverId"
+    
+    examples:
+      hindi:
+        - "मेरा प्लान क्या है"
+        - "सब्सक्रिप्शन की जानकारी दो"
+        - "मेरा सब्सक्रिप्शन कब खत्म होगा"
+        - "प्लान कितने का है"
+        - "कौन सा प्लान चल रहा है"
+        - "सब्सक्रिप्शन डिटेल्स बताओ"
+      
+      english:
+        - "what is my subscription plan"
+        - "check my subscription"
+        - "subscription details"
+        - "when does my plan expire"
+        - "which plan am I on"
+        - "subscription status"
+      
+      hinglish:
+        - "mera plan kya hai"
+        - "subscription ki details batao"
+        - "mera subscription kab expire hoga"
+        - "plan kitne ka hai"
+        - "konsa plan hai mera"
+        - "subscription status batao"
+        - "plan details dikhao"
+
+  - intent: upgrade_subscription
+    description: "Driver wants to upgrade their subscription plan"
+    category: "subscription"
+    tier: 1
+    priority: medium
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - plan_type
+    
+    api_config:
+      endpoint: "/api/v1/subscription/plans"
+      method: "GET"
+    
+    examples:
+      hindi:
+        - "प्लान अपग्रेड करना है"
+        - "बेहतर प्लान चाहिए"
+        - "प्लान बदलना है"
+      
+      english:
+        - "upgrade my plan"
+        - "change subscription"
+        - "better plan options"
+      
+      hinglish:
+        - "plan upgrade karna hai"
+        - "plan change karna hai"
+        - "better plan batao"
+
+  - intent: subscription_renewal
+    description: "Renew or extend subscription"
+    category: "subscription"
+    tier: 1
+    priority: medium
+    
+    required_slots:
+      - driver_id
+    optional_slots: []
+    
+    api_config:
+      endpoint: "/api/v1/subscription/renew"
+      method: "POST"
+    
+    examples:
+      hindi:
+        - "सब्सक्रिप्शन रिन्यू करना है"
+        - "प्लान फिर से लेना है"
+        - "सब्सक्रिप्शन बढ़ाना है"
+      
+      english:
+        - "renew my subscription"
+        - "extend my plan"
+        - "continue subscription"
+      
+      hinglish:
+        - "subscription renew karna hai"
+        - "plan extend karna hai"
+        - "subscription badhana hai"
+
+  
+  - intent: payment_inquiry
+    description: "Questions about payments, dues, or transactions"
+    category: "payment"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - date_range
+    
+    api_config:
+      endpoint: "/api/v1/payments/dues"
+      method: "GET"
+      params_mapping:
+        driver_id: "driverId"
+    
+    examples:
+      hindi:
+        - "मेरा बिल कितना है"
+        - "कितना पेमेंट बाकी है"
+        - "पेमेंट कितना करना है"
+        - "बकाया कितना है"
+        - "कितने पैसे देने हैं"
+        - "पेमेंट ड्यू कितना है"
+      
+      english:
+        - "what is my bill"
+        - "how much payment is due"
+        - "check my dues"
+        - "pending payment amount"
+        - "how much do I owe"
+        - "payment due amount"
+      
+      hinglish:
+        - "mera bill kitna hai"
+        - "kitna payment baaki hai"
+        - "payment kitna karna hai"
+        - "dues kitne hain"
+        - "kitne paise dene hain"
+        - "pending payment kitna hai"
+        - "bakaya kitna hai"
+
+  - intent: payment_history
+    description: "View past payment transactions"
+    category: "payment"
+    tier: 1
+    priority: medium
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - date_range
+      - limit
+    
+    api_config:
+      endpoint: "/api/v1/payments/history"
+      method: "GET"
+      params_mapping:
+        driver_id: "driverId"
+        from_date: "fromDate"
+        to_date: "toDate"
+    
+    examples:
+      hindi:
+        - "पेमेंट हिस्ट्री दिखाओ"
+        - "पिछले पेमेंट की जानकारी"
+        - "मैंने कितना पेमेंट किया"
+        - "पेमेंट रिकॉर्ड बताओ"
+      
+      english:
+        - "show payment history"
+        - "past payments"
+        - "payment records"
+        - "previous transactions"
+      
+      hinglish:
+        - "payment history dikhao"
+        - "pichle payment ki details"
+        - "maine kitna payment kiya"
+        - "payment record batao"
+
+  - intent: make_payment
+    description: "Driver wants to make a payment"
+    category: "payment"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - amount
+      - payment_method
+    
+    api_config:
+      endpoint: "/api/v1/payments/initiate"
+      method: "POST"
+    
+    examples:
+      hindi:
+        - "पेमेंट करना है"
+        - "पैसे देने हैं"
+        - "बिल भरना है"
+        - "पेमेंट कैसे करूं"
+      
+      english:
+        - "I want to make payment"
+        - "pay my bill"
+        - "how to pay"
+        - "make payment"
+      
+      hinglish:
+        - "payment karna hai"
+        - "bill bharna hai"
+        - "paise dene hain"
+        - "payment kaise karun"
+  
+  - intent: swap_history
+    description: "Check past battery swap records"
+    category: "history"
+    tier: 1
+    priority: medium
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - date_range
+      - limit
+    
+    api_config:
+      endpoint: "/api/v1/swaps/history"
+      method: "GET"
+      params_mapping:
+        driver_id: "driverId"
+        limit: "limit"
+    
+    examples:
+      hindi:
+        - "स्वैप हिस्ट्री दिखाओ"
+        - "आज कितने स्वैप किए"
+        - "पिछला स्वैप कब हुआ"
+        - "स्वैप रिकॉर्ड बताओ"
+        - "कितनी बार बैटरी बदली"
+      
+      english:
+        - "show swap history"
+        - "how many swaps today"
+        - "when was last swap"
+        - "swap records"
+        - "battery swap history"
+      
+      hinglish:
+        - "swap history dikhao"
+        - "aaj kitne swap kiye"
+        - "last swap kab hua"
+        - "swap record batao"
+        - "kitni baar battery badli"
+
+  - intent: swap_count
+    description: "Check number of swaps done in a period"
+    category: "history"
+    tier: 1
+    priority: low
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - date_range
+    
+    api_config:
+      endpoint: "/api/v1/swaps/count"
+      method: "GET"
+    
+    examples:
+      hindi:
+        - "इस महीने कितने स्वैप हुए"
+        - "आज कितने स्वैप किए"
+        - "कुल कितने स्वैप"
+      
+      english:
+        - "how many swaps this month"
+        - "total swaps done"
+        - "swap count"
+      
+      hinglish:
+        - "is mahine kitne swap hue"
+        - "total kitne swap kiye"
+        - "aaj ke swap count"
+  
+  - intent: check_ride_stats
+    description: "Check ride statistics and distance covered"
+    category: "ride"
+    tier: 1
+    priority: low
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - date_range
+    
+    api_config:
+      endpoint: "/api/v1/rides/stats"
+      method: "GET"
+    
+    examples:
+      hindi:
+        - "आज कितना चला"
+        - "कितने किलोमीटर हुए"
+        - "राइड स्टैट्स दिखाओ"
+      
+      english:
+        - "how much I drove today"
+        - "total kilometers"
+        - "ride statistics"
+      
+      hinglish:
+        - "aaj kitna chala"
+        - "kitne km hue"
+        - "ride stats dikhao"
+
+  
+  - intent: talk_to_agent
+    description: "Driver explicitly wants human support"
+    category: "support"
+    tier: 1
+    priority: critical
+    
+    required_slots: []
+    optional_slots: []
+    
+    api_config: null
+    action: "TRANSFER_TO_AGENT"
+    
+    examples:
+      hindi:
+        - "एजेंट से बात कराओ"
+        - "इंसान से बात करनी है"
+        - "कस्टमर केयर से बात कराओ"
+        - "किसी से बात करनी है"
+        - "हेल्पलाइन पर लगाओ"
+        - "कोई इंसान चाहिए"
+        - "असली व्यक्ति से बात कराओ"
+      
+      english:
+        - "talk to agent"
+        - "connect to human"
+        - "customer care"
+        - "speak to someone"
+        - "transfer to agent"
+        - "I want to talk to a person"
+        - "human support please"
+      
+      hinglish:
+        - "agent se baat karao"
+        - "insaan se baat karni hai"
+        - "customer care connect karo"
+        - "kisi se baat karni hai"
+        - "human se baat karao"
+        - "real person se connect karo"
+
+  - intent: report_issue
+    description: "Driver wants to report a problem"
+    category: "support"
+    tier: 1
+    priority: high
+    
+    required_slots:
+      - driver_id
+    optional_slots:
+      - issue_type
+      - description
+    
+    api_config:
+      endpoint: "/api/v1/issues/report"
+      method: "POST"
+    action: "MAY_TRANSFER_TO_AGENT"
+    
+    examples:
+      hindi:
+        - "समस्या है"
+        - "प्रॉब्लम है"
+        - "कुछ गड़बड़ है"
+        - "शिकायत करनी है"
+        - "इश्यू है"
+      
+      english:
+        - "I have a problem"
+        - "something is wrong"
+        - "report an issue"
+        - "I have a complaint"
+        - "facing issue"
+      
+      hinglish:
+        - "problem hai"
+        - "issue hai"
+        - "kuch gadbad hai"
+        - "complaint karni hai"
+        - "dikkat hai"
+
+  - intent: help_general
+    description: "General help or guidance request"
+    category: "support"
+    tier: 1
+    priority: medium
+    
+    required_slots: []
+    optional_slots: []
+    
+    api_config: null
+    action: "PROVIDE_HELP_MENU"
+    
+    examples:
+      hindi:
+        - "मदद चाहिए"
+        - "हेल्प करो"
+        - "क्या कर सकते हो"
+        - "क्या क्या पूछ सकता हूं"
+      
+      english:
+        - "help"
+        - "I need help"
+        - "what can you do"
+        - "help me"
+      
+      hinglish:
+        - "help karo"
+        - "madad chahiye"
+        - "kya kar sakte ho"
+  
+  - intent: greet
+    description: "User greeting"
+    category: "general"
+    tier: 1
+    priority: low
+    
+    required_slots: []
+    optional_slots: []
+    
+    api_config: null
+    action: "GREET_BACK"
+    
+    examples:
+      hindi:
+        - "नमस्ते"
+        - "हैलो"
+        - "हाय"
+      
+      english:
+        - "hello"
+        - "hi"
+        - "hey"
+        - "good morning"
+        - "good evening"
+      
+      hinglish:
+        - "hello"
+        - "hi"
+        - "namaste"
+
+  - intent: thank
+    description: "User thanking"
+    category: "general"
+    tier: 1
+    priority: low
+    
+    required_slots: []
+    optional_slots: []
+    
+    api_config: null
+    action: "ACKNOWLEDGE_THANKS"
+    
+    examples:
+      hindi:
+        - "धन्यवाद"
+        - "शुक्रिया"
+        - "थैंक यू"
+      
+      english:
+        - "thank you"
+        - "thanks"
+        - "thank you so much"
+      
+      hinglish:
+        - "thank you"
+        - "thanks"
+        - "dhanyawad"
+        - "shukriya"
+
+  - intent: bye
+    description: "User ending conversation"
+    category: "general"
+    tier: 1
+    priority: low
+    
+    required_slots: []
+    optional_slots: []
+    
+    api_config: null
+    action: "END_CONVERSATION"
+    
+    examples:
+      hindi:
+        - "अलविदा"
+        - "बाय"
+        - "फिर बात करते हैं"
+      
+      english:
+        - "bye"
+        - "goodbye"
+        - "see you"
+        - "that's all"
+      
+      hinglish:
+        - "bye"
+        - "ok bye"
+        - "theek hai bye"
+
+  - intent: affirm
+    description: "User confirming/agreeing"
+    category: "general"
+    tier: 1
+    priority: medium
+    
+    required_slots: []
+    optional_slots: []
+    
+    api_config: null
+    action: "PROCESS_CONFIRMATION"
+    
+    examples:
+      hindi:
+        - "हां"
+        - "हाँ"
+        - "जी हां"
+        - "बिल्कुल"
+        - "सही है"
+        - "ठीक है"
+      
+      english:
+        - "yes"
+        - "yeah"
+        - "correct"
+        - "right"
+        - "that's right"
+        - "exactly"
+      
+      hinglish:
+        - "haan"
+        - "ha"
+        - "ji haan"
+        - "bilkul"
+        - "sahi hai"
+        - "theek hai"
+
+  - intent: deny
+    description: "User denying/disagreeing"
+    category: "general"
+    tier: 1
+    priority: medium
+    
+    required_slots: []
+    optional_slots: []
+    
+    api_config: null
+    action: "PROCESS_DENIAL"
+    
+    examples:
+      hindi:
+        - "नहीं"
+        - "ना"
+        - "गलत"
+        - "नहीं चाहिए"
+      
+      english:
+        - "no"
+        - "nope"
+        - "not that"
+        - "wrong"
+        - "I don't want"
+      
+      hinglish:
+        - "nahi"
+        - "na"
+        - "nahi chahiye"
+        - "galat"
+
+
+  - intent: unknown
+    description: "Query doesn't match any known intent - fallback"
+    category: "fallback"
+    tier: 2
+    priority: low
+    
+    required_slots: []
+    optional_slots: []
+    
+    api_config: null
+    action: "TRANSFER_TO_AGENT"
+    
+    fallback_responses:
+      hindi: "मुझे समझ नहीं आया। क्या आप दोबारा बता सकते हैं या मैं आपको एजेंट से जोड़ दूं?"
+      english: "I didn't understand that. Could you please repeat or should I connect you to an agent?"
+      hinglish: "Mujhe samajh nahi aaya. Dobara batayein ya agent se baat karayein?"
+
+categories:
+  - name: battery
+    description: "Battery related queries"
+    intents:
+      - check_battery_status
+      - check_battery_range
+  
+  - name: station
+    description: "Swap station related queries"
+    intents:
+      - find_swap_station
+      - check_station_availability
+      - station_directions
+  
+  - name: subscription
+    description: "Subscription and plan queries"
+    intents:
+      - check_subscription
+      - upgrade_subscription
+      - subscription_renewal
+  
+  - name: payment
+    description: "Payment related queries"
+    intents:
+      - payment_inquiry
+      - payment_history
+      - make_payment
+  
+  - name: history
+    description: "Historical data queries"
+    intents:
+      - swap_history
+      - swap_count
+  
+  - name: ride
+    description: "Ride and trip related"
+    intents:
+      - check_ride_stats
+  
+  - name: support
+    description: "Help and support"
+    intents:
+      - talk_to_agent
+      - report_issue
+      - help_general
+  
+  - name: general
+    description: "General conversation"
+    intents:
+      - greet
+      - thank
+      - bye
+      - affirm
+      - deny
+  
+  - name: fallback
+    description: "Unrecognized queries"
+    intents:
+      - unknown
+
+thresholds:
+  high_confidence: 0.85
+  medium_confidence: 0.60
+  low_confidence: 0.40
+  
+  actions:
+    above_high: "CALL_API"
+    between_medium_high: "CALL_API_WITH_CONFIRMATION"
+    between_low_medium: "ASK_CLARIFICATION"
+    below_low: "TRANSFER_TO_AGENT"

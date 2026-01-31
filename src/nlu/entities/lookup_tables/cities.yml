@@ -1,0 +1,109 @@
+version: "1.0"
+
+cities:
+  # Metro cities
+  - name: "Delhi"
+    aliases:
+      - "दिल्ली"
+      - "new delhi"
+      - "नई दिल्ली"
+      - "NCR"
+      - "delhi ncr"
+    state: "Delhi"
+    tier: 1
+  
+  - name: "Mumbai"
+    aliases:
+      - "मुंबई"
+      - "bombay"
+      - "बॉम्बे"
+    state: "Maharashtra"
+    tier: 1
+  
+  - name: "Bangalore"
+    aliases:
+      - "बैंगलोर"
+      - "bengaluru"
+      - "बेंगलुरु"
+    state: "Karnataka"
+    tier: 1
+  
+  - name: "Chennai"
+    aliases:
+      - "चेन्नई"
+      - "madras"
+      - "मद्रास"
+    state: "Tamil Nadu"
+    tier: 1
+  
+  - name: "Kolkata"
+    aliases:
+      - "कोलकाता"
+      - "calcutta"
+      - "कलकत्ता"
+    state: "West Bengal"
+    tier: 1
+  
+  - name: "Hyderabad"
+    aliases:
+      - "हैदराबाद"
+    state: "Telangana"
+    tier: 1
+  
+  # Tier 2 cities
+  - name: "Pune"
+    aliases:
+      - "पुणे"
+      - "poona"
+    state: "Maharashtra"
+    tier: 2
+  
+  - name: "Ahmedabad"
+    aliases:
+      - "अहमदाबाद"
+    state: "Gujarat"
+    tier: 2
+  
+  - name: "Jaipur"
+    aliases:
+      - "जयपुर"
+    state: "Rajasthan"
+    tier: 2
+  
+  - name: "Lucknow"
+    aliases:
+      - "लखनऊ"
+    state: "Uttar Pradesh"
+    tier: 2
+  
+  - name: "Chandigarh"
+    aliases:
+      - "चंडीगढ़"
+    state: "Chandigarh"
+    tier: 2
+  
+  - name: "Noida"
+    aliases:
+      - "नोएडा"
+      - "greater noida"
+    state: "Uttar Pradesh"
+    tier: 2
+  
+  - name: "Gurgaon"
+    aliases:
+      - "गुरुग्राम"
+      - "gurugram"
+    state: "Haryana"
+    tier: 2
+  
+  - name: "Ghaziabad"
+    aliases:
+      - "गाजियाबाद"
+    state: "Uttar Pradesh"
+    tier: 2
+  
+  - name: "Faridabad"
+    aliases:
+      - "फरीदाबाद"
+    state: "Haryana"
+    tier: 2

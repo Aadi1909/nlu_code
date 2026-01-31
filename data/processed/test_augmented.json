@@ -1,0 +1,155 @@
+{"text": "पेमेंट कैसे करूं please", "intent": "make_payment", "language": "hindi", "label": 10}
+{"text": "क्या क्या पूछ सकता हूं", "intent": "help_general", "language": "hindi", "label": 16}
+{"text": "Paise dene hain", "intent": "make_payment", "language": "hinglish", "label": 11}
+{"text": "क्या पूछ सकता हूं please", "intent": "help_general", "language": "hindi", "label": 10}
+{"text": "कितना करना है", "intent": "payment_inquiry", "language": "hindi", "label": 13}
+{"text": "I want to talk to a person", "intent": "talk_to_agent", "language": "english", "label": 19}
+{"text": "Locate swap point", "intent": "find_swap_station", "language": "english", "label": 2}
+{"text": "change subscription", "intent": "upgrade_subscription", "language": "english", "label": 22}
+{"text": "kuch samajh nahi aa raha", "intent": "help_general", "language": "hinglish", "label": 16}
+{"text": "upgrade my plan", "intent": "upgrade_subscription", "language": "english", "label": 6}
+{"text": "kisi se baat karni hai", "intent": "talk_to_agent", "language": "hinglish", "label": 14}
+{"text": "कितने पैसे देने हैं", "intent": "payment_inquiry", "language": "hindi", "label": 13}
+{"text": "ha", "intent": "affirm", "language": "hinglish", "label": 20}
+{"text": "station khula hai kya hai", "intent": "check_station_availability", "language": "hinglish", "label": 5}
+{"text": "Please nahi", "intent": "deny", "language": "hinglish", "label": 21}
+{"text": "Payment records", "intent": "payment_history", "language": "english", "label": 9}
+{"text": "please नहीं चाहिए", "intent": "deny", "language": "hindi", "label": 21}
+{"text": "बेहतर प्लान चाहिए", "intent": "upgrade_subscription", "language": "hindi", "label": 22}
+{"text": "पेमेंट रिकॉर्ड बताओ please", "intent": "payment_history", "language": "hindi", "label": 9}
+{"text": "Is mahine kitne swap hue", "intent": "swap_count", "language": "hinglish", "label": 12}
+{"text": "plan kitne ka hai", "intent": "check_subscription", "language": "hinglish", "label": 6}
+{"text": "Check my subscription", "intent": "check_subscription", "language": "english", "label": 5}
+{"text": "how many kilometers left", "intent": "check_battery_range", "language": "english", "label": 2}
+{"text": "शुक्रिया", "intent": "thank", "language": "hindi", "label": 20}
+{"text": "pending payment kitna hai", "intent": "payment_inquiry", "language": "hinglish", "label": 13}
+{"text": "Thank you", "intent": "thank", "language": "hinglish", "label": 20}
+{"text": "मेरा सब्सक्रिप्शन कब खत्म होगा", "intent": "check_subscription", "language": "hindi", "label": 6}
+{"text": "कितना पेमेंट बाकी है", "intent": "payment_inquiry", "language": "hindi", "label": 8}
+{"text": "पेमेंट कैसे करूं", "intent": "make_payment", "language": "hindi", "label": 11}
+{"text": "upgrade my plan", "intent": "upgrade_subscription", "language": "english", "label": 6}
+{"text": "directions to swap station", "intent": "station_directions", "language": "english", "label": 4}
+{"text": "change subscription karo", "intent": "upgrade_subscription", "language": "english", "label": 6}
+{"text": "बैटरी हेल्थ कैसी है", "intent": "check_battery_status", "language": "hindi", "label": 3}
+{"text": "Report an issue", "intent": "report_issue", "language": "english", "label": 15}
+{"text": "Kitna charge bacha hai", "intent": "check_battery_status", "language": "hinglish", "label": 3}
+{"text": "Thank you", "intent": "thank", "language": "english", "label": 20}
+{"text": "बैटरी है स्टेशन पर", "intent": "check_station_availability", "language": "hindi", "label": 3}
+{"text": "अलविदा", "intent": "bye", "language": "hindi", "label": 19}
+{"text": "Konsa plan hai mera", "intent": "check_subscription", "language": "hinglish", "label": 6}
+{"text": "Does station have battery", "intent": "check_station_availability", "language": "english", "label": 5}
+{"text": "thank you", "intent": "thank", "language": "english", "label": 20}
+{"text": "Namaste", "intent": "greet", "language": "hinglish", "label": 17}
+{"text": "namaste", "intent": "greet", "language": "hinglish", "label": 9}
+{"text": "total swaps done", "intent": "swap_count", "language": "english", "label": 17}
+{"text": "सबसे करीब पॉइंट please", "intent": "find_swap_station", "language": "hindi", "label": 8}
+{"text": "Payment karna hai bhai", "intent": "make_payment", "language": "hinglish", "label": 11}
+{"text": "बैटरी की स्थिति बताओ", "intent": "check_battery_status", "language": "hindi", "label": 0}
+{"text": "bhai pending payment kitna hai", "intent": "payment_inquiry", "language": "hinglish", "label": 13}
+{"text": "किलोमीटर की रेंज", "intent": "check_battery_range", "language": "hindi", "label": 2}
+{"text": "बिल भरना है karo please", "intent": "make_payment", "language": "hindi", "label": 10}
+{"text": "I need help", "intent": "help_general", "language": "english", "label": 16}
+{"text": "Battery hai station pe", "intent": "check_station_availability", "language": "hinglish", "label": 3}
+{"text": "Please kitne km hue", "intent": "check_ride_stats", "language": "hinglish", "label": 13}
+{"text": "better plan bataiye", "intent": "upgrade_subscription", "language": "hinglish", "label": 22}
+{"text": "Complaint karni hai", "intent": "report_issue", "language": "hinglish", "label": 14}
+{"text": "हेल्प करो", "intent": "help_general", "language": "hindi", "label": 16}
+{"text": "help me", "intent": "help_general", "language": "english", "label": 16}
+{"text": "हाँ", "intent": "affirm", "language": "hindi", "label": 20}
+{"text": "past payments", "intent": "payment_history", "language": "english", "label": 9}
+{"text": "Previous transactions", "intent": "payment_history", "language": "english", "label": 9}
+{"text": "Extend my plan", "intent": "subscription_renewal", "language": "english", "label": 7}
+{"text": "ke swap count", "intent": "swap_count", "language": "hinglish", "label": 17}
+{"text": "please i want to make payment", "intent": "make_payment", "language": "english", "label": 11}
+{"text": "Thoda madad chahie", "intent": "help_general", "language": "hinglish", "label": 10}
+{"text": "battery status kya hai", "intent": "check_battery_status", "language": "hinglish", "label": 0}
+{"text": "help karo", "intent": "help_general", "language": "hinglish", "label": 16}
+{"text": "please how to pay", "intent": "make_payment", "language": "english", "label": 10}
+{"text": "swap count", "intent": "swap_count", "language": "english", "label": 12}
+{"text": "swap count", "intent": "swap_count", "language": "english", "label": 17}
+{"text": "Facing issue", "intent": "report_issue", "language": "english", "label": 15}
+{"text": "kuch gadbad hai", "intent": "report_issue", "language": "hinglish", "label": 15}
+{"text": "Payment kitna karna hai", "intent": "payment_inquiry", "language": "hinglish", "label": 13}
+{"text": "क्या कर सकते हो please", "intent": "help_general", "language": "hindi", "label": 16}
+{"text": "Ok bye", "intent": "bye", "language": "hinglish", "label": 19}
+{"text": "Kitne km hue", "intent": "check_ride_stats", "language": "hinglish", "label": 13}
+{"text": "pending payment amount", "intent": "payment_inquiry", "language": "english", "label": 8}
+{"text": "इस महीने कितने स्वैप हुए", "intent": "swap_count", "language": "hindi", "label": 12}
+{"text": "आज कितना चला karo", "intent": "check_ride_stats", "language": "hindi", "label": 13}
+{"text": "बकाया कितना है please", "intent": "payment_inquiry", "language": "hindi", "label": 13}
+{"text": "मदद चाहिए please", "intent": "help_general", "language": "hindi", "label": 16}
+{"text": "Mera bill kitna hai", "intent": "payment_inquiry", "language": "hinglish", "label": 13}
+{"text": "battery status kya hai hai", "intent": "check_battery_status", "language": "hinglish", "label": 0}
+{"text": "aur kitna chal payegi", "intent": "check_battery_range", "language": "hinglish", "label": 1}
+{"text": "how much I drove today", "intent": "check_ride_stats", "language": "english", "label": 4}
+{"text": "फिर बात करते हैं please please", "intent": "bye", "language": "hindi", "label": 1}
+{"text": "आज कितने स्वैप किए please", "intent": "swap_count", "language": "hindi", "label": 17}
+{"text": "please wahan battery milegi kya hai", "intent": "check_station_availability", "language": "hinglish", "label": 5}
+{"text": "सब्सक्रिप्शन की जानकारी दो", "intent": "check_subscription", "language": "hindi", "label": 6}
+{"text": "नजदीक में स्टेशन है क्या please", "intent": "find_swap_station", "language": "hindi", "label": 8}
+{"text": "good evening", "intent": "greet", "language": "english", "label": 17}
+{"text": "battery health kaisi hai", "intent": "check_battery_status", "language": "hinglish", "label": 3}
+{"text": "hey", "intent": "greet", "language": "english", "label": 17}
+{"text": "estimated range", "intent": "check_battery_range", "language": "english", "label": 1}
+{"text": "Battery condition", "intent": "check_battery_status", "language": "english", "label": 0}
+{"text": "show swap history", "intent": "swap_history", "language": "english", "label": 11}
+{"text": "is mahine kitne hue", "intent": "swap_count", "language": "hinglish", "label": 17}
+{"text": "what is my battery status", "intent": "check_battery_status", "language": "english", "label": 0}
+{"text": "कुछ गड़बड़ है", "intent": "report_issue", "language": "hindi", "label": 14}
+{"text": "where can i swap battery", "intent": "find_swap_station", "language": "english", "label": 8}
+{"text": "customer care", "intent": "talk_to_agent", "language": "english", "label": 14}
+{"text": "find swap station near", "intent": "find_swap_station", "language": "english", "label": 8}
+{"text": "Station kitni door hai", "intent": "find_swap_station", "language": "hinglish", "label": 8}
+{"text": "कौन सा प्लान चल रहा है please", "intent": "check_subscription", "language": "hindi", "label": 5}
+{"text": "How much payment is due", "intent": "payment_inquiry", "language": "english", "label": 13}
+{"text": "Good evening", "intent": "greet", "language": "english", "label": 9}
+{"text": "that's all", "intent": "bye", "language": "english", "label": 1}
+{"text": "pichle payment ki", "intent": "payment_history", "language": "hinglish", "label": 12}
+{"text": "real person se connect karo", "intent": "talk_to_agent", "language": "hinglish", "label": 19}
+{"text": "theek hai", "intent": "affirm", "language": "hinglish", "label": 0}
+{"text": "शिकायत करनी है please", "intent": "report_issue", "language": "hindi", "label": 14}
+{"text": "theek hai bye", "intent": "bye", "language": "hinglish", "label": 19}
+{"text": "से बात करनी है please", "intent": "talk_to_agent", "language": "hindi", "label": 19}
+{"text": "Ride statistics", "intent": "check_ride_stats", "language": "english", "label": 13}
+{"text": "Payment record batana", "intent": "payment_history", "language": "hinglish", "label": 9}
+{"text": "is my battery fully charged", "intent": "check_battery_status", "language": "english", "label": 0}
+{"text": "when was last swap", "intent": "swap_history", "language": "english", "label": 18}
+{"text": "when was last swap", "intent": "swap_history", "language": "english", "label": 11}
+{"text": "That's all", "intent": "bye", "language": "english", "label": 1}
+{"text": "Is battery available at station", "intent": "check_station_availability", "language": "english", "label": 5}
+{"text": "बैटरी से कितना चल सकता है", "intent": "check_battery_range", "language": "hindi", "label": 1}
+{"text": "madad chahiye", "intent": "help_general", "language": "hinglish", "label": 16}
+{"text": "dhanyavaad", "intent": "thank", "language": "hinglish", "label": 18}
+{"text": "paise dene hain", "intent": "make_payment", "language": "hinglish", "label": 10}
+{"text": "Help karo", "intent": "help_general", "language": "hinglish", "label": 10}
+{"text": "और कितना चल पाएगी गाड़ी please", "intent": "check_battery_range", "language": "hindi", "label": 1}
+{"text": "Swap count", "intent": "swap_count", "language": "english", "label": 12}
+{"text": "ठीक है", "intent": "affirm", "language": "hindi", "label": 20}
+{"text": "kitna charge bacha hai", "intent": "check_battery_status", "language": "hinglish", "label": 0}
+{"text": "how much i drove today please", "intent": "check_ride_stats", "language": "english", "label": 4}
+{"text": "plan details dikhao bhai", "intent": "check_subscription", "language": "hinglish", "label": 6}
+{"text": "नमस्ते please", "intent": "greet", "language": "hindi", "label": 17}
+{"text": "When was last swap", "intent": "swap_history", "language": "english", "label": 18}
+{"text": "मेरी बैटरी की जानकारी दो", "intent": "check_battery_status", "language": "hindi", "label": 3}
+{"text": "मेरा प्लान क्या है", "intent": "check_subscription", "language": "hindi", "label": 5}
+{"text": "how much i drove today", "intent": "check_ride_stats", "language": "english", "label": 13}
+{"text": "thank you so much", "intent": "thank", "language": "english", "label": 20}
+{"text": "बेहतर प्लान चाहिए", "intent": "upgrade_subscription", "language": "hindi", "label": 6}
+{"text": "Dhanyawad", "intent": "thank", "language": "hinglish", "label": 18}
+{"text": "madad chahie", "intent": "help_general", "language": "hinglish", "label": 10}
+{"text": "payment history dikhao", "intent": "payment_history", "language": "hinglish", "label": 12}
+{"text": "payment kitna karna hai", "intent": "payment_inquiry", "language": "hinglish", "label": 13}
+{"text": "last swap kab hua", "intent": "swap_history", "language": "hinglish", "label": 18}
+{"text": "where can I swap battery", "intent": "find_swap_station", "language": "english", "label": 8}
+{"text": "मेरी बैटरी की जानकारी दो please", "intent": "check_battery_status", "language": "hindi", "label": 0}
+{"text": "जी हां please", "intent": "affirm", "language": "hindi", "label": 0}
+{"text": "Please how many swaps this month", "intent": "swap_count", "language": "english", "label": 17}
+{"text": "dhanyawad", "intent": "thank", "language": "hinglish", "label": 20}
+{"text": "Renew my subscription", "intent": "subscription_renewal", "language": "english", "label": 16}
+{"text": "Subscription badhana hai karo", "intent": "subscription_renewal", "language": "hinglish", "label": 7}
+{"text": "Payment kitna karna hai", "intent": "payment_inquiry", "language": "hinglish", "label": 13}
+{"text": "how much do I owe", "intent": "payment_inquiry", "language": "english", "label": 8}
+{"text": "Total kilometers", "intent": "check_ride_stats", "language": "english", "label": 4}
+{"text": "kitni door ja sakta hun please", "intent": "check_battery_range", "language": "hinglish", "label": 1}
+{"text": "से बात कराओ please", "intent": "talk_to_agent", "language": "hindi", "label": 19}
+{"text": "पेमेंट कैसे करूं please", "intent": "make_payment", "language": "hindi", "label": 11}

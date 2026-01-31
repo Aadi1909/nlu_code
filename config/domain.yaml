@@ -1,0 +1,168 @@
+version: "1.0"
+project: "battery-smart-voice-assistant"
+description: "NLU domain configuration for Battery Smart multilingual voice assistant"
+
+
+languages:
+  primary: "hinglish"
+  supported:
+    - code: "en"
+      name: "English"
+      tts_voice: "en-IN-Standard-A"
+    - code: "hi"
+      name: "Hindi"
+      tts_voice: "hi-IN-Standard-A"
+    - code: "hinglish"
+      name: "Hinglish"
+      tts_voice: "hi-IN-Standard-A"
+
+
+
+intents:
+  # Import from intents.yaml
+  config_file: "intents.yaml"
+  
+  # Tier classification
+  tier_1:
+    - check_battery_status
+    - check_battery_range
+    - find_swap_station
+    - check_station_availability
+    - check_subscription
+    - payment_inquiry
+    - payment_history
+    - swap_history
+    - greet
+    - thank
+    - bye
+    - affirm
+    - deny
+    - help_general
+  
+  tier_2_transfer:
+    - talk_to_agent
+    - report_issue
+    - unknown
+
+# =============================================================================
+# ENTITY CONFIGURATION
+# =============================================================================
+
+entities:
+  config_file: "entities.yaml"
+
+# =============================================================================
+# SLOT CONFIGURATION
+# =============================================================================
+
+slots:
+  config_file: "slots.yaml"
+
+# =============================================================================
+# RESPONSE CONFIGURATION
+# =============================================================================
+
+responses:
+  config_file: "responses.yaml"
+
+# =============================================================================
+# NLU MODEL CONFIGURATION
+# =============================================================================
+
+nlu_model:
+  intent_classifier:
+    model_type: "transformer"
+    base_model: "google/muril-base-cased"
+    max_length: 128
+    
+  entity_extractor:
+    model_type: "hybrid"  # regex + ner
+    ner_model: "xx_ent_wiki_sm"
+    
+  confidence_thresholds:
+    high: 0.85
+    medium: 0.60
+    low: 0.40
+
+# =============================================================================
+# API BACKEND CONFIGURATION
+# =============================================================================
+
+api_backend:
+  base_url: "${BATTERY_SMART_API_URL}"
+  timeout: 10
+  retry_attempts: 2
+  
+  endpoints:
+    battery_status: "/api/v1/battery/status"
+    battery_range: "/api/v1/battery/range"
+    stations_nearby: "/api/v1/stations/nearby"
+    station_availability: "/api/v1/stations/{station_id}/availability"
+    subscription_status: "/api/v1/subscription/status"
+    payment_dues: "/api/v1/payments/dues"
+    payment_history: "/api/v1/payments/history"
+    swap_history: "/api/v1/swaps/history"
+
+# =============================================================================
+# CONVERSATION CONFIGURATION
+# =============================================================================
+
+conversation:
+  max_turns: 10
+  slot_filling_max_attempts: 3
+  
+  session:
+    timeout_seconds: 300
+    persist_context: true
+  
+  fallback:
+    max_fallbacks: 2
+    action_after_max: "TRANSFER_TO_AGENT"
+
+# =============================================================================
+# TRANSFER TO AGENT RULES
+# =============================================================================
+
+transfer_rules:
+  immediate_transfer:
+    - intent: "talk_to_agent"
+    - intent: "report_issue"
+      condition: "issue_type in ['battery_issue', 'payment_issue']"
+  
+  conditional_transfer:
+    - condition: "confidence < 0.40"
+      after_attempts: 1
+    - condition: "slot_filling_failed"
+      after_attempts: 3
+    - condition: "intent == 'unknown'"
+      after_attempts: 2
+  
+  escalation_message:
+    en: "I'm connecting you to a support agent who can help you better."
+    hi: "मैं आपको सपोर्ट एजेंट से जोड़ रहा हूं जो आपकी बेहतर मदद कर सकें।"
+    hinglish: "Main aapko support agent se connect kar raha hun."
+
+# =============================================================================
+# LOGGING & MONITORING
+# =============================================================================
+
+logging:
+  level: "INFO"
+  format: "json"
+  
+  log_fields:
+    - session_id
+    - caller_phone
+    - intent
+    - confidence
+    - entities
+    - response_time
+    - action_taken
+
+monitoring:
+  metrics:
+    - intent_accuracy
+    - slot_filling_rate
+    - transfer_rate
+    - response_latency
+    - conversation_completion_rate

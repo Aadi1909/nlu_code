@@ -1,0 +1,355 @@
+version: "1.0"
+
+entities:
+  - entity: vehicle_id
+    description: "Indian vehicle registration number"
+    type: "regex"
+    
+    patterns:
+      - pattern: "[A-Z]{2}[0-9]{2}[A-Z]{1,2}[0-9]{4}"
+        description: "Standard format: DL01AB1234"
+      - pattern: "[A-Z]{2}-[0-9]{2}-[A-Z]{1,2}-[0-9]{4}"
+        description: "Hyphenated format: DL-01-AB-1234"
+      - pattern: "[A-Z]{2}[0-9]{2}[A-Z]{1,2}[0-9]{1,4}"
+        description: "Short format for older vehicles"
+    
+    examples:
+      - "DL01AB1234"
+      - "MH12CD5678"
+      - "KA-01-MA-9999"
+      - "UP32GH7890"
+    
+    normalization:
+      remove_hyphens: true
+      uppercase: true
+    
+    validation:
+      min_length: 9
+      max_length: 13
+
+  - entity: driver_id
+    description: "Driver identification"
+    type: "contextual"
+    
+    sources:
+      - phone_number_lookup
+      - session_context
+      - explicit_mention
+    
+    patterns:
+      - pattern: "DRV[0-9]{6,10}"
+        description: "Driver ID format"
+      - pattern: "DRIVER_[0-9]{4,10}"
+        description: "Alternative format"
+    
+    extraction_priority:
+      1: "session_context"  # Already logged in
+      2: "phone_lookup"     # From Twilio caller ID
+      3: "explicit_mention" # User mentions it
+
+  - entity: battery_id
+    description: "Battery serial number"
+    type: "regex"
+    
+    patterns:
+      - pattern: "BAT[0-9]{6,8}"
+        description: "Standard battery ID"
+      - pattern: "BS[0-9]{6}"
+        description: "Short battery ID"
+      - pattern: "BATT-[0-9]{6,8}"
+        description: "Hyphenated format"
+    
+    examples:
+      - "BAT123456"
+      - "BS789012"
+      - "BATT-12345678"
+
+  - entity: station_id
+    description: "Swap station identifier"
+    type: "regex"
+    
+    patterns:
+      - pattern: "STN[0-9]{4,6}"
+        description: "Station ID"
+      - pattern: "SWAP-[A-Z]{2,3}-[0-9]{3,5}"
+        description: "Regional station ID"
+    
+    examples:
+      - "STN1234"
+      - "SWAP-DEL-001"
+      - "SWAP-MUM-042"
+  
+  - entity: location
+    description: "General location reference"
+    type: "ner"
+    
+    ner_labels:
+      - "LOC"
+      - "GPE"
+      - "FAC"
+    
+    examples:
+      - "Connaught Place"
+      - "कनॉट प्लेस"
+      - "Andheri East"
+      - "अंधेरी ईस्ट"
+      - "near metro station"
+      - "मेट्रो स्टेशन के पास"
+
+  - entity: city
+    description: "Indian city names"
+    type: "lookup"
+    lookup_file: "data/lookup_tables/cities.yaml"
+    
+    synonyms:
+      delhi:
+        - "दिल्ली"
+        - "new delhi"
+        - "नई दिल्ली"
+        - "NCR"
+      mumbai:
+        - "मुंबई"
+        - "bombay"
+        - "बॉम्बे"
+      bangalore:
+        - "बैंगलोर"
+        - "bengaluru"
+        - "बेंगलुरु"
+      chennai:
+        - "चेन्नई"
+        - "madras"
+      kolkata:
+        - "कोलकाता"
+        - "calcutta"
+      hyderabad:
+        - "हैदराबाद"
+      pune:
+        - "पुणे"
+        - "poona"
+
+  - entity: landmark
+    description: "Well-known landmarks"
+    type: "lookup"
+    
+    examples:
+      - "India Gate"
+      - "इंडिया गेट"
+      - "Gateway of India"
+      - "Red Fort"
+      - "लाल किला"
+
+  
+  - entity: date_range
+    description: "Date and time references"
+    type: "temporal"
+    
+    parser: "dateparser"
+    
+    keywords:
+      today:
+        hindi: ["आज", "aaj"]
+        english: ["today"]
+      yesterday:
+        hindi: ["कल", "kal", "बीता हुआ कल"]
+        english: ["yesterday"]
+      tomorrow:
+        hindi: ["कल", "kal", "आने वाला कल"]
+        english: ["tomorrow"]
+      this_week:
+        hindi: ["इस हफ्ते", "is hafte"]
+        english: ["this week"]
+      last_week:
+        hindi: ["पिछले हफ्ते", "pichle hafte"]
+        english: ["last week"]
+      this_month:
+        hindi: ["इस महीने", "is mahine"]
+        english: ["this month"]
+      last_month:
+        hindi: ["पिछले महीने", "pichle mahine"]
+        english: ["last month"]
+    
+    relative_patterns:
+      - pattern: "last (\\d+) days"
+        type: "relative_past"
+      - pattern: "पिछले (\\d+) दिन"
+        type: "relative_past"
+
+  - entity: time_of_day
+    description: "Time references"
+    type: "temporal"
+    
+    keywords:
+      morning:
+        hindi: ["सुबह", "subah"]
+        english: ["morning", "AM"]
+      afternoon:
+        hindi: ["दोपहर", "dopahar"]
+        english: ["afternoon"]
+      evening:
+        hindi: ["शाम", "sham"]
+        english: ["evening", "PM"]
+      night:
+        hindi: ["रात", "raat"]
+        english: ["night"]
+  
+  - entity: amount
+    description: "Monetary amounts"
+    type: "numeric"
+    
+    patterns:
+      - pattern: "₹\\s*([0-9,]+)"
+        description: "Rupee symbol"
+      - pattern: "([0-9,]+)\\s*(rupees|रुपये|rs\\.?)"
+        description: "Text format"
+      - pattern: "([0-9,]+)\\s*(rupaye|rupaiye)"
+        description: "Hinglish"
+    
+    examples:
+      - "₹500"
+      - "500 rupees"
+      - "500 रुपये"
+      - "1,000 rs"
+
+  - entity: count
+    description: "Numeric counts"
+    type: "numeric"
+    
+    patterns:
+      - pattern: "(\\d+)\\s*(times|baar|बार)"
+        description: "Frequency count"
+      - pattern: "(\\d+)\\s*(swaps|स्वैप)"
+        description: "Swap count"
+
+  - entity: distance
+    description: "Distance measurements"
+    type: "numeric"
+    
+    patterns:
+      - pattern: "(\\d+)\\s*(km|kilometer|किलोमीटर)"
+        description: "Kilometers"
+      - pattern: "(\\d+)\\s*(meter|मीटर|m)"
+        description: "Meters"
+    
+    unit_conversion:
+      to: "kilometers"
+
+  - entity: percentage
+    description: "Percentage values"
+    type: "numeric"
+    
+    patterns:
+      - pattern: "(\\d+)\\s*(%|percent|प्रतिशत)"
+        description: "Percentage"
+  
+  - entity: plan_type
+    description: "Subscription plan types"
+    type: "lookup"
+    
+    values:
+      - basic
+      - standard
+      - premium
+      - unlimited
+    
+    synonyms:
+      basic:
+        - "बेसिक"
+        - "simple"
+        - "सिंपल"
+        - "chhota plan"
+        - "छोटा प्लान"
+      premium:
+        - "प्रीमियम"
+        - "best"
+        - "बेस्ट"
+        - "bada plan"
+        - "बड़ा प्लान"
+  
+  - entity: payment_method
+    description: "Payment methods"
+    type: "lookup"
+    
+    values:
+      - upi
+      - card
+      - cash
+      - wallet
+      - netbanking
+    
+    synonyms:
+      upi:
+        - "UPI"
+        - "phonepe"
+        - "gpay"
+        - "google pay"
+        - "paytm"
+        - "bhim"
+      card:
+        - "credit card"
+        - "debit card"
+        - "क्रेडिट कार्ड"
+        - "डेबिट कार्ड"
+      cash:
+        - "नकद"
+        - "nakad"
+
+  
+  - entity: issue_type
+    description: "Types of issues/complaints"
+    type: "lookup"
+    
+    values:
+      - battery_issue
+      - payment_issue
+      - app_issue
+      - station_issue
+      - vehicle_issue
+      - other
+    
+    keywords:
+      battery_issue:
+        - "battery problem"
+        - "बैटरी में दिक्कत"
+        - "battery kharab"
+        - "charge nahi ho rahi"
+        - "battery drain"
+      payment_issue:
+        - "payment failed"
+        - "पेमेंट नहीं हुआ"
+        - "paise kat gaye"
+        - "double charge"
+        - "refund"
+      station_issue:
+        - "station band"
+        - "स्टेशन बंद"
+        - "station pe dikkat"
+        - "battery nahi mili"
+      app_issue:
+        - "app crash"
+        - "एप्प में दिक्कत"
+        - "app nahi chal raha"
+        - "login problem"
+
+extraction_pipeline:
+  1: "regex"        # First try regex patterns
+  2: "lookup"       # Then check lookup tables
+  3: "ner"          # Then NER model
+  4: "contextual"   # Finally check context
+
+
+validation_rules:
+  vehicle_id:
+    - type: "format"
+      rule: "Must match Indian vehicle registration pattern"
+    - type: "length"
+      min: 9
+      max: 13
+  
+  amount:
+    - type: "range"
+      min: 1
+      max: 100000
+  
+  phone_number:
+    - type: "format"
+      rule: "Must be 10 digit Indian mobile number starting with 6-9"

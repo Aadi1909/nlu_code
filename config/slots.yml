@@ -1,0 +1,307 @@
+
+version: "1.0"
+
+slots:
+
+  
+  vehicle_id:
+    type: "text"
+    entity: "vehicle_id"
+    
+    prompts:
+      en: "Could you please tell me your vehicle number?"
+      hi: "कृपया अपना वाहन नंबर बताएं?"
+      hinglish: "Apna vehicle number bata dijiye?"
+    
+    reprompts:
+      en: "I didn't catch that. Your vehicle number should be like DL01AB1234. What is it?"
+      hi: "समझ नहीं आया। आपका वाहन नंबर जैसे DL01AB1234 होना चाहिए। क्या है आपका?"
+      hinglish: "Samajh nahi aaya. Vehicle number jaise DL01AB1234 hona chahiye. Kya hai aapka?"
+    
+    validation:
+      pattern: "[A-Z]{2}[0-9]{2}[A-Z]{1,2}[0-9]{4}"
+      error_message:
+        en: "That doesn't seem like a valid vehicle number. Please try again."
+        hi: "यह सही वाहन नंबर नहीं लग रहा। कृपया फिर से बताएं।"
+        hinglish: "Yeh sahi vehicle number nahi lag raha. Please phir se batayein."
+    
+    max_attempts: 3
+    on_max_attempts: "TRANSFER_TO_AGENT"
+
+  driver_id:
+    type: "text"
+    entity: "driver_id"
+    auto_fill: true
+    
+    auto_fill_sources:
+      - source: "phone_lookup"
+        field: "caller_phone"
+      - source: "session"
+        field: "authenticated_driver_id"
+    
+    prompts:
+      en: "I couldn't identify your account. Could you confirm your registered phone number?"
+      hi: "आपका अकाउंट नहीं मिला। कृपया अपना रजिस्टर्ड फोन नंबर बताएं?"
+      hinglish: "Aapka account nahi mila. Registered phone number confirm karein?"
+    
+    max_attempts: 2
+    on_max_attempts: "TRANSFER_TO_AGENT"
+
+  battery_id:
+    type: "text"
+    entity: "battery_id"
+    required: false
+    
+    prompts:
+      en: "Do you know your battery ID? It should be on the battery label."
+      hi: "क्या आपको अपनी बैटरी ID पता है? यह बैटरी पर लिखी होती है।"
+      hinglish: "Aapko battery ID pata hai? Battery par likhi hoti hai."
+
+  station_id:
+    type: "text"
+    entity: "station_id"
+    required: false
+    
+    auto_fill_sources:
+      - source: "context"
+        field: "last_mentioned_station"
+      - source: "gps_nearest"
+        field: "nearest_station_id"
+  
+  location:
+    type: "text"
+    entity: "location"
+    
+    prompts:
+      en: "Which location should I search near?"
+      hi: "किस जगह के पास ढूंढना है?"
+      hinglish: "Kahan ke paas dhundhna hai?"
+    
+    auto_fill_sources:
+      - source: "gps"
+        field: "current_location"
+        prompt_if_unavailable: true
+
+  city:
+    type: "text"
+    entity: "city"
+    
+    prompts:
+      en: "Which city are you in?"
+      hi: "आप किस शहर में हैं?"
+      hinglish: "Aap kis city mein hain?"
+    
+    auto_fill_sources:
+      - source: "gps"
+        field: "detected_city"
+      - source: "profile"
+        field: "registered_city"
+  
+  date_range:
+    type: "temporal"
+    entity: "date_range"
+    
+    default_value: "today"
+    
+    prompts:
+      en: "For which time period? Today, yesterday, or this week?"
+      hi: "किस समय के लिए? आज, कल, या इस हफ्ते?"
+      hinglish: "Kis time period ke liye? Aaj, kal, ya is week?"
+    
+    options:
+      - value: "today"
+        labels: ["today", "aaj", "आज"]
+      - value: "yesterday"
+        labels: ["yesterday", "kal", "कल"]
+      - value: "this_week"
+        labels: ["this week", "is hafte", "इस हफ्ते"]
+      - value: "this_month"
+        labels: ["this month", "is mahine", "इस महीने"]
+---
+  
+  amount:
+    type: "numeric"
+    entity: "amount"
+    
+    validation:
+      min: 1
+      max: 100000
+    
+    prompts:
+      en: "How much amount?"
+      hi: "कितनी राशि?"
+      hinglish: "Kitna amount?"
+
+  limit:
+    type: "numeric"
+    entity: "count"
+    
+    default_value: 5
+    
+    validation:
+      min: 1
+      max: 50
+
+  
+  plan_type:
+    type: "categorical"
+    entity: "plan_type"
+    
+    options:
+      - value: "basic"
+        labels: ["basic", "बेसिक", "simple"]
+      - value: "standard"
+        labels: ["standard", "स्टैंडर्ड", "normal"]
+      - value: "premium"
+        labels: ["premium", "प्रीमियम", "best"]
+      - value: "unlimited"
+        labels: ["unlimited", "अनलिमिटेड"]
+    
+    prompts:
+      en: "Which plan type - Basic, Standard, Premium, or Unlimited?"
+      hi: "कौन सा प्लान - बेसिक, स्टैंडर्ड, प्रीमियम, या अनलिमिटेड?"
+      hinglish: "Konsa plan chahiye - Basic, Standard, Premium, ya Unlimited?"
+
+  payment_method:
+    type: "categorical"
+    entity: "payment_method"
+    
+    options:
+      - value: "upi"
+        labels: ["upi", "phonepe", "gpay", "paytm"]
+      - value: "card"
+        labels: ["card", "credit card", "debit card"]
+      - value: "netbanking"
+        labels: ["netbanking", "bank transfer"]
+    
+    prompts:
+      en: "How would you like to pay - UPI, Card, or Net Banking?"
+      hi: "पेमेंट कैसे करना है - UPI, कार्ड, या नेट बैंकिंग?"
+      hinglish: "Payment kaise karna hai - UPI, Card, ya Net Banking?"
+
+  issue_type:
+    type: "categorical"
+    entity: "issue_type"
+    
+    options:
+      - value: "battery_issue"
+        labels: ["battery", "बैटरी", "charge"]
+      - value: "payment_issue"
+        labels: ["payment", "पेमेंट", "bill", "paise"]
+      - value: "station_issue"
+        labels: ["station", "स्टेशन", "swap point"]
+      - value: "app_issue"
+        labels: ["app", "एप्प", "application"]
+      - value: "other"
+        labels: ["other", "अन्य", "something else"]
+    
+    prompts:
+      en: "What type of issue - Battery, Payment, Station, App, or Other?"
+      hi: "किस प्रकार की समस्या - बैटरी, पेमेंट, स्टेशन, एप्प, या अन्य?"
+      hinglish: "Kaunsi problem hai - Battery, Payment, Station, App, ya kuch aur?"
+
+  
+  confirmation:
+    type: "boolean"
+    
+    affirmative:
+      - "yes"
+      - "yeah"
+      - "haan"
+      - "ha"
+      - "हाँ"
+      - "जी"
+      - "correct"
+      - "sahi"
+      - "theek hai"
+      - "ठीक है"
+    
+    negative:
+      - "no"
+      - "nahi"
+      - "नहीं"
+      - "na"
+      - "wrong"
+      - "galat"
+      - "गलत"
+    
+    prompts:
+      en: "Is that correct?"
+      hi: "क्या यह सही है?"
+      hinglish: "Kya yeh sahi hai?"
+
+intent_slot_mapping:
+
+  check_battery_status:
+    required:
+      - vehicle_id
+    optional:
+      - battery_id
+    filling_order:
+      - vehicle_id
+      - battery_id
+
+  find_swap_station:
+    required: []
+    optional:
+      - location
+      - city
+    auto_fill:
+      - slot: location
+        from: gps
+    filling_order:
+      - location
+      - city
+
+  check_subscription:
+    required:
+      - driver_id
+    optional: []
+    auto_fill:
+      - slot: driver_id
+        from: phone_lookup
+
+  payment_inquiry:
+    required:
+      - driver_id
+    optional:
+      - date_range
+    auto_fill:
+      - slot: driver_id
+        from: phone_lookup
+      - slot: date_range
+        default: today
+
+  swap_history:
+    required:
+      - driver_id
+    optional:
+      - date_range
+      - limit
+    auto_fill:
+      - slot: driver_id
+        from: phone_lookup
+      - slot: limit
+        default: 5
+
+  make_payment:
+    required:
+      - driver_id
+      - confirmation
+    optional:
+      - amount
+      - payment_method
+    filling_order:
+      - driver_id
+      - amount
+      - payment_method
+      - confirmation
+
+  report_issue:
+    required:
+      - driver_id
+      - issue_type
+    optional: []
+    filling_order:
+      - driver_id
+      - issue_type

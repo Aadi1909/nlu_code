@@ -1,0 +1,174 @@
+version: "1.0"
+
+responses:
+  
+  battery_status_response:
+    templates:
+      en:
+        full: "Your battery is at {battery_percentage}% charge. Battery health is {battery_health}. Estimated range is {estimated_range} kilometers."
+        low_battery: "Warning! Your battery is at only {battery_percentage}%. I recommend finding a swap station soon. The nearest one is {nearest_station}."
+        good_battery: "Great news! Your battery is at {battery_percentage}% with {estimated_range} km range."
+      
+      hi:
+        full: "आपकी बैटरी {battery_percentage}% चार्ज है। बैटरी हेल्थ {battery_health} है। अनुमानित रेंज {estimated_range} किलोमीटर है।"
+        low_battery: "चेतावनी! आपकी बैटरी सिर्फ {battery_percentage}% है। जल्दी स्वैप करें। नजदीकी स्टेशन {nearest_station} है।"
+        good_battery: "बहुत बढ़िया! आपकी बैटरी {battery_percentage}% है और {estimated_range} किमी चलेगी।"
+      
+      hinglish:
+        full: "Aapki battery {battery_percentage}% charge hai. Battery health {battery_health} hai. Estimated range {estimated_range} kilometer hai."
+        low_battery: "Warning! Battery sirf {battery_percentage}% hai. Jaldi swap karo. Nearest station {nearest_station} hai."
+        good_battery: "Bahut badhiya! Battery {battery_percentage}% hai aur {estimated_range} km chalegi."
+  
+  station_found_response:
+    templates:
+      en:
+        single: "The nearest swap station is {station_name}, {distance} km away at {address}. They have {available_batteries} batteries available."
+        multiple: "I found {count} swap stations near you. The nearest is {station_name}, {distance} km away. Should I give you directions?"
+        none: "Sorry, I couldn't find any swap stations nearby. Would you like me to search in a different area?"
+      
+      hi:
+        single: "सबसे नजदीकी स्वैप स्टेशन {station_name} है, {distance} किमी दूर {address} पर। वहां {available_batteries} बैटरी उपलब्ध हैं।"
+        multiple: "मुझे आपके पास {count} स्वैप स्टेशन मिले। सबसे नजदीक {station_name} है, {distance} किमी दूर। रास्ता बताऊं?"
+        none: "माफ कीजिए, पास में कोई स्वैप स्टेशन नहीं मिला। क्या कहीं और ढूंढूं?"
+      
+      hinglish:
+        single: "Sabse paas wala swap station {station_name} hai, {distance} km door {address} par. Wahan {available_batteries} battery available hain."
+        multiple: "Aapke paas {count} swap stations mile. Sabse paas {station_name} hai, {distance} km door. Rasta bataaun?"
+        none: "Sorry, paas mein koi swap station nahi mila. Kahin aur dhundhun?"
+
+  
+  subscription_status_response:
+    templates:
+      en:
+        active: "You are on the {plan_name} plan at ₹{plan_price}/month. Your subscription is valid until {expiry_date}. You have {swaps_remaining} swaps remaining this month."
+        expiring: "Heads up! Your {plan_name} subscription expires on {expiry_date}. Would you like to renew?"
+        expired: "Your subscription expired on {expiry_date}. Would you like to renew or upgrade your plan?"
+      
+      hi:
+        active: "आपका {plan_name} प्लान है जो ₹{plan_price}/महीना है। सब्सक्रिप्शन {expiry_date} तक वैध है। इस महीने {swaps_remaining} स्वैप बाकी हैं।"
+        expiring: "ध्यान दें! आपका {plan_name} सब्सक्रिप्शन {expiry_date} को खत्म हो रहा है। रिन्यू करना है?"
+        expired: "आपका सब्सक्रिप्शन {expiry_date} को खत्म हो गया। रिन्यू या अपग्रेड करना है?"
+      
+      hinglish:
+        active: "Aapka {plan_name} plan hai jo ₹{plan_price}/month ka hai. Subscription {expiry_date} tak valid hai. Is month mein {swaps_remaining} swaps bache hain."
+        expiring: "Dhyan do! Aapka {plan_name} subscription {expiry_date} ko expire ho raha hai. Renew karna hai?"
+        expired: "Aapka subscription {expiry_date} ko expire ho gaya. Renew ya upgrade karna hai?"
+  
+  payment_dues_response:
+    templates:
+      en:
+        has_dues: "You have a pending payment of ₹{due_amount}. Due date is {due_date}. Would you like to pay now?"
+        no_dues: "Great! You have no pending payments. Your account is up to date."
+        overdue: "Alert! You have an overdue payment of ₹{due_amount}. Please pay immediately to avoid service interruption."
+      
+      hi:
+        has_dues: "आपका ₹{due_amount} का पेमेंट बाकी है। ड्यू डेट {due_date} है। अभी पेमेंट करना है?"
+        no_dues: "बहुत बढ़िया! कोई पेमेंट बाकी नहीं है। आपका अकाउंट अपडेट है।"
+        overdue: "सावधान! ₹{due_amount} का पेमेंट ओवरड्यू है। कृपया तुरंत भुगतान करें।"
+      
+      hinglish:
+        has_dues: "Aapka ₹{due_amount} ka payment pending hai. Due date {due_date} hai. Abhi pay karna hai?"
+        no_dues: "Bahut badhiya! Koi payment pending nahi hai. Account up to date hai."
+        overdue: "Alert! ₹{due_amount} ka payment overdue hai. Please jaldi pay karein."
+
+  payment_history_response:
+    templates:
+      en: "Here are your last {count} payments: {payment_list}. Total paid this month: ₹{monthly_total}."
+      hi: "यहाँ आपके पिछले {count} पेमेंट हैं: {payment_list}। इस महीने कुल भुगतान: ₹{monthly_total}।"
+      hinglish: "Yeh aapke last {count} payments hain: {payment_list}. Is month total paid: ₹{monthly_total}."
+
+  swap_history_response:
+    templates:
+      en: "You've done {swap_count} swaps {time_period}. Last swap was at {last_station} on {last_date}."
+      hi: "आपने {time_period} में {swap_count} स्वैप किए। आखिरी स्वैप {last_station} पर {last_date} को हुआ।"
+      hinglish: "Aapne {time_period} mein {swap_count} swaps kiye. Last swap {last_station} par {last_date} ko hua."
+
+  
+  ask_vehicle_id:
+    templates:
+      en: "Could you please tell me your vehicle number? It should be like DL01AB1234."
+      hi: "कृपया अपना वाहन नंबर बताएं? जैसे DL01AB1234।"
+      hinglish: "Apna vehicle number bata dijiye? Jaise DL01AB1234."
+
+  ask_location:
+    templates:
+      en: "Which area should I search in?"
+      hi: "किस एरिया में ढूंढना है?"
+      hinglish: "Kis area mein dhundhna hai?"
+
+  ask_confirmation:
+    templates:
+      en: "Just to confirm - {summary}. Is that correct?"
+      hi: "कन्फर्म करने के लिए - {summary}। क्या यह सही है?"
+      hinglish: "Confirm karne ke liye - {summary}. Kya yeh sahi hai?"
+
+  
+  not_understood:
+    templates:
+      en: "I'm sorry, I didn't understand that. Could you please repeat?"
+      hi: "माफ कीजिए, मुझे समझ नहीं आया। क्या आप दोबारा बता सकते हैं?"
+      hinglish: "Sorry, mujhe samajh nahi aaya. Dobara bata sakte hain?"
+
+  transfer_to_agent:
+    templates:
+      en: "Let me connect you to a customer support agent. Please hold for a moment."
+      hi: "मैं आपको कस्टमर सपोर्ट एजेंट से जोड़ता हूं। कृपया थोड़ा इंतज़ार करें।"
+      hinglish: "Main aapko customer support agent se connect karta hun. Please thoda wait karein."
+
+  api_error:
+    templates:
+      en: "I'm having trouble fetching that information right now. Let me connect you to an agent."
+      hi: "अभी जानकारी लाने में दिक्कत आ रही है। मैं आपको एजेंट से जोड़ता हूं।"
+      hinglish: "Abhi information fetch karne mein dikkat aa rahi hai. Agent se connect karta hun."
+  
+  greet:
+    templates:
+      en: "Hello! Welcome to Battery Smart. I can help you with battery status, finding swap stations, subscriptions, and payments. How can I help you today?"
+      hi: "नमस्ते! बैटरी स्मार्ट में आपका स्वागत है। मैं बैटरी स्टेटस, स्वैप स्टेशन, सब्सक्रिप्शन और पेमेंट में मदद कर सकता हूं। आज मैं आपकी कैसे मदद कर सकता हूं?"
+      hinglish: "Namaste! Battery Smart mein aapka swagat hai. Main battery status, swap station, subscription aur payment mein help kar sakta hun. Aaj kaise madad karun?"
+
+  thank:
+    templates:
+      en: "You're welcome! Is there anything else I can help you with?"
+      hi: "आपका स्वागत है! क्या कुछ और मदद चाहिए?"
+      hinglish: "Aapka swagat hai! Kuch aur help chahiye?"
+
+  bye:
+    templates:
+      en: "Thank you for calling Battery Smart. Have a great day! Goodbye."
+      hi: "बैटरी स्मार्ट को कॉल करने के लिए धन्यवाद। आपका दिन शुभ हो! अलविदा।"
+      hinglish: "Battery Smart ko call karne ke liye dhanyawad. Aapka din shubh ho! Bye."
+
+response_rules:
+  
+  language_detection:
+    priority:
+      1: "detected_from_input"
+      2: "user_preference"
+      3: "default"
+    default: "hinglish"
+  
+  template_selection:
+    battery_status:
+      - condition: "battery_percentage < 20"
+        template: "low_battery"
+      - condition: "battery_percentage >= 80"
+        template: "good_battery"
+      - condition: "default"
+        template: "full"
+    
+    subscription_status:
+      - condition: "days_to_expiry <= 7"
+        template: "expiring"
+      - condition: "is_expired == true"
+        template: "expired"
+      - condition: "default"
+        template: "active"
+    
+    payment_dues:
+      - condition: "due_amount == 0"
+        template: "no_dues"
+      - condition: "is_overdue == true"
+        template: "overdue"
+      - condition: "default"
+        template: "has_dues"

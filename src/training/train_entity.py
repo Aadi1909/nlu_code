@@ -2,6 +2,7 @@
 
 import json
 import torch
+from typing import List, Dict
 from torch.utils.data import Dataset
 from transformers import (
     AutoTokenizer,
@@ -86,12 +87,16 @@ class EntityExtractorTrainer:
     
     def prepare_data(self, train_path: str, val_path: str):
         """Prepare NER datasets"""
-        # Load data
+        # Load data (JSON Lines format)
+        train_data = []
         with open(train_path, 'r', encoding='utf-8') as f:
-            train_data = json.load(f)
+            for line in f:
+                train_data.append(json.loads(line.strip()))
         
+        val_data = []
         with open(val_path, 'r', encoding='utf-8') as f:
-            val_data = json.load(f)
+            for line in f:
+                val_data.append(json.loads(line.strip()))
         
         # Collect all entity types
         entity_types = set()
@@ -210,16 +215,16 @@ class EntityExtractorTrainer:
 if __name__ == "__main__":
     import os
     
-    os.makedirs('models/entity_extractor', exist_ok=True)
+    os.makedirs('../../models/entity_extractor', exist_ok=True)
     
     trainer = EntityExtractorTrainer(
         model_name="xlm-roberta-base",
-        output_dir="models/entity_extractor"
+        output_dir="../../models/entity_extractor"
     )
     
     train_dataset, val_dataset = trainer.prepare_data(
-        train_path='data/processed/train.json',
-        val_path='data/processed/val.json'
+        train_path='../../data/processed/train.json',
+        val_path='../../data/processed/val.json'
     )
     
     trainer.train(train_dataset, val_dataset, epochs=10)
