@@ -7,6 +7,7 @@ from collections import Counter
 import re
 import logging
 from sklearn.model_selection import train_test_split
+import yaml
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -16,18 +17,67 @@ class DataValidator:
     """Validate and clean training data"""
     
     def __init__(self):
-        self.valid_intents = [
-            'battery_swap_status', 'battery_health', 'nearest_swap_station',
-            'booking_status', 'payment_status', 'account_balance',
-            'vehicle_status', 'complaint', 'out_of_scope'
-        ]
+        # Load valid intents and entities dynamically from config files
+        self.valid_intents = self._load_valid_intents()
+        self.valid_entities = self._load_valid_entities()
         
-        self.valid_entities = [
-            'driver_id', 'vehicle_id', 'booking_id', 'location',
-            'battery_level', 'transaction_id', 'date', 'time', 'amount'
-        ]
+        logger.info(f"Loaded {len(self.valid_intents)} valid intents")
+        logger.info(f"Loaded {len(self.valid_entities)} valid entities")
         
         self.errors = []
+    
+    def _load_valid_intents(self) -> List[str]:
+        """Load all valid intents from config/intents.yaml"""
+        try:
+            config_path = 'config/intents.yaml'
+            if not os.path.exists(config_path):
+                logger.warning(f"Intent config not found at {config_path}, using defaults")
+                return [
+                    'battery_swap_status', 'battery_health', 'nearest_swap_station',
+                    'booking_status', 'payment_status', 'account_balance',
+                    'vehicle_status', 'complaint', 'out_of_scope'
+                ]
+            
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config = yaml.safe_load(f)
+            
+            intents = []
+            if 'intents' in config:
+                for intent_obj in config['intents']:
+                    if 'intent' in intent_obj:
+                        intents.append(intent_obj['intent'])
+            
+            logger.info(f"Loaded intents: {', '.join(intents[:5])}... (total: {len(intents)})")
+            return intents
+        except Exception as e:
+            logger.error(f"Error loading intents config: {e}")
+            return []
+    
+    def _load_valid_entities(self) -> List[str]:
+        """Load all valid entities from config/entities.yaml"""
+        try:
+            config_path = 'config/entities.yaml'
+            if not os.path.exists(config_path):
+                logger.warning(f"Entity config not found at {config_path}, using defaults")
+                return [
+                    'driver_id', 'vehicle_id', 'booking_id', 'location',
+                    'battery_level', 'transaction_id', 'date', 'time', 'amount'
+                ]
+            
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config = yaml.safe_load(f)
+            
+            entities = []
+            if 'entities' in config:
+                for entity_obj in config['entities']:
+                    if 'entity' in entity_obj:
+                        entities.append(entity_obj['entity'])
+            
+            logger.info(f"Loaded entities: {', '.join(entities[:5])}... (total: {len(entities)})")
+            return entities
+        except Exception as e:
+            logger.error(f"Error loading entities config: {e}")
+            return []
         
     def validate_dataset(self, data: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
         """Validate entire dataset"""
@@ -63,7 +113,8 @@ class DataValidator:
         
         if 'intent' not in example:
             errors.append("Missing 'intent' field")
-        elif example['intent'] not in self.valid_intents:
+        elif self.valid_intents and example['intent'] not in self.valid_intents:
+            # Only validate if we have a valid intents list loaded
             errors.append(f"Invalid intent: {example['intent']}")
         
         # Check text quality
@@ -81,7 +132,8 @@ class DataValidator:
             for entity in example['entities']:
                 if 'entity' not in entity:
                     errors.append("Entity missing 'entity' type")
-                elif entity['entity'] not in self.valid_entities:
+                elif self.valid_entities and entity['entity'] not in self.valid_entities:
+                    # Only validate if we have a valid entities list loaded
                     errors.append(f"Invalid entity type: {entity['entity']}")
                 
                 # Check if entity value is present (can be None for context-filled entities)
