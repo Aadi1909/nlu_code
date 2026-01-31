@@ -14,16 +14,21 @@ def main():
     print("🚀 Starting Improved Intent Classifier Training")
     print("=" * 70)
     
-    # Check if balanced dataset exists
+    # Check if augmented v2 dataset exists, fallback to balanced
     from pathlib import Path
+    augmented_v2_path = Path("../data/processed/train_augmented_v2.json")
     balanced_path = Path("../data/processed/train_balanced.json")
     
-    if not balanced_path.exists():
-        print("❌ Balanced dataset not found!")
-        print("   Run: python quick_fix_data.py first")
+    if augmented_v2_path.exists():
+        train_data_path = augmented_v2_path
+        print(f"✅ Using diverse augmented dataset: {train_data_path}")
+    elif balanced_path.exists():
+        train_data_path = balanced_path
+        print(f"✅ Using balanced dataset: {train_data_path}")
+    else:
+        print("❌ No augmented dataset found!")
+        print("   Run: python generate_diverse_data.py first")
         return
-    
-    print(f"✅ Using balanced dataset: {balanced_path}")
     
     # Initialize trainer with improved hyperparameters
     trainer = IntentClassifierTrainer(
@@ -57,8 +62,8 @@ def main():
     def load_balanced_datasets():
         from datasets import load_dataset
         
-        # Load balanced training data
-        train_dataset = load_dataset('json', data_files=str(balanced_path), split='train')
+        # Load augmented/balanced training data
+        train_dataset = load_dataset('json', data_files=str(train_data_path), split='train')
         
         # Use regular val and test
         val_dataset = load_dataset('json', data_files=str(Path("../data/processed/val_augmented.json")), split='train')
