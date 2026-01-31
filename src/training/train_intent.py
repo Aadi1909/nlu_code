@@ -189,8 +189,9 @@ class IntentClassifierTrainer:
         pred_labels = np.argmax(predictions.predictions, axis=1)
         true_labels = predictions.label_ids
         
-        # Confusion matrix
-        cm = confusion_matrix(true_labels, pred_labels)
+        # Confusion matrix (ensure all labels included, even if absent in eval)
+        label_list = list(range(len(self.intent_to_id)))
+        cm = confusion_matrix(true_labels, pred_labels, labels=label_list)
         
         # Plot confusion matrix
         plt.figure(figsize=(12, 10))
@@ -211,9 +212,12 @@ class IntentClassifierTrainer:
         plt.savefig(f'{self.output_dir}/confusion_matrix.png')
         print(f"\n📊 Confusion matrix saved to {self.output_dir}/confusion_matrix.png")
         
-        # Per-class metrics
+        # Per-class metrics (pad with missing labels so indexing aligns with id_to_intent)
         precision, recall, f1, support = precision_recall_fscore_support(
-            true_labels, pred_labels, zero_division=0
+            true_labels,
+            pred_labels,
+            labels=label_list,
+            zero_division=0
         )
         
         print("\n=== Per-Intent Metrics ===")
