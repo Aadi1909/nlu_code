@@ -42,6 +42,33 @@ nlu_env/
 models/intent_classifier/checkpoint-*
 models/entity_extractor/checkpoint-*
 
+# Large model files (*.safetensors, *.bin are usually >100MB)
+models/**/model.safetensors
+models/**/pytorch_model.bin
+models/**/model-*.safetensors
+models/**/model.onnx
+models/**/tf_model.h5
+
+# Tokenizer files (can be large)
+models/**/tokenizer.json
+models/**/vocab.txt
+models/**/sentencepiece.bpe.model
+
+# Training artifacts
+models/**/training_args.bin
+models/**/trainer_state.json
+models/**/optimizer.pt
+models/**/scheduler.pt
+models/**/rng_state.pth
+
+# Keep only small config files (commit these)
+!models/**/config.json
+!models/**/tokenizer_config.json
+!models/**/special_tokens_map.json
+!models/**/label_mapping.json
+!models/**/entity_mapping.json
+!models/**/classification_report.json
+
 # Cache
 .cache/
 *.cache

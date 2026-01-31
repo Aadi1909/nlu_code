@@ -175,38 +175,25 @@ class IntentClassifierTrainer:
         # 4. Data collator
         data_collator = DataCollatorWithPadding(tokenizer=self.tokenizer)
         
-        # 5. Training arguments
-        # training_args = TrainingArguments(
-        #     output_dir=self.model_config.output_dir,
-        #     num_train_epochs=self.training_config.num_epochs,
-        #     per_device_train_batch_size=self.training_config.batch_size,
-        #     per_device_eval_batch_size=self.training_config.batch_size * 2,
-        #     learning_rate=self.training_config.learning_rate,
-        #     weight_decay=self.training_config.weight_decay,
-        #     warmup_ratio=self.training_config.warmup_ratio,
-        #     evaluation_strategy="steps",
-        #     eval_steps=self.training_config.eval_steps,
-        #     save_strategy="steps",
-        #     save_steps=self.training_config.save_steps,
-        #     logging_steps=self.training_config.logging_steps,
-        #     load_best_model_at_end=True,
-        #     metric_for_best_model="f1",
-        #     greater_is_better=True,
-        #     save_total_limit=3,
-        #     fp16=self.training_config.fp16 and torch.cuda.is_available(),
-        #     report_to="none",  # Disable wandb/tensorboard for now
-        #     dataloader_num_workers=2,
-        # )
+        # 5. Determine output directory (use NVMe on SageMaker if available)
+        if os.path.exists("/mnt/sagemaker-nvme"):
+            output_dir = "/mnt/sagemaker-nvme/intent_models"
+            os.makedirs(output_dir, exist_ok=True)
+            logger.info(f"Using NVMe disk for checkpoints and model save: {output_dir}")
+        else:
+            output_dir = self.model_config.output_dir
+            logger.info(f"Using default output directory: {output_dir}")
         
+        # 6. Training arguments
         training_args = TrainingArguments(
-            output_dir=self.model_config.output_dir,
+            output_dir=output_dir,
             num_train_epochs=self.training_config.num_epochs,
             per_device_train_batch_size=self.training_config.batch_size,
             per_device_eval_batch_size=self.training_config.batch_size * 2,
             learning_rate=self.training_config.learning_rate,
             weight_decay=self.training_config.weight_decay,
             warmup_ratio=self.training_config.warmup_ratio,
-            eval_strategy="steps",
+            eval_strategy="steps",  # Changed from evaluation_strategy in transformers 4.30+
             eval_steps=self.training_config.eval_steps,
             save_strategy="steps",
             save_steps=self.training_config.save_steps,
@@ -215,14 +202,15 @@ class IntentClassifierTrainer:
             metric_for_best_model="f1",
             greater_is_better=True,
             save_total_limit=3,
-            fp16=False,  # Disabled for CPU training
+            fp16=self.training_config.fp16 and torch.cuda.is_available(),  # Enable FP16 if GPU available
             report_to="none",
-            dataloader_num_workers=0,
+            dataloader_num_workers=2 if torch.cuda.is_available() else 0,  # Use workers on GPU
         )
+        
+        # Update model config to use the same output directory
+        self.model_config.output_dir = output_dir
 
-
-
-        # 6. Initialize trainer
+        # 7. Initialize trainer
         trainer = Trainer(
             model=model,
             args=training_args,
@@ -238,11 +226,11 @@ class IntentClassifierTrainer:
             ]
         )
         
-        # 7. Train
+        # 8. Train
         logger.info("Starting training...")
         train_result = trainer.train()
         
-        # 8. Save final model
+        # 9. Save final model
         logger.info("Saving model...")
         trainer.save_model(self.model_config.output_dir)
         self.tokenizer.save_pretrained(self.model_config.output_dir)
@@ -251,12 +239,12 @@ class IntentClassifierTrainer:
         with open(Path(self.model_config.output_dir) / "label_mapping.json", 'w') as f:
             json.dump(self.label_mapping, f, indent=2)
         
-        # 9. Evaluate on test set
+        # 10. Evaluate on test set
         logger.info("Evaluating on test set...")
         test_results = trainer.evaluate(test_tokenized)
         logger.info(f"Test Results: {test_results}")
         
-        # 10. Generate detailed classification report
+        # 11. Generate detailed classification report
         predictions = trainer.predict(test_tokenized)
         pred_labels = np.argmax(predictions.predictions, axis=1)
         true_labels = test_tokenized["label"]

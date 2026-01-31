@@ -1,0 +1,74 @@
+{"text":"बैटरी है स्टेशन","intent":"check_station_availability","language":"hindi","label":5}
+{"text":"show payment history","intent":"payment_history","language":"english","label":12}
+{"text":"कितने किए","intent":"swap_history","language":"hindi","label":18}
+{"text":"आज कितने स्वैप किए","intent":"swap_count","language":"hindi","label":17}
+{"text":"insaan se baat karni hai","intent":"talk_to_agent","language":"hinglish","label":19}
+{"text":"zara paise dene hain","intent":"make_payment","language":"hinglish","label":11}
+{"text":"not that","intent":"deny","language":"english","label":7}
+{"text":"hi","intent":"greet","language":"hinglish","label":9}
+{"text":"प्लान बदलना है","intent":"upgrade_subscription","language":"hindi","label":22}
+{"text":"pending payment amount","intent":"payment_inquiry","language":"english","label":13}
+{"text":"kya kar sakte ho bhai","intent":"help_general","language":"hinglish","label":10}
+{"text":"subscription status","intent":"check_subscription","language":"english","label":6}
+{"text":"kuch gadbad hai","intent":"report_issue","language":"hinglish","label":14}
+{"text":"मेरा बिल कितना है","intent":"payment_inquiry","language":"hindi","label":13}
+{"text":"upgrade my plan","intent":"upgrade_subscription","language":"english","label":22}
+{"text":"how much I today","intent":"check_ride_stats","language":"english","label":4}
+{"text":"बैटरी है स्टेशन पर","intent":"check_station_availability","language":"hindi","label":5}
+{"text":"human se baat karao","intent":"talk_to_agent","language":"hinglish","label":19}
+{"text":"aur kitna chal payegi","intent":"check_battery_range","language":"hinglish","label":2}
+{"text":"total kitne swap kiye","intent":"swap_count","language":"hinglish","label":17}
+{"text":"meri battery kitni charge hai","intent":"check_battery_status","language":"hinglish","label":3}
+{"text":"exactly","intent":"affirm","language":"english","label":0}
+{"text":"स्टेशन तक कैसे जाना है","intent":"station_directions","language":"hindi","label":15}
+{"text":"extend my plan","intent":"subscription_renewal","language":"english","label":16}
+{"text":"battery exchange station nearby","intent":"find_swap_station","language":"english","label":8}
+{"text":"yaar payment history dikhao","intent":"payment_history","language":"hinglish","label":12}
+{"text":"हेल्पलाइन पर लगाओ","intent":"talk_to_agent","language":"hindi","label":19}
+{"text":"चार्ज कितना है बैटरी में","intent":"check_battery_status","language":"hindi","label":3}
+{"text":"is battery status","intent":"check_battery_status","language":"english","label":3}
+{"text":"plan extend karna hai","intent":"subscription_renewal","language":"hinglish","label":16}
+{"text":"which plan I on","intent":"check_subscription","language":"english","label":6}
+{"text":"मेरा सब्सक्रिप्शन कब खत्म होगा","intent":"check_subscription","language":"hindi","label":6}
+{"text":"bill bharna hai","intent":"make_payment","language":"hinglish","label":11}
+{"text":"swap station dhundho","intent":"find_swap_station","language":"hinglish","label":8}
+{"text":"real person se connect karo thoda","intent":"talk_to_agent","language":"hinglish","label":19}
+{"text":"paise hain","intent":"payment_inquiry","language":"hinglish","label":13}
+{"text":"kitni charge","intent":"check_battery_status","language":"hinglish","label":3}
+{"text":"transfer to agent","intent":"talk_to_agent","language":"english","label":19}
+{"text":"I have a problem","intent":"report_issue","language":"english","label":14}
+{"text":"mera subscription kab expire hoga","intent":"check_subscription","language":"hinglish","label":6}
+{"text":"kya kar sakte ho","intent":"help_general","language":"hinglish","label":10}
+{"text":"estimated range","intent":"check_battery_range","language":"english","label":2}
+{"text":"yaar station kitni door hai","intent":"find_swap_station","language":"hinglish","label":8}
+{"text":"ना","intent":"deny","language":"hindi","label":7}
+{"text":"swap station kahan","intent":"find_swap_station","language":"hinglish","label":8}
+{"text":"पास में स्वैप स्टेशन कहाँ है","intent":"find_swap_station","language":"hindi","label":8}
+{"text":"help me","intent":"help_general","language":"english","label":10}
+{"text":"swap records","intent":"swap_history","language":"english","label":18}
+{"text":"see you","intent":"bye","language":"english","label":1}
+{"text":"बैटरी कितने प्रतिशत है","intent":"check_battery_status","language":"hindi","label":3}
+{"text":"zara maine kitna payment kiya","intent":"payment_history","language":"hinglish","label":12}
+{"text":"dues kitne hain","intent":"payment_inquiry","language":"hinglish","label":13}
+{"text":"thank you so much","intent":"thank","language":"english","label":20}
+{"text":"मेरा बिल कितना है","intent":"payment_inquiry","language":"hindi","label":13}
+{"text":"बैटरी हेल्थ कैसी है","intent":"check_battery_status","language":"hindi","label":3}
+{"text":"battery health kaisi hai","intent":"check_battery_status","language":"hinglish","label":3}
+{"text":"धन्यवाद","intent":"thank","language":"hindi","label":20}
+{"text":"ride stats dikhao","intent":"check_ride_stats","language":"hinglish","label":4}
+{"text":"does station have battery","intent":"check_station_availability","language":"english","label":5}
+{"text":"swap record batao","intent":"swap_history","language":"hinglish","label":18}
+{"text":"बैटरी की स्थिति बताओ","intent":"check_battery_status","language":"hindi","label":3}
+{"text":"kitni baar battery badli","intent":"swap_history","language":"hinglish","label":18}
+{"text":"agent se baat karao","intent":"talk_to_agent","language":"hinglish","label":19}
+{"text":"हैलो","intent":"greet","language":"hindi","label":9}
+{"text":"subscription ki details batao please","intent":"check_subscription","language":"hinglish","label":6}
+{"text":"dikkat hai","intent":"report_issue","language":"hinglish","label":14}
+{"text":"bhai ha","intent":"affirm","language":"hinglish","label":0}
+{"text":"theek hai bye","intent":"bye","language":"hinglish","label":1}
+{"text":"kitni door ja sakta hun","intent":"check_battery_range","language":"hinglish","label":2}
+{"text":"station tak kaise jana","intent":"station_directions","language":"hinglish","label":15}
+{"text":"station par available hai","intent":"check_station_availability","language":"hinglish","label":5}
+{"text":"हां","intent":"affirm","language":"hindi","label":0}
+{"text":"paas mein swap station batao","intent":"find_swap_station","language":"hinglish","label":8}
+{"text":"what is my bill","intent":"payment_inquiry","language":"english","label":13}

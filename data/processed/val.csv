@@ -1,0 +1,75 @@
+text,intent,language,label
+बैटरी है स्टेशन,check_station_availability,hindi,5
+show payment history,payment_history,english,12
+कितने किए,swap_history,hindi,18
+आज कितने स्वैप किए,swap_count,hindi,17
+insaan se baat karni hai,talk_to_agent,hinglish,19
+zara paise dene hain,make_payment,hinglish,11
+not that,deny,english,7
+hi,greet,hinglish,9
+प्लान बदलना है,upgrade_subscription,hindi,22
+pending payment amount,payment_inquiry,english,13
+kya kar sakte ho bhai,help_general,hinglish,10
+subscription status,check_subscription,english,6
+kuch gadbad hai,report_issue,hinglish,14
+मेरा बिल कितना है,payment_inquiry,hindi,13
+upgrade my plan,upgrade_subscription,english,22
+how much I today,check_ride_stats,english,4
+बैटरी है स्टेशन पर,check_station_availability,hindi,5
+human se baat karao,talk_to_agent,hinglish,19
+aur kitna chal payegi,check_battery_range,hinglish,2
+total kitne swap kiye,swap_count,hinglish,17
+meri battery kitni charge hai,check_battery_status,hinglish,3
+exactly,affirm,english,0
+स्टेशन तक कैसे जाना है,station_directions,hindi,15
+extend my plan,subscription_renewal,english,16
+battery exchange station nearby,find_swap_station,english,8
+yaar payment history dikhao,payment_history,hinglish,12
+हेल्पलाइन पर लगाओ,talk_to_agent,hindi,19
+चार्ज कितना है बैटरी में,check_battery_status,hindi,3
+is battery status,check_battery_status,english,3
+plan extend karna hai,subscription_renewal,hinglish,16
+which plan I on,check_subscription,english,6
+मेरा सब्सक्रिप्शन कब खत्म होगा,check_subscription,hindi,6
+bill bharna hai,make_payment,hinglish,11
+swap station dhundho,find_swap_station,hinglish,8
+real person se connect karo thoda,talk_to_agent,hinglish,19
+paise hain,payment_inquiry,hinglish,13
+kitni charge,check_battery_status,hinglish,3
+transfer to agent,talk_to_agent,english,19
+I have a problem,report_issue,english,14
+mera subscription kab expire hoga,check_subscription,hinglish,6
+kya kar sakte ho,help_general,hinglish,10
+estimated range,check_battery_range,english,2
+yaar station kitni door hai,find_swap_station,hinglish,8
+ना,deny,hindi,7
+swap station kahan,find_swap_station,hinglish,8
+पास में स्वैप स्टेशन कहाँ है,find_swap_station,hindi,8
+help me,help_general,english,10
+swap records,swap_history,english,18
+see you,bye,english,1
+बैटरी कितने प्रतिशत है,check_battery_status,hindi,3
+zara maine kitna payment kiya,payment_history,hinglish,12
+dues kitne hain,payment_inquiry,hinglish,13
+thank you so much,thank,english,20
+मेरा बिल कितना है,payment_inquiry,hindi,13
+बैटरी हेल्थ कैसी है,check_battery_status,hindi,3
+battery health kaisi hai,check_battery_status,hinglish,3
+धन्यवाद,thank,hindi,20
+ride stats dikhao,check_ride_stats,hinglish,4
+does station have battery,check_station_availability,english,5
+swap record batao,swap_history,hinglish,18
+बैटरी की स्थिति बताओ,check_battery_status,hindi,3
+kitni baar battery badli,swap_history,hinglish,18
+agent se baat karao,talk_to_agent,hinglish,19
+हैलो,greet,hindi,9
+subscription ki details batao please,check_subscription,hinglish,6
+dikkat hai,report_issue,hinglish,14
+bhai ha,affirm,hinglish,0
+theek hai bye,bye,hinglish,1
+kitni door ja sakta hun,check_battery_range,hinglish,2
+station tak kaise jana,station_directions,hinglish,15
+station par available hai,check_station_availability,hinglish,5
+हां,affirm,hindi,0
+paas mein swap station batao,find_swap_station,hinglish,8
+what is my bill,payment_inquiry,english,13
