@@ -297,13 +297,26 @@ class DataSplitter:
         # Second split: val + test
         temp_intents = [item['intent'] for item in temp_data]
         val_ratio = val_size / (val_size + test_size)
+
+        # If any class in temp_data has <2 samples, avoid stratification to prevent ValueError
+        temp_counts = Counter(temp_intents)
+        can_stratify_temp = all(c >= 2 for c in temp_counts.values()) and len(set(temp_intents)) > 1
         
-        val_data, test_data = train_test_split(
-            temp_data,
-            train_size=val_ratio,
-            stratify=temp_intents,
-            random_state=random_state
-        )
+        if can_stratify_temp:
+            val_data, test_data = train_test_split(
+                temp_data,
+                train_size=val_ratio,
+                stratify=temp_intents,
+                random_state=random_state
+            )
+        else:
+            logger.warning("⚠️  Not stratifying val/test split because some classes have <2 samples in temp set")
+            val_data, test_data = train_test_split(
+                temp_data,
+                train_size=val_ratio,
+                stratify=None,
+                random_state=random_state
+            )
         
         logger.info(f"Split: Train={len(train_data)}, Val={len(val_data)}, Test={len(test_data)}")
         
